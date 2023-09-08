@@ -1,4 +1,4 @@
-import { useWeatherData } from '../api/FetchWeatherData';
+import { useWeatherData } from "../api/FetchWeatherData";
 
 function WeatherComponent() {
   const { data, isLoading, isError } = useWeatherData();

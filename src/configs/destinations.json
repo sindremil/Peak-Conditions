@@ -1,0 +1,53 @@
+{
+  "destinations": [
+    {
+      "name": "Åre",
+      "country": "se",
+      "points": [
+        {
+          "name": "Åreskutan",
+          "lat": 63.4327,
+          "lon": 13.0923,
+          "alt": 1420
+        },
+        {
+          "name": "Mörvikshummeln",
+          "lat": 63.1234,
+          "lon": 13.5678,
+          "alt": 1200
+        },
+        {
+          "name": "Åre by",
+          "lat": 63.7890,
+          "lon": 13.9876,
+          "alt": 1500
+        }
+      ]
+    },
+    {
+      "name": "Hemsedal",
+      "country": "no",
+      "points": [
+        {
+          "name": "Totten",
+          "lat": 60.8388,
+          "lon": 8.5351,
+          "alt": 1497
+        },
+        {
+          "name": "Roni",
+          "lat": 60.8588,
+          "lon": 8.4695,
+          "alt": 1245
+        },
+        {
+          "name": "Bunnstasjonen",
+          "lat": 60.8600,
+          "lon": 8.5134,
+          "alt": 620
+        }
+
+      ]
+    }
+  ]
+}
