@@ -1,6 +1,6 @@
-import { useWeatherData } from "../api/FetchWeatherData";
+//import { useWeatherData } from "../api/FetchWeatherData";
 
-function WeatherComponent() {
+/* function WeatherComponent() {
   const { data, isLoading, isError } = useWeatherData();
 
   if (isLoading) {
@@ -13,10 +13,9 @@ function WeatherComponent() {
 
   return (
     <div>
-      {/* Render the weather data here */}
       <pre>{JSON.stringify(data, null, 2)}</pre>
     </div>
   );
 }
 
-export default WeatherComponent;
+export default WeatherComponent; */

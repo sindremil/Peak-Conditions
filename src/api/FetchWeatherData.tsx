@@ -1,24 +1,42 @@
 // api.js (You can name it as per your preference)
-import { useQuery } from '@tanstack/react-query';
+import { useQuery } from "@tanstack/react-query";
+import PointParser from "../utils/PointParser";
+import DestinationPoint from "../schemas/DestinationPoint";
+import Point from "../schemas/Point";
+import destinationsJson from "../configs/destinations.json";
 
-const fetchWeatherData = async () => {
-  const response = await fetch(
-    'https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=63.4327&lon=13.0923&altitude=1420',
-    {
-      headers: {
-        'User-Agent': 'PeakConditions (Studentprosjekt ved NTNU i emne IT2810) jesperrg@stud.ntnu.no',
-        // Add any other headers if required
-      },
-    }
-  );
+const fetchWeatherData = async (DestinationPoint: DestinationPoint) => {
+  const point: Point = PointFinder(DestinationPoint);
+  const query: string = PointParser(point);
+  const response = await fetch(query, {
+    headers: {
+      "User-Agent":
+        "PeakConditions (Studentprosjekt ved NTNU i emne IT2810) jesperrg@stud.ntnu.no",
+      // Add any other headers if required
+    },
+  });
 
   if (!response.ok) {
-    throw new Error('Network response was not ok');
+    throw new Error("Network response was not ok");
   }
 
   return response.json();
 };
 
-export const useWeatherData = () => {
-  return useQuery(['weatherData'], fetchWeatherData);
+export const useWeatherData = async (destinationPoint: DestinationPoint) => {
+  return useQuery(["weatherData"], await fetchWeatherData(destinationPoint));
 };
+
+function PointFinder(destinationPoint: DestinationPoint) {
+  const { destination, pointIndex } = destinationPoint;
+
+  const queryResult = destinationsJson.destinations.find(
+    (dest) => dest.name.toLowerCase() === destination.toLowerCase(),
+  );
+
+  if (queryResult === undefined) {
+    throw new Error("Destination does not found");
+  }
+
+  return queryResult.points[pointIndex];
+}
