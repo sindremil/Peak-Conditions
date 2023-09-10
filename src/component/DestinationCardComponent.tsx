@@ -10,6 +10,10 @@ export default function DestinationCard() {
         <div>0°  3m/s</div>
       </div>
       <img className="weatherIcon" src={cloudy}/>
+      <div className="details">
+        <hr className="destinationCardDivider"/>
+        Detaljer
+      </div>
     </div>
   )
 }

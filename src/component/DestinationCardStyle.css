@@ -26,6 +26,19 @@
   margin-right: 1.5vw;
 }
 
+.details {
+  border-radius: 10%;
+  flex-basis: 100%;
+  font-size: 1vw;
+}
+
+.destinationCardDivider {
+  margin-top: 0;
+}
+
+
+/* Change sizes when using mobile, so that cards appear one after one */
+
 @media (orientation: portrait) {
   .destinationCard {
     width: 90vw;
@@ -39,5 +52,9 @@
 
   .weatherIcon {
     margin-right: 9vw;
+  }
+
+  .details {
+    font-size: 6vw;
   }
 }
