@@ -1,5 +1,6 @@
 import zermatt from "./../assets/zermatt.jpg"
-import cloudy from "./../assets/cloudy.svg"
+import partlycloudy from "./../assets/partlycloudy.png"
+import partlycloudyalt from "./../assets/partlycloudyalt.png"
 
 export default function DestinationCard() {
   return (
@@ -9,7 +10,7 @@ export default function DestinationCard() {
         <div>Zermatt</div>
         <div>0°  3m/s</div>
       </div>
-      <img className="weatherIcon" src={cloudy}/>
+      <img className="weatherIcon" src={partlycloudy}/>
       <div className="details">
         <hr className="destinationCardDivider"/>
         Detaljer
