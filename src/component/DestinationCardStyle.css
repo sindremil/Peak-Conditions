@@ -27,7 +27,7 @@
 
 .destinationCardImg {
   width: 100%;
-  height: 50%
+  height: 50%;
 }
 
 .destinationCardInfo {
@@ -37,7 +37,7 @@
 .weatherIcon {
   width: 30%;
   margin-left: auto;
-  margin-right: 1.5vw;
+  margin-right: auto;
 }
 
 .details {
@@ -53,6 +53,13 @@
 
 .destinationCardDivider {
   margin-top: 0;
+  color: white;
+}
+
+.favorite {
+  width: 2vw;
+  height: 2vw;
+  cursor: pointer;
 }
 
 
@@ -76,5 +83,10 @@
 
   .details {
     font-size: 6vw;
+  }
+
+  .favorite {
+    width: 12vw;
+    height: 12vw;
   }
 }
