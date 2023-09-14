@@ -1,0 +1,92 @@
+/* Import external fonts */
+
+@font-face {
+  font-family: roboto-bold;
+  src: url(./../assets/Roboto-Bold.ttf)
+}
+
+@font-face {
+  font-family: roboto-regular;
+  src: url(./../assets/Roboto-Regular.ttf);
+}
+
+/* General styling */
+
+.destinationCard {
+  width: 15vw;
+  height: 15vw;
+  background-color: #406882;
+  border-radius: 10%;
+  font-size: 1.5vw;
+  font-family: roboto-regular;
+  overflow: hidden;
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+
+.destinationCardImg {
+  width: 100%;
+  height: 50%;
+}
+
+.destinationCardInfo {
+  margin-left: 0.5vw;
+}
+
+.weatherIcon {
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.details {
+  border-radius: 10%;
+  flex-basis: 100%;
+  font-size: 1vw;
+}
+
+.details:hover {
+  background-color: #2e485c;
+  cursor: pointer;
+}
+
+.destinationCardDivider {
+  margin-top: 0;
+  color: white;
+}
+
+.favorite {
+  width: 2vw;
+  height: 2vw;
+  cursor: pointer;
+}
+
+
+/* Change sizes when using mobile, so that cards appear one after one */
+
+@media (max-aspect-ratio: 3/4) {
+
+  .destinationCard {
+    width: 90vw;
+    height: 90vw;
+    font-size: 9vw;
+  }
+
+  .destinationCardInfo {
+    margin-left: 3vw;
+  }
+
+  .weatherIcon {
+    margin-right: 9vw;
+  }
+
+  .details {
+    font-size: 6vw;
+  }
+
+  .favorite {
+    width: 12vw;
+    height: 12vw;
+  }
+}
