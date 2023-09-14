@@ -1,35 +1,33 @@
+import notFavorite from "./../assets/star1.png";
+import favorite from "./../assets/star2.png";
+import { useState } from "react";
 import zermatt from "./../assets/zermatt.jpg";
 import partlycloudy from "./../assets/partlycloudy.png";
-import partlycloudyalt from "./../assets/partlycloudyalt.png";
-import star1 from "./../assets/star1.png";
-import star2 from "./../assets/star2.png";
-import { useState } from "react";
 
 export default function DestinationCard() {
 
-  const [isFavorite, setIsFavorite] = useState(star1);
+  const [isFavorite, setIsFavorite] = useState(false);
 
   function handleFavorite() {
-    if (isFavorite === star1) {
-      setIsFavorite(star2);
-    }
-    else {
-      setIsFavorite(star1);
+    if (isFavorite) {
+      setIsFavorite(false);
+    } else {
+      setIsFavorite(true);
     }
   }
 
   return (
     <div className="destinationCard">
-      <img className="destinationCardImg" src={zermatt}/>
+      <img className="destinationCardImg" src={zermatt} alt="Picture of location"/>
       <div className="destinationCardInfo">
-        <div>Zermatt</div>
-        <div>0°  3m/s</div>
+        <p>Zermatt</p>
+        <p>0°  13m/s</p>
       </div>
       <img className="weatherIcon" src={partlycloudy}/>
-      <img className="favorite" onClick={handleFavorite} src={isFavorite}/>
+      <img className="favorite" onClick={handleFavorite} src={isFavorite ? favorite : notFavorite}/>
       <div className="details">
         <hr className="destinationCardDivider"/>
-        Detaljer
+        <p>Detaljer</p>
       </div>
     </div>
   )
