@@ -1,4 +1,3 @@
-import zermatt from "./../assets/zermatt.jpg";
 import star1 from "./../assets/star1.png";
 import star2 from "./../assets/star2.png";
 import { useState } from "react";
@@ -8,8 +7,8 @@ import DestinationCardWeather from "../schemas/DestinationCardWeather";
 export default function DestinationCard({destination, temperature, windSpeed, symbolCode} : DestinationCardWeather) {
 
   
-  const destinationImgPath: string = "src/assets/" + destination + ".png"
-  const symbolImgPath: string = "src/assets/" + symbolCode + ".png"
+  const destinationImgPath: string = "src/assets/destinationimages/" + destination + ".jpg"
+  const symbolImgPath: string = "src/assets/weathericons/svg/" + symbolCode + ".svg"
 
   const [isFavorite, setIsFavorite] = useState(star1);
 
@@ -24,10 +23,10 @@ export default function DestinationCard({destination, temperature, windSpeed, sy
 
   return (
     <div className="destinationCard">
-      <img className="destinationCardImg" src={zermatt}/>
+      <img className="destinationCardImg" src={destinationImgPath}/>
       <div className="destinationCardInfo">
-        <div>{destination}</div>
-        <div>{temperature}°  {windSpeed}m/s</div>
+        <div className="destinationName">{destination}</div>
+        <div className="destinationInfo">{temperature}°  {windSpeed}m/s</div>
       </div>
       <img className="weatherIcon" src={symbolImgPath}/>
       <img className="favorite" onClick={handleFavorite} src={isFavorite}/>

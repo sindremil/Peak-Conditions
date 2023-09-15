@@ -7,7 +7,7 @@ import { useWeatherData } from './api/FetchWeatherData'
 
 function App() {
 
-  const destinationList = ["Åre", "Hemsedal"]
+  const destinationList = ["Aare", "Hemsedal"]
 
   function getDestinationWeatherData(destinationName: string) {
     const destinationPoint: DestinationPoint = {destination: destinationName, pointIndex: 0}

@@ -5,7 +5,7 @@ import DestinationPoint from "../schemas/DestinationPoint";
 
 function DebugComponent() {
 
-  const destinationPoint: DestinationPoint = {destination: "Åre", pointIndex: 0}
+  const destinationPoint: DestinationPoint = {destination: "Aare", pointIndex: 0}
   const { data, isLoading, isError } = useWeatherData(destinationPoint);
 
   if (isLoading) {
