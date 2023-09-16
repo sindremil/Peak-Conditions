@@ -2,6 +2,7 @@ import star1 from "./../assets/star1.png";
 import star2 from "./../assets/star2.png";
 import { useState } from "react";
 import DestinationCardWeather from "../schemas/SelectedWeatherData";
+import { Link } from "react-router-dom";
 
 
 export default function DestinationCard({destination, temperature, windSpeed, symbolCode} : DestinationCardWeather) {
@@ -30,10 +31,10 @@ export default function DestinationCard({destination, temperature, windSpeed, sy
       </div>
       <img className="weatherIcon" src={symbolImgPath}/>
       <img className="favorite" onClick={handleFavorite} src={isFavorite}/>
-      <div className="details">
+      <Link to={destination.toLowerCase()} className="details">
         <hr className="destinationCardDivider"/>
         Detaljer
-      </div>
+      </Link>
     </div>
   )
 }
