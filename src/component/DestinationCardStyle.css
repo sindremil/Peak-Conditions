@@ -30,7 +30,8 @@ p {
 
 .destinationCardImg {
   width: 100%;
-  height: 50%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .destinationCardInfo {
@@ -47,7 +48,7 @@ p {
 }
 
 .weatherIcon {
-  width: 27%;
+  width: 30%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -70,10 +71,19 @@ p {
   color: white;
 }
 
+.imgContainer {
+  position: relative;
+  width: 100%;
+  height: 50%;
+}
+
 .favorite {
   width: 3.33vw;
   height: 3.33vw;
   cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 5px;
 }
 
 
