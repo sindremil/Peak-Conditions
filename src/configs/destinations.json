@@ -1,11 +1,11 @@
 {
   "destinations": [
     {
-      "name": "Åre",
+      "name": "Aare",
       "country": "se",
       "points": [
         {
-          "name": "Åre by",
+          "name": "Aare by",
           "lat": 63.4036,
           "lon": 13.0590,
           "alt": 389
@@ -17,10 +17,10 @@
           "alt": 827
         },
         {
-          "name": "Åreskutan",
-          "lat": 63.4276, 
-          "lon": 13.0788,
-          "alt": 1274
+          "name": "Aareskutan",
+          "lat": 63.4327,
+          "lon": 13.0923,
+          "alt": 1420
         }
       ]
     },
