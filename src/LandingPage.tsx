@@ -1,6 +1,7 @@
 import "./component/DestinationCardStyle.css"
 import DestinationCard from './component/DestinationCardComponent'
 import getDestinationWeatherData from "./utils/getDestinationWeatherData"
+import WeatherNowComponent from "./component/WeatherNowComponent"
 
 function renderCard(destinationName : string) {
 
@@ -29,8 +30,12 @@ export default function LandingPage() {
   const destinationList = ["Aare", "Hemsedal", "Hafjell"]
 
   return (
+    <>
     <div className="content">
       {destinationList.map((destination) => (renderCard(destination)))}
     </div>
+    <WeatherNowComponent/>
+    <WeatherNowComponent/>
+    </>
   )
 }
