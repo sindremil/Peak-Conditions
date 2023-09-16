@@ -1,5 +1,5 @@
-import star1 from "./../assets/star1.svg";
-import star2 from "./../assets/star2.svg";
+import notFavorite from "./../assets/star1.svg";
+import favorite from "./../assets/star2.svg";
 import { useState } from "react";
 import DestinationCardWeather from "../schemas/SelectedWeatherData";
 import { Link } from "react-router-dom";
@@ -11,31 +11,26 @@ export default function DestinationCard({destination, temperature, windSpeed, sy
   const destinationImgPath: string = "src/assets/destinationimages/" + destination + ".jpg"
   const symbolImgPath: string = "src/assets/weathericons/svg/" + symbolCode + ".svg"
 
-  const [isFavorite, setIsFavorite] = useState(star1);
+  const [isFavorite, setIsFavorite] = useState(false);
 
   function handleFavorite() {
-    if (isFavorite === star1) {
-      setIsFavorite(star2);
-    }
-    else {
-      setIsFavorite(star1);
-    }
+    setIsFavorite(!isFavorite);
   }
 
   return (
     <div className="destinationCard">
       <div className="imgContainer">
         <img className="destinationCardImg" src={destinationImgPath}/>
-        <img className="favorite" onClick={handleFavorite} src={isFavorite}/>
+        <img className="favorite" onClick={handleFavorite} src={isFavorite ? favorite : notFavorite}/>
       </div>
       <div className="destinationCardInfo">
-        <div className="destinationName">{destination}</div>
-        <div className="destinationInfo">{temperature}°  {windSpeed}m/s</div>
+        <p className="destinationName">{destination}</p>
+        <p className="destinationInfo">{temperature}°  {windSpeed}m/s</p>
       </div>
       <img className="weatherIcon" src={symbolImgPath}/>
       <Link to={destination.toLowerCase()} className="details">
         <hr className="destinationCardDivider"/>
-        Detaljer
+        <p>Detaljer</p>
       </Link>
     </div>
   )
