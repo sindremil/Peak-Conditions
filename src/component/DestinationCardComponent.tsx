@@ -10,14 +10,13 @@ export default function DestinationCard({destination, temperature, windSpeed, sy
   const destinationImgPath: string = "src/assets/destinationimages/" + destination + ".jpg"
   const symbolImgPath: string = "src/assets/weathericons/svg/" + symbolCode + ".svg"
 
-  const [isFavorite, setIsFavorite] = useState(star1);
+  const [isFavorite, setIsFavorite] = useState(false);
 
   function handleFavorite() {
-    if (isFavorite === star1) {
-      setIsFavorite(star2);
-    }
-    else {
-      setIsFavorite(star1);
+    if (isFavorite) {
+      setIsFavorite(false);
+    } else {
+      setIsFavorite(true);
     }
   }
 
@@ -32,7 +31,7 @@ export default function DestinationCard({destination, temperature, windSpeed, sy
       <img className="favorite" onClick={handleFavorite} src={isFavorite}/>
       <div className="details">
         <hr className="destinationCardDivider"/>
-        Detaljer
+        <p>Detaljer</p>
       </div>
     </div>
   )

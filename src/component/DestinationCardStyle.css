@@ -24,6 +24,10 @@
   flex-wrap: wrap;
 }
 
+p {
+  margin: 0;
+}
+
 .destinationCardImg {
   width: 100%;
   height: 50%;
