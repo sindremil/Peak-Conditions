@@ -26,7 +26,7 @@ function renderCard(destinationName : string) {
 
 export default function LandingPage() {
   
-  const destinationList = ["Aare", "Hemsedal"]
+  const destinationList = ["Aare", "Hemsedal", "Hafjell"]
 
   return (
     <div className="content">
