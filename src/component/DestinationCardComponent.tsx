@@ -1,4 +1,4 @@
-import zermatt from "./../assets/zermatt.jpg";
+import zermatt from "./../assets/destinationimages/zermatt.jpg";
 import star1 from "./../assets/star1.png";
 import star2 from "./../assets/star2.png";
 import { useState } from "react";
