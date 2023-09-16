@@ -1,4 +1,4 @@
-export default interface DestinationCardWeather {
+export default interface SelectedWeatherData {
     destination: string;
     temperature: number;
     windSpeed: number;
