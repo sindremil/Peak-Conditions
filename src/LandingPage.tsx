@@ -1,4 +1,5 @@
 import "./component/DestinationCardStyle.css"
+import "./LandingPage.css"
 import DestinationCard from './component/DestinationCardComponent'
 import getDestinationWeatherData from "./utils/getDestinationWeatherData"
 
@@ -13,7 +14,7 @@ function renderCard(destinationName : string) {
   const { destination, temperature, windSpeed, symbolCode } = weatherData;
 
   return (
-    <div key={destination}>
+    <div key={destination} className="destinationCardContainer">
       <DestinationCard
         destination={destination}
         temperature={temperature}
@@ -26,7 +27,7 @@ function renderCard(destinationName : string) {
 
 export default function LandingPage() {
   
-  const destinationList = ["Aare", "Hemsedal", "Hafjell", "Kvitfjell"]
+  const destinationList = ["Aare", "Hemsedal", "Hafjell", "Kvitfjell", "Kvitfjell", "Kvitfjell", "Kvitfjell", "Kvitfjell", "Kvitfjell", "Kvitfjell", "Kvitfjell", "Kvitfjell", "Kvitfjell", "Kvitfjell", "Kvitfjell"]
 
   return (
     <div className="content">
