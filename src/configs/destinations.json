@@ -1,23 +1,23 @@
 {
   "destinations": [
     {
-      "name": "Åre",
+      "name": "Aare",
       "country": "se",
       "points": [
         {
-          "name": "Åre by",
-          "lat": 63.789,
-          "lon": 13.9876,
-          "alt": 1500
+          "name": "Aare by",
+          "lat": 63.4036,
+          "lon": 13.0590,
+          "alt": 389
         },
         {
           "name": "Mörvikshummeln",
-          "lat": 63.1234,
-          "lon": 13.5678,
-          "alt": 1200
+          "lat": 63.4152,
+          "lon": 13.0630,
+          "alt": 827
         },
         {
-          "name": "Åreskutan",
+          "name": "Aareskutan",
           "lat": 63.4327,
           "lon": 13.0923,
           "alt": 1420
@@ -29,22 +29,70 @@
       "country": "no",
       "points": [
         {
-          "name": "Bunnstasjonen",
-          "lat": 60.86,
-          "lon": 8.5134,
+          "name": "Lodgen",
+          "lat": 60.8626, 
+          "lon": 8.5142,
           "alt": 620
-        },
-        {
-          "name": "Totten",
-          "lat": 60.8388,
-          "lon": 8.5351,
-          "alt": 1497
         },
         {
           "name": "Roni",
           "lat": 60.8588,
           "lon": 8.4695,
-          "alt": 1245
+          "alt": 1225
+        },
+        {
+          "name": "Totten",
+          "lat": 60.8388,
+          "lon": 8.5351,
+          "alt": 1450
+        }
+      ]
+    },
+    {
+      "name": "Hafjell",
+      "country": "no",
+      "points": [
+        {
+          "name": "Skitorget",
+          "lat": 60.86,
+          "lon": 8.5134,
+          "alt": 195
+        },
+        {
+          "name": "Mosetertoppen",
+          "lat": 61.2434,
+          "lon": 10.4914,
+          "alt": 780
+        },
+        {
+          "name": "Hafjelltoppen",
+          "lat": 60.8588,
+          "lon": 8.4695,
+          "alt": 1059
+        }
+      ]
+    },
+    {
+      "name": "Kvitfjell",
+      "country": "no",
+      "points": [
+        {
+          "name": "Målområdet",
+          "lat": 61.4722, 
+          "lon": 10.1670,
+          "alt": 185
+        },
+        {
+          "name": "Veslesetertoppen (Varden)",
+          "lat": 61.4346, 
+          "lon": 10.0927,
+          "alt": 948
+        },
+        {
+          "name": "Selgestadsæterkampen",
+          "lat": 61.4649, 
+          "lon": 10.1206,
+          "alt": 1032
         }
       ]
     }

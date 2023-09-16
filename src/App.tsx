@@ -1,13 +1,16 @@
 import './App.css'
 import "./component/DestinationCardStyle.css"
-import DestinationCard from './component/DestinationCardComponent'
+import LandingPage from './LandingPage'
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 
 function App() {
-
   return (
-    <div className="content">
-      <DestinationCard/>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LandingPage/>}></Route>
+      </Routes>
+    </Router>
   )
 }
 

@@ -1,4 +1,4 @@
-// api.js (You can name it as per your preference)
+
 import { useQuery } from "@tanstack/react-query";
 import PointParser from "../utils/PointParser";
 import DestinationPoint from "../schemas/DestinationPoint";
@@ -23,8 +23,14 @@ const fetchWeatherData = async (DestinationPoint: DestinationPoint) => {
   return response.json();
 };
 
-export const useWeatherData = async (destinationPoint: DestinationPoint) => {
-  return useQuery(["weatherData"], await fetchWeatherData(destinationPoint));
+export const useWeatherData = (destinationPoint: DestinationPoint) => {
+  return useQuery(
+    [destinationPoint], // Pass destinationPoint as part of the query key
+    () => fetchWeatherData(destinationPoint),
+    {
+      enabled: !!destinationPoint, // Enable the query when destinationPoint is truthy
+    }
+  );
 };
 
 function PointFinder(destinationPoint: DestinationPoint) {
