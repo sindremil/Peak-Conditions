@@ -1,5 +1,5 @@
-import star1 from "./../assets/star1.png";
-import star2 from "./../assets/star2.png";
+import star1 from "./../assets/star1.svg";
+import star2 from "./../assets/star2.svg";
 import { useState } from "react";
 import DestinationCardWeather from "../schemas/SelectedWeatherData";
 import { Link } from "react-router-dom";
