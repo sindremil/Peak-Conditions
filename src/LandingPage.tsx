@@ -13,7 +13,6 @@ function renderCard(destinationName : string) {
   }
 
   const { destination, temperature, windSpeed, symbolCode } = weatherData;
-  console.log("test " + isFavourite(destinationName));
 
   return (
     <div key={destination} className="destinationCardContainer">
