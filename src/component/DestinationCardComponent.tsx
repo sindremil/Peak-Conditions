@@ -3,6 +3,7 @@ import favorite from "./../assets/star2.svg";
 import { useState } from "react";
 import DestinationCardWeather from "../schemas/SelectedWeatherData";
 import { Link } from "react-router-dom";
+import { addFavourite, removeFavourite } from "../utils/favourite";
 
 
 export default function DestinationCard({destination, temperature, windSpeed, symbolCode} : DestinationCardWeather) {
@@ -15,6 +16,12 @@ export default function DestinationCard({destination, temperature, windSpeed, sy
 
   function handleFavorite() {
     setIsFavorite(!isFavorite);
+    if (!isFavorite) {
+      addFavourite(destination);
+    }
+    else {
+      removeFavourite(destination);
+    }
   }
 
   return (
