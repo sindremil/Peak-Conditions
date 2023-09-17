@@ -191,6 +191,30 @@
           "alt": 910
         }
       ]
+    },
+    {
+      "name": "Haukelifjell",
+      "country": "no",
+      "points": [
+        {
+          "name": "Tyrvelidhallen",
+          "lat": 59.7805, 
+          "lon": 7.3343,
+          "alt": 855
+        },
+        {
+          "name": "Grasdalen",
+          "lat": 59.7847, 
+          "lon": 7.3430,
+          "alt": 958
+        },
+        {
+          "name": "Tvitjønnuten",
+          "lat": 59.7791, 
+          "lon": 7.3615,
+          "alt": 1216
+        }
+      ]
     }
   ]
 }
