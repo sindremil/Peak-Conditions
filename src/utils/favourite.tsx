@@ -1,3 +1,12 @@
+function getFavouritesArray(): string[] {
+  const favoritesString: string | null = localStorage.getItem("favourites");
+  let favoritesArray: string[] = [];
+  if (favoritesString) {
+    favoritesArray = JSON.parse(favoritesString);
+  }
+  return favoritesArray;
+}
+
 export function addFavourite(destinationName: string) {
   const favoritesArray = getFavouritesArray();
   favoritesArray.push(destinationName);
@@ -15,11 +24,10 @@ export function removeFavourite(destinationName: string) {
   localStorage.setItem("favourites", JSON.stringify(favoritesArray));
 }
 
-function getFavouritesArray(): string[] {
-  const favoritesString: string | null = localStorage.getItem("favourites");
-  let favoritesArray: string[] = [];
-  if (favoritesString) {
-    favoritesArray = JSON.parse(favoritesString);
+export function isFavourite(destinationName: string): boolean {
+  const favouritesArray: string[] = getFavouritesArray();
+  if (favouritesArray.indexOf(destinationName) == -1) {
+    return false
   }
-  return favoritesArray;
+  return true;
 }
