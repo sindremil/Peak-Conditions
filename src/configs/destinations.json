@@ -167,6 +167,30 @@
           "alt": 1178
         }
       ]
+    },
+    {
+      "name": "Åre (Duved)",
+      "country": "se",
+      "points": [
+        {
+          "name": "Duved",
+          "lat": 63.3963, 
+          "lon": 12.9247,
+          "alt": 436
+        },
+        {
+          "name": "Krysset",
+          "lat": 63.4029,
+          "lon": 12.9415,
+          "alt": 576
+        },
+        {
+          "name": "Tegefjället",
+          "lat": 63.4120,
+          "lon": 12.9462,
+          "alt": 910
+        }
+      ]
     }
   ]
 }
