@@ -1,105 +1,91 @@
-import { getAllWeatherData, getSelectedWeatherData } from "../utils/getDestinationWeatherData";
-import SelectedWeatherData from "../schemas/SelectedWeatherData";
-import ForecastListEntry from "../schemas/ForecastListEntry";
+import ForecastListEntry from '../schemas/ForecastListEntry';
 
-export default function ForecastListEntry(destinationName: string, point: number, day: number) {
-    const hoursInDay = 24;
-    const hoursLeftInDayList = Array.from({length: hoursInDay}, (_, index) => index + (day * hoursInDay));
-    const sectionsInDay = 4;
-    const sectionsLeftInDayList = Array.from({length: sectionsInDay}, (_, index) => 48 + index + ((day - 2) * sectionsInDay));
-    const weatherDataList: SelectedWeatherData[] = [];
+export default function getForecastListEntry(day: string, data: any) {
+  const sixHourIntervals = ['00:00:00', '06:00:00', '12:00:00', '18:00:00'];
 
-    if (day == 0) {
-        const date = new Date();
-        const currentTimeISO = date.toISOString();
-        const currentTimeIndex = parseInt(currentTimeISO.slice(11, 13));
-        if (currentTimeIndex >= 0) {
-            // Remove all elements prior to and including currentTimeIndex
-            hoursLeftInDayList.splice(0, currentTimeIndex);
-        }
-    } else if (day == 2) {
-        const date = new Date();
-        const currentTimeISO = date.toISOString();
-        const currentTimeIndex = parseInt(currentTimeISO.slice(11, 13));
-        if (currentTimeIndex >= 0) {
-            // Remove all elements prior to and including currentTimeIndex
-            hoursLeftInDayList.splice(currentTimeIndex, hoursInDay);
-            const temp = Math.floor(hoursLeftInDayList.length / 6)
-            sectionsLeftInDayList.splice(0, temp - 1)
-        }
-    }
+  let minTemperature = Number.POSITIVE_INFINITY; // Initialize with a large positive value
+  let maxTemperature = Number.NEGATIVE_INFINITY; // Initialize with a large negative value
+  let avgWindSpeed = 0;
+  let symbolCodes = [];
+  let precipitationAmount = 0;
 
-    if (-1 < day && day < 2) {
-        hoursLeftInDayList.forEach((number) => { 
-            const data = getSelectedWeatherData(destinationName, point, number)
-            if (data != null) {
-                weatherDataList.push(data)
-            }
-        })
-    } else if (day == 2) {
-        hoursLeftInDayList.forEach((number) => { 
-            const data = getSelectedWeatherData(destinationName, point, number)
-            if (data != null) {
-                weatherDataList.push(data)
-            }
-        })
-        sectionsLeftInDayList.forEach((number) => { 
-            const data = getSelectedWeatherData(destinationName, point, number)
-            if (data != null) {
-                weatherDataList.push(data)
-            }
-        })
-    } else {
-        sectionsLeftInDayList.forEach((number) => { 
-            const data = getSelectedWeatherData(destinationName, point, number)
-            if (data != null) {
-                weatherDataList.push(data)
-            }
-        })
-    }
-
-    const { maxTemperature, minTemperature, totalWindSpeed } = weatherDataList.reduce(
-        (acc, data) => {
-            return {
-                maxTemperature: Math.max(acc.maxTemperature, data.temperature),
-                minTemperature: Math.min(acc.minTemperature, data.temperature),
-                totalWindSpeed: acc.totalWindSpeed + data.windSpeed,
-            };
-        },
-        { maxTemperature: -Infinity, minTemperature: Infinity, totalWindSpeed: 0 }
+  if (data != null) {
+    const timeseries = data.properties.timeseries;
+    const filteredTimes = timeseries.filter((item: { time: string }) =>
+      item.time.startsWith(day)
+    );
+    const temperatures = filteredTimes.map(
+      (element: {
+        data: { instant: { details: { air_temperature: number } } };
+      }) => {
+        return element.data.instant.details.air_temperature;
+      }
     );
 
-    // Calculate average windSpeed
-    const averageWindSpeed = Math.round((totalWindSpeed / weatherDataList.length) * 10) / 10;
+    // Calculate the minimum and maximum temperatures
+    if (temperatures.length > 0) {
+      minTemperature = Math.min(...temperatures);
+      maxTemperature = Math.max(...temperatures);
+    }
+    const windSpeeds = filteredTimes.map(
+      (element: { data: { instant: { details: { wind_speed: number } } } }) => {
+        return element.data.instant.details.wind_speed;
+      }
+    );
 
-    const data = getAllWeatherData(destinationName, point, 0);
-    let symbolCode = "";
-    let precipitationAmount = 0;
-    if (data != null) {
-        if (-1 < day && day < 2) {
-            const hoursLeftinDay = hoursInDay - hoursLeftInDayList[0];
-            if (hoursLeftinDay > 12) {
-                symbolCode = data.properties.timeseries[0].data.next_12_hours.summary.symbol_code;
-            } else if (hoursLeftinDay > 6) {
-                symbolCode = data.properties.timeseries[0].data.next_6_hours.summary.symbol_code;
-                precipitationAmount = data.properties.timeseries[0].data.next_6_hours.details.precipitation_amount;
-            } else {
-                symbolCode = data.properties.timeseries[0].data.next_1_hours.summary.symbol_code;
-                precipitationAmount = data.properties.timeseries[0].data.next_1_hours.details.precipitation_amount;
-            }
-        } else {
-            symbolCode = data.properties.timeseries[0].data.next_6_hours.summary.symbol_code;
-            precipitationAmount = data.properties.timeseries[0].data.next_6_hours.details.precipitation_amount;
-        }
+    // Calculate the average wind speed
+    if (windSpeeds.length > 0) {
+      const sumWindSpeeds = windSpeeds.reduce(
+        (accumulator: number, currentValue: number) =>
+          accumulator + currentValue,
+        0
+      );
+      avgWindSpeed = parseFloat((sumWindSpeeds / windSpeeds.length).toFixed(1)); // Round to one decimal place
     }
 
-    const foreCastListEntry : ForecastListEntry = {
-        minTemperature: minTemperature,
-        maxTemperature: maxTemperature,
-        avgWindSpeed: averageWindSpeed,
-        precipitationAmount: precipitationAmount,
-        symbolCode: symbolCode,
-      }
+    // Filter out undefined or null values from precipitationAmounts
+    const precipitationAmounts = filteredTimes
+      .filter((element: { time: string }) =>
+        sixHourIntervals.includes(element.time.slice(11, 19))
+      ) // Filter by valid times
+      .map(
+        (element: {
+          data: { next_6_hours: { details: { precipitation_amount: number } } };
+        }) => {
+          return element.data?.next_6_hours?.details?.precipitation_amount;
+        }
+      );
 
-    return foreCastListEntry;
+    // Calculate the sum of precipitation amounts
+    if (precipitationAmounts.length > 0) {
+      precipitationAmount = precipitationAmounts.reduce(
+        (accumulator: number, currentValue: number) =>
+          accumulator + currentValue,
+        0
+      );
+    }
+    precipitationAmount = parseFloat(precipitationAmount.toFixed(1));
+
+    symbolCodes = filteredTimes
+      .filter((element: { time: string }) =>
+        sixHourIntervals.includes(element.time.slice(11, 19))
+      ) // Filter by valid times
+      .map(
+        (element: {
+          data: { next_6_hours: { summary: { symbol_code: string } } };
+        }) => {
+          return element.data?.next_6_hours?.summary?.symbol_code;
+        }
+      );
+  }
+
+  const foreCastListEntry: ForecastListEntry = {
+    minTemperature: minTemperature,
+    maxTemperature: maxTemperature,
+    avgWindSpeed: avgWindSpeed,
+    precipitationAmount: precipitationAmount,
+    symbolCodes: symbolCodes,
+  };
+
+  return foreCastListEntry;
 }
