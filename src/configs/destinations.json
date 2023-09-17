@@ -119,6 +119,54 @@
           "alt": 1188
         }
       ]
+    },
+    {
+      "name": "Geilo (Vestlia)",
+      "country": "no",
+      "points": [
+        {
+          "name": "Bunnstasjonen",
+          "lat": 60.5216, 
+          "lon": 8.1990,
+          "alt": 789
+        },
+        {
+          "name": "Bjødnahovda",
+          "lat": 60.5116,
+          "lon": 8.2021,
+          "alt": 1056
+        },
+        {
+          "name": "Kikuttoppen",
+          "lat": 60.5068, 
+          "lon": 8.2182,
+          "alt": 1076
+        }
+      ]
+    },
+    {
+      "name": "Geilo (Geilosiden)",
+      "country": "no",
+      "points": [
+        {
+          "name": "Slaatta",
+          "lat": 60.5373, 
+          "lon": 8.2113,
+          "alt": 811
+        },
+        {
+          "name": "Geilohovda",
+          "lat": 60.5411,
+          "lon": 8.1962,
+          "alt": 1080
+        },
+        {
+          "name": "Havsdalshovda",
+          "lat": 60.5552, 
+          "lon": 8.1851,
+          "alt": 1178
+        }
+      ]
     }
   ]
 }
