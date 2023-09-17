@@ -1,11 +1,11 @@
 {
   "destinations": [
     {
-      "name": "Aare",
+      "name": "Åre",
       "country": "se",
       "points": [
         {
-          "name": "Aare by",
+          "name": "Åre by",
           "lat": 63.4036,
           "lon": 13.0590,
           "alt": 389
@@ -17,7 +17,7 @@
           "alt": 827
         },
         {
-          "name": "Aareskutan",
+          "name": "Åreskutan",
           "lat": 63.4327,
           "lon": 13.0923,
           "alt": 1420
@@ -93,6 +93,30 @@
           "lat": 61.4649, 
           "lon": 10.1206,
           "alt": 1032
+        }
+      ]
+    },
+    {
+      "name": "Norefjell",
+      "country": "no",
+      "points": [
+        {
+          "name": "Dalstasjonen",
+          "lat": 60.2206, 
+          "lon": 9.5979,
+          "alt": 178
+        },
+        {
+          "name": "Bøseter",
+          "lat": 60.2263,
+          "lon": 9.5250,
+          "alt": 802
+        },
+        {
+          "name": "Ravnås",
+          "lat": 60.2418,
+          "lon": 9.5453,
+          "alt": 1188
         }
       ]
     }
