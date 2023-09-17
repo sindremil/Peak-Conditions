@@ -27,7 +27,7 @@ function renderCard(destinationName : string) {
 
 export default function LandingPage() {
   
-  const destinationList = ["Aare", "Hemsedal", "Hafjell", "Kvitfjell", "Haukelifjell"]
+  const destinationList = ["Åre", "Hemsedal", "Hafjell", "Kvitfjell", "Norefjell", "Geilo (Vestlia)", "Geilo (Geilosiden)", "Haukelifjell"]
 
   return (
     <div className="content">
