@@ -3,12 +3,13 @@ import { getAllWeatherData } from '../utils/getDestinationWeatherData';
 import ForecastListEntry from '../schemas/ForecastListEntry';
 import getForecastListEntry from './ForecastListEntry';
 
-export default function ForecastList(destination: string) {
+export default function ForecastList(destination: string, point: number) {
   destination = 'Aare';
+  point = 0;
   let forecastEntries: ForecastListEntry[] = [];
   const daysArray: Date[] = [];
 
-  const data = getAllWeatherData(destination, 0);
+  const data = getAllWeatherData(destination, point);
 
   if (data != null) {
     const firstDayString = data.properties.timeseries[0].time;
@@ -49,48 +50,6 @@ export default function ForecastList(destination: string) {
           {forecastEntries.map((entry, index) => (
             <tr key={index}>
               <td>{daysArray[index].toISOString().slice(0, 10)}</td>
-              {entry.symbolCodes[1] && (
-                <td>
-                  <img
-                    src={
-                      'src/assets/weathericons/svg/' +
-                      entry.symbolCodes[1] +
-                      '.svg'
-                    }
-                    alt={`Weather icon for ${entry.symbolCodes[1]}`}
-                  ></img>
-                </td>
-              )}
-              {!entry.symbolCodes[1] && <td style={{ width: '30px' }}></td>}{' '}
-              {/* Placeholder cell */}
-              {entry.symbolCodes[2] && (
-                <td>
-                  <img
-                    src={
-                      'src/assets/weathericons/svg/' +
-                      entry.symbolCodes[2] +
-                      '.svg'
-                    }
-                    alt={`Weather icon for ${entry.symbolCodes[2]}`}
-                  ></img>
-                </td>
-              )}
-              {!entry.symbolCodes[2] && <td style={{ width: '30px' }}></td>}{' '}
-              {/* Placeholder cell */}
-              {entry.symbolCodes[3] && (
-                <td>
-                  <img
-                    src={
-                      'src/assets/weathericons/svg/' +
-                      entry.symbolCodes[3] +
-                      '.svg'
-                    }
-                    alt={`Weather icon for ${entry.symbolCodes[3]}`}
-                  ></img>
-                </td>
-              )}
-              {!entry.symbolCodes[3] && <td style={{ width: '30px' }}></td>}{' '}
-              {/* Placeholder cell */}
               {entry.symbolCodes[0] && (
                 <td>
                   <img
@@ -103,14 +62,52 @@ export default function ForecastList(destination: string) {
                   ></img>
                 </td>
               )}
-              {!entry.symbolCodes[0] && <td style={{ width: '30px' }}></td>}{' '}
-              {/* Placeholder cell */}
+              {!entry.symbolCodes[0] && <td style={{ width: '30px' }}></td>}
+              {entry.symbolCodes[1] && (
+                <td>
+                  <img
+                    src={
+                      'src/assets/weathericons/svg/' +
+                      entry.symbolCodes[1] +
+                      '.svg'
+                    }
+                    alt={`Weather icon for ${entry.symbolCodes[1]}`}
+                  ></img>
+                </td>
+              )}
+              {!entry.symbolCodes[1] && <td style={{ width: '30px' }}></td>}
+              {entry.symbolCodes[2] && (
+                <td>
+                  <img
+                    src={
+                      'src/assets/weathericons/svg/' +
+                      entry.symbolCodes[2] +
+                      '.svg'
+                    }
+                    alt={`Weather icon for ${entry.symbolCodes[2]}`}
+                  ></img>
+                </td>
+              )}
+              {!entry.symbolCodes[2] && <td style={{ width: '30px' }}></td>}
+              {entry.symbolCodes[3] && (
+                <td>
+                  <img
+                    src={
+                      'src/assets/weathericons/svg/' +
+                      entry.symbolCodes[3] +
+                      '.svg'
+                    }
+                    alt={`Weather icon for ${entry.symbolCodes[3]}`}
+                  ></img>
+                </td>
+              )}
+              {!entry.symbolCodes[3] && <td style={{ width: '30px' }}></td>}
               <td>{entry.maxTemperature}</td>
               <td>{entry.minTemperature}</td>
               <td>
                 {entry.precipitationAmount !== 0
                   ? entry.precipitationAmount
-                  : ''}
+                  : '-'}
               </td>
               <td>{entry.avgWindSpeed}</td>
             </tr>

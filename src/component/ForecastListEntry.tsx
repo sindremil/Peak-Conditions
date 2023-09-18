@@ -2,11 +2,11 @@ import ForecastListEntry from '../schemas/ForecastListEntry';
 
 export default function getForecastListEntry(day: string, data: any) {
   const sixHourIntervals = ['00:00:00', '06:00:00', '12:00:00', '18:00:00'];
+  const symbolCodes = [];
 
   let minTemperature = Number.POSITIVE_INFINITY; // Initialize with a large positive value
   let maxTemperature = Number.NEGATIVE_INFINITY; // Initialize with a large negative value
   let avgWindSpeed = 0;
-  let symbolCodes = [];
   let precipitationAmount = 0;
 
   if (data != null) {
@@ -66,19 +66,20 @@ export default function getForecastListEntry(day: string, data: any) {
     }
     precipitationAmount = parseFloat(precipitationAmount.toFixed(1));
 
-    symbolCodes = filteredTimes
-      .filter((element: { time: string }) =>
-        sixHourIntervals.includes(element.time.slice(11, 19))
-      ) // Filter by valid times
-      .map(
-        (element: {
-          data: { next_6_hours: { summary: { symbol_code: string } } };
-        }) => {
-          return element.data?.next_6_hours?.summary?.symbol_code;
-        }
+    for (const interval of sixHourIntervals) {
+      const matchingElement = filteredTimes.find((element: { time: string }) =>
+        element.time.includes(interval)
       );
-  }
 
+      if (matchingElement) {
+        symbolCodes.push(
+          matchingElement.data?.next_6_hours?.summary?.symbol_code
+        );
+      } else {
+        symbolCodes.push('');
+      }
+    }
+  }
   const foreCastListEntry: ForecastListEntry = {
     minTemperature: minTemperature,
     maxTemperature: maxTemperature,
