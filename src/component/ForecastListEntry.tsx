@@ -1,92 +1,110 @@
 import ForecastListEntry from '../schemas/ForecastListEntry';
+import WeatherData from '../schemas/WeatherData';
 
-export default function getForecastListEntry(day: string, data: any) {
-  const sixHourIntervals = ['00:00:00', '06:00:00', '12:00:00', '18:00:00'];
-  const symbolCodes = [];
-
-  let minTemperature = Number.POSITIVE_INFINITY; // Initialize with a large positive value
-  let maxTemperature = Number.NEGATIVE_INFINITY; // Initialize with a large negative value
-  let avgWindSpeed = 0;
-  let precipitationAmount = 0;
-
-  if (data != null) {
-    const timeseries = data.properties.timeseries;
-    const filteredTimes = timeseries.filter((item: { time: string }) =>
-      item.time.startsWith(day)
-    );
-    const temperatures = filteredTimes.map(
-      (element: {
-        data: { instant: { details: { air_temperature: number } } };
-      }) => {
-        return element.data.instant.details.air_temperature;
-      }
-    );
-
-    // Calculate the minimum and maximum temperatures
-    if (temperatures.length > 0) {
-      minTemperature = Math.min(...temperatures);
-      maxTemperature = Math.max(...temperatures);
-    }
-    const windSpeeds = filteredTimes.map(
-      (element: { data: { instant: { details: { wind_speed: number } } } }) => {
-        return element.data.instant.details.wind_speed;
-      }
-    );
-
-    // Calculate the average wind speed
-    if (windSpeeds.length > 0) {
-      const sumWindSpeeds = windSpeeds.reduce(
-        (accumulator: number, currentValue: number) =>
-          accumulator + currentValue,
-        0
-      );
-      avgWindSpeed = parseFloat((sumWindSpeeds / windSpeeds.length).toFixed(1)); // Round to one decimal place
-    }
-
-    // Filter out undefined or null values from precipitationAmounts
-    const precipitationAmounts = filteredTimes
-      .filter((element: { time: string }) =>
-        sixHourIntervals.includes(element.time.slice(11, 19))
-      ) // Filter by valid times
-      .map(
-        (element: {
-          data: { next_6_hours: { details: { precipitation_amount: number } } };
-        }) => {
-          return element.data?.next_6_hours?.details?.precipitation_amount;
-        }
-      );
-
-    // Calculate the sum of precipitation amounts
-    if (precipitationAmounts.length > 0) {
-      precipitationAmount = precipitationAmounts.reduce(
-        (accumulator: number, currentValue: number) =>
-          accumulator + currentValue,
-        0
-      );
-    }
-    precipitationAmount = parseFloat(precipitationAmount.toFixed(1));
-
-    for (const interval of sixHourIntervals) {
-      const matchingElement = filteredTimes.find((element: { time: string }) =>
-        element.time.includes(interval)
-      );
-
-      if (matchingElement) {
-        symbolCodes.push(
-          matchingElement.data?.next_6_hours?.summary?.symbol_code
-        );
-      } else {
-        symbolCodes.push('');
-      }
-    }
-  }
+export default function getForecastListEntry(day: string, data: WeatherData) {
+  const dataForDay = getDataForDay(day, data);
   const foreCastListEntry: ForecastListEntry = {
-    minTemperature: minTemperature,
-    maxTemperature: maxTemperature,
-    avgWindSpeed: avgWindSpeed,
-    precipitationAmount: precipitationAmount,
-    symbolCodes: symbolCodes,
+    minTemperature: getMinTemperature(dataForDay),
+    maxTemperature: getMaxTemperatures(dataForDay),
+    avgWindSpeed: getAvgWindSpeed(dataForDay),
+    precipitationAmount: getPrecipitationAmount(dataForDay),
+    symbolCodes: getSymbolCodes(dataForDay),
   };
 
   return foreCastListEntry;
+}
+
+function getDataForDay(day: string, data: WeatherData): WeatherData {
+  const dataForDay = data.properties.timeseries.filter((item) =>
+    item.time.startsWith(day)
+  );
+
+  // Create a new WeatherData object with the filtered timeseries
+  const filteredData: WeatherData = {
+    ...data,
+    properties: {
+      ...data.properties,
+      timeseries: dataForDay,
+    },
+  };
+
+  return filteredData;
+}
+
+// Calculate the minimum and maximum temperatures
+function getMinTemperature(dataForDay: WeatherData) {
+  let minTemperature = Number.POSITIVE_INFINITY; // Initialize with a large positive value
+  const temperatures = getTemperatures(dataForDay);
+  minTemperature = Math.min(...temperatures);
+  return minTemperature;
+}
+function getMaxTemperatures(dataForDay: WeatherData) {
+  let maxTemperature = Number.NEGATIVE_INFINITY; // Initialize with a large negative value
+  const temperatures = getTemperatures(dataForDay);
+  maxTemperature = Math.max(...temperatures);
+  return maxTemperature;
+}
+function getTemperatures(dataForDay: WeatherData) {
+  const temperatures = dataForDay.properties.timeseries.map((element) => {
+    return element.data.instant.details.air_temperature;
+  });
+  return temperatures;
+}
+function getAvgWindSpeed(dataForDay: WeatherData) {
+  let avgWindSpeed = 0;
+  const windSpeeds = dataForDay.properties.timeseries.map(
+    (element) => element.data.instant.details.wind_speed
+  );
+
+  if (windSpeeds.length > 0) {
+    const sumWindSpeeds = windSpeeds.reduce(
+      (accumulator, currentValue) => accumulator + currentValue,
+      0
+    );
+    avgWindSpeed = parseFloat((sumWindSpeeds / windSpeeds.length).toFixed(1)); // Round to one decimal place
+  }
+
+  return avgWindSpeed;
+}
+
+function getPrecipitationAmount(dataForDay: WeatherData) {
+  const sixHourIntervals = ['00:00:00', '06:00:00', '12:00:00', '18:00:00'];
+  let precipitationAmount = 0;
+  // Filter out undefined or null values from precipitationAmounts
+  const precipitationAmounts = dataForDay.properties.timeseries
+    .filter((element) => sixHourIntervals.includes(element.time.slice(11, 19))) // Filter by valid times
+    .map((element) => {
+      return element.data?.next_6_hours?.details?.precipitation_amount;
+    });
+
+  // Calculate the sum of precipitation amounts
+  if (precipitationAmounts.length > 0) {
+    precipitationAmount = precipitationAmounts.reduce(
+      (accumulator: number, currentValue: number) => accumulator + currentValue,
+      0
+    );
+  }
+  precipitationAmount = parseFloat(precipitationAmount.toFixed(1));
+  return precipitationAmount;
+}
+
+function getSymbolCodes(dataForDay: WeatherData) {
+  const sixHourIntervals = ['00:00:00', '06:00:00', '12:00:00', '18:00:00'];
+  const symbolCodes = [];
+
+  for (const interval of sixHourIntervals) {
+    const matchingElement = dataForDay.properties.timeseries.find((element) =>
+      element.time.includes(interval)
+    );
+
+    if (matchingElement) {
+      symbolCodes.push(
+        matchingElement.data?.next_6_hours?.summary?.symbol_code
+      );
+    } else {
+      symbolCodes.push('');
+    }
+  }
+
+  return symbolCodes;
 }

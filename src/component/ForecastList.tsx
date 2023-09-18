@@ -1,5 +1,5 @@
 import './ForecastList.css';
-import { getAllWeatherData } from '../utils/getDestinationWeatherData';
+import getDestinationWeatherData from '../utils/getDestinationWeatherData';
 import ForecastListEntry from '../schemas/ForecastListEntry';
 import getForecastListEntry from './ForecastListEntry';
 
@@ -9,9 +9,15 @@ export default function ForecastList(destination: string, point: number) {
   let forecastEntries: ForecastListEntry[] = [];
   const daysArray: Date[] = [];
 
-  const data = getAllWeatherData(destination, point);
+  const data = getDestinationWeatherData(destination, point);
 
-  if (data != null) {
+  // Check if data is defined and timeseries array has elements
+  if (
+    data &&
+    data.properties &&
+    data.properties.timeseries &&
+    data.properties.timeseries.length > 0
+  ) {
     const firstDayString = data.properties.timeseries[0].time;
     const lastDayString =
       data.properties.timeseries[data.properties.timeseries.length - 1].time;
@@ -28,6 +34,9 @@ export default function ForecastList(destination: string, point: number) {
     forecastEntries = daysArray.map((day) => {
       return getForecastListEntry(day.toISOString().slice(0, 10), data);
     });
+  } else {
+    // Handle the case where data or timeseries[0].time is undefined
+    console.log('Data or timeseries[0].time is undefined');
   }
 
   return (
@@ -47,73 +56,51 @@ export default function ForecastList(destination: string, point: number) {
           </tr>
         </thead>
         <tbody>
-          {forecastEntries.map((entry, index) => (
-            <tr key={index}>
-              <td>{daysArray[index].toISOString().slice(0, 10)}</td>
-              {entry.symbolCodes[0] && (
-                <td>
-                  <img
-                    src={
-                      'src/assets/weathericons/svg/' +
-                      entry.symbolCodes[0] +
-                      '.svg'
-                    }
-                    alt={`Weather icon for ${entry.symbolCodes[0]}`}
-                  ></img>
-                </td>
-              )}
-              {!entry.symbolCodes[0] && <td style={{ width: '30px' }}></td>}
-              {entry.symbolCodes[1] && (
-                <td>
-                  <img
-                    src={
-                      'src/assets/weathericons/svg/' +
-                      entry.symbolCodes[1] +
-                      '.svg'
-                    }
-                    alt={`Weather icon for ${entry.symbolCodes[1]}`}
-                  ></img>
-                </td>
-              )}
-              {!entry.symbolCodes[1] && <td style={{ width: '30px' }}></td>}
-              {entry.symbolCodes[2] && (
-                <td>
-                  <img
-                    src={
-                      'src/assets/weathericons/svg/' +
-                      entry.symbolCodes[2] +
-                      '.svg'
-                    }
-                    alt={`Weather icon for ${entry.symbolCodes[2]}`}
-                  ></img>
-                </td>
-              )}
-              {!entry.symbolCodes[2] && <td style={{ width: '30px' }}></td>}
-              {entry.symbolCodes[3] && (
-                <td>
-                  <img
-                    src={
-                      'src/assets/weathericons/svg/' +
-                      entry.symbolCodes[3] +
-                      '.svg'
-                    }
-                    alt={`Weather icon for ${entry.symbolCodes[3]}`}
-                  ></img>
-                </td>
-              )}
-              {!entry.symbolCodes[3] && <td style={{ width: '30px' }}></td>}
-              <td>{entry.maxTemperature}</td>
-              <td>{entry.minTemperature}</td>
-              <td>
-                {entry.precipitationAmount !== 0
-                  ? entry.precipitationAmount
-                  : '-'}
-              </td>
-              <td>{entry.avgWindSpeed}</td>
-            </tr>
-          ))}
+          {}
+          {forecastEntries.map((entry, index) =>
+            renderEntry(entry, index, daysArray)
+          )}
         </tbody>
       </table>
     </div>
+  );
+}
+
+function createSymbol(entry: ForecastListEntry, index: number) {
+  const symbolCode = entry.symbolCodes[index];
+  return (
+    <>
+      {symbolCode && (
+        <td>
+          <img
+            src={'src/assets/weathericons/svg/' + symbolCode + '.svg'}
+            alt={`Weather icon for ${symbolCode}`}
+          ></img>
+        </td>
+      )}
+      {!symbolCode && <td style={{ width: '30px' }}></td>}
+    </>
+  );
+}
+
+function renderEntry(
+  entry: ForecastListEntry,
+  index: number,
+  daysArray: Date[]
+) {
+  return (
+    <tr key={index}>
+      <td>{daysArray[index].toISOString().slice(0, 10)}</td>
+      {createSymbol(entry, 0)}
+      {createSymbol(entry, 1)}
+      {createSymbol(entry, 2)}
+      {createSymbol(entry, 3)}
+      <td>{entry.maxTemperature}</td>
+      <td>{entry.minTemperature}</td>
+      <td>
+        {entry.precipitationAmount !== 0 ? entry.precipitationAmount : '-'}
+      </td>
+      <td>{entry.avgWindSpeed}</td>
+    </tr>
   );
 }

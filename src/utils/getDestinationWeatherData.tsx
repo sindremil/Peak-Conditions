@@ -6,7 +6,7 @@ import WeatherData from '../schemas/WeatherData';
 export default function getDestinationWeatherData(
   destinationName: string,
   point: number
-): any {
+): WeatherData {
   const destinationPoint: DestinationPoint = {
     destination: destinationName,
     pointIndex: point,
@@ -14,16 +14,39 @@ export default function getDestinationWeatherData(
   const { data, isLoading, isError, isFetched, isRefetching, isSuccess } =
     useWeatherData(destinationPoint);
 
+  const weatherData: WeatherData = {
+    type: '',
+    geometry: {
+      type: '',
+      coordinates: [0, 0, 0],
+    },
+    properties: {
+      meta: {
+        updated_at: '',
+        units: {
+          air_pressure_at_sea_level: '',
+          air_temperature: '',
+          cloud_area_fraction: '',
+          precipitation_amount: '',
+          relative_humidity: '',
+          wind_from_direction: '',
+          wind_speed: '',
+        },
+      },
+      timeseries: [],
+    },
+  };
+
   if (isLoading) {
     console.log('Loading weather data');
-    return null;
+    return weatherData;
   } else if (isError) {
     console.log('Error loading weather data');
-    return null;
+    return weatherData;
   } else if (isFetched && isSuccess && !isRefetching) {
     return data;
   } else {
-    return null;
+    return weatherData;
   }
 }
 
@@ -51,22 +74,6 @@ export function getSelectedWeatherData(
       temperature: airTemperature,
       windSpeed: windSpeed,
       symbolCode: symbolCode,
-    };
-
-    return weatherData;
-  }
-}
-
-export function getAllWeatherData(
-  destinationName: string,
-  point: number
-): WeatherData | null {
-  const data = getDestinationWeatherData(destinationName, point);
-  if (data == null) {
-    return null;
-  } else {
-    const weatherData: WeatherData = {
-      properties: data.properties,
     };
 
     return weatherData;
