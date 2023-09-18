@@ -1,0 +1,13 @@
+div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+th {
+    padding: 5px;
+}
+
+img {
+    max-width: 50px;
+}

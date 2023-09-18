@@ -1,11 +1,13 @@
 import "./component/DestinationCardStyle.css"
+import "./LandingPage.css"
 import DestinationCard from './component/DestinationCardComponent'
-import getDestinationWeatherData from "./utils/getDestinationWeatherData"
+import { getSelectedWeatherData } from "./utils/getDestinationWeatherData"
+import { isFavourite } from "./utils/favourite"
 import WeatherNowComponent from "./component/WeatherNowComponent"
 
 function renderCard(destinationName : string) {
 
-  const weatherData = getDestinationWeatherData(destinationName, 0, 0)
+  const weatherData = getSelectedWeatherData(destinationName, 0, 0)
 
   if (weatherData === null) {
     return <p key={crypto.randomUUID()}>Error or loading</p>
@@ -14,12 +16,13 @@ function renderCard(destinationName : string) {
   const { destination, temperature, windSpeed, symbolCode } = weatherData;
 
   return (
-    <div key={destination}>
+    <div key={destination} className="destinationCardContainer">
       <DestinationCard
         destination={destination}
         temperature={temperature}
         windSpeed={windSpeed}
         symbolCode={symbolCode}
+        isLocalStorageFavourite={isFavourite(destinationName)}
       />
     </div>
   )
@@ -27,7 +30,8 @@ function renderCard(destinationName : string) {
 
 export default function LandingPage() {
   
-  const destinationList = ["Aare", "Hemsedal", "Hafjell"]
+  const destinationList = ["Åre", "Hemsedal", "Hafjell", "Kvitfjell", "Norefjell",
+      "Geilo (Vestlia)", "Geilo (Geilosiden)", "Åre (Duved)", "Haukelifjell"]
 
   return (
     <>
