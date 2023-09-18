@@ -3,6 +3,7 @@ import "./LandingPage.css"
 import DestinationCard from './component/DestinationCardComponent'
 import { getSelectedWeatherData } from "./utils/getDestinationWeatherData"
 import { isFavourite } from "./utils/favourite"
+import WeatherNowComponent from "./component/WeatherNowComponent"
 
 function renderCard(destinationName : string) {
 
@@ -33,8 +34,12 @@ export default function LandingPage() {
       "Geilo (Vestlia)", "Geilo (Geilosiden)", "Åre (Duved)", "Haukelifjell"]
 
   return (
+    <>
     <div className="content">
       {destinationList.map((destination) => (renderCard(destination)))}
     </div>
+    <WeatherNowComponent/>
+    <WeatherNowComponent/>
+    </>
   )
 }
