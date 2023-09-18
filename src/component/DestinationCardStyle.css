@@ -14,9 +14,9 @@
 
 .destinationCard {
   width: 25vw;
-  height: 25vw;
+  height: 35vw;
   background-color: #406882;
-  border-radius: 10%;
+  border-radius: 3vw;
   font-family: roboto-regular;
   overflow: hidden;
   display: flex;
@@ -34,23 +34,40 @@ p {
   object-fit: cover;
 }
 
-.destinationCardInfo {
-  margin-left: 0.83vw;
-  text-align: left;
+.destinationNameContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.destinationInfoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: baseline;
+  width: 50%
+}
+
+.destinationSymbol {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .destinationName {
   font-size: 2.5vw;
+  margin-left: 5%;
+  margin-top: 2%;
 }
 
-.destinationInfo {
-  font-size: 2vw;
+.destinationTemp, .destinationWind {
+  font-size: 2.2vw;
+  margin-left: 10%;
 }
 
 .weatherIcon {
-  width: 30%;
-  margin-left: auto;
-  margin-right: auto;
+  width: 70%;
 }
 
 .details {
@@ -93,24 +110,16 @@ p {
 
   .destinationCard {
     width: 90vw;
-    height: 90vw;
-    font-size: 9vw;
+    height: 126vw;
+    border-radius: 10vw;
   }
 
   .destinationName {
     font-size: 9vw;
   }
 
-  .destinationInfo {
-    font-size: 7.2vw;
-  }
-
-  .destinationCardInfo {
-    margin-left: 3vw;
-  }
-
-  .weatherIcon {
-    margin-right: 9vw;
+  .destinationTemp, .destinationWind {
+    font-size: 9.2vw;
   }
 
   .details {
