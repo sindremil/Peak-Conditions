@@ -4,7 +4,7 @@ import ForecastListEntry from '../schemas/ForecastListEntry';
 import getForecastListEntry from './ForecastListEntry';
 
 export default function ForecastList(destination: string, point: number) {
-  destination = 'Aare';
+  destination = 'Åre';
   point = 0;
   let forecastEntries: ForecastListEntry[] = [];
   const daysArray: Date[] = [];
@@ -17,17 +17,17 @@ export default function ForecastList(destination: string, point: number) {
       data.properties.timeseries[data.properties.timeseries.length - 1].time;
 
     const firstDay = new Date(firstDayString);
+    const currentDay = firstDay;
     const lastDay = new Date(lastDayString);
 
-    while (firstDay <= lastDay) {
-      daysArray.push(new Date(firstDay)); // Create a new Date object
-      firstDay.setDate(firstDay.getDate() + 1);
+    while (currentDay <= lastDay) {
+      daysArray.push(new Date(currentDay)); // Create a new Date object
+      currentDay.setDate(currentDay.getDate() + 1);
     }
 
     forecastEntries = daysArray.map((day) => {
       return getForecastListEntry(day.toISOString().slice(0, 10), data);
     });
-    console.log(forecastEntries);
   }
 
   return (
