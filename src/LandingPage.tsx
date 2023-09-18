@@ -2,6 +2,7 @@ import "./component/DestinationCardStyle.css"
 import "./LandingPage.css"
 import DestinationCard from './component/DestinationCardComponent'
 import getDestinationWeatherData from "./utils/getDestinationWeatherData"
+import { isFavourite } from "./utils/favourite"
 
 function renderCard(destinationName : string) {
 
@@ -20,6 +21,7 @@ function renderCard(destinationName : string) {
         temperature={temperature}
         windSpeed={windSpeed}
         symbolCode={symbolCode}
+        isLocalStorageFavourite={isFavourite(destinationName)}
       />
     </div>
   )

@@ -1,27 +1,37 @@
-import notFavorite from "./../assets/star1.svg";
-import favorite from "./../assets/star2.svg";
+import notFavourite from "./../assets/star1.svg";
+import favourite from "./../assets/star2.svg";
 import { useState } from "react";
-import DestinationCardWeather from "../schemas/SelectedWeatherData";
+import SelectedWeatherData from "../schemas/SelectedWeatherData";
 import { Link } from "react-router-dom";
+import { addFavourite, removeFavourite } from "../utils/favourite";
 
+interface DestinationCardProps extends SelectedWeatherData {
+  isLocalStorageFavourite: boolean;
+}
 
-export default function DestinationCard({destination, temperature, windSpeed, symbolCode} : DestinationCardWeather) {
+export default function DestinationCard({destination, temperature, windSpeed, symbolCode, isLocalStorageFavourite}: DestinationCardProps) {
 
   
   const destinationImgPath: string = "src/assets/destinationimages/" + destination + ".jpg"
   const symbolImgPath: string = "src/assets/weathericons/svg/" + symbolCode + ".svg"
 
-  const [isFavorite, setIsFavorite] = useState(false);
+  const [isFavourite, setIsFavorite] = useState(isLocalStorageFavourite);
 
   function handleFavorite() {
-    setIsFavorite(!isFavorite);
+    setIsFavorite(!isFavourite);
+    if (!isFavourite) {
+      addFavourite(destination);
+    }
+    else {
+      removeFavourite(destination);
+    }
   }
 
   return (
     <div className="destinationCard">
       <div className="imgContainer">
         <img className="destinationCardImg" src={destinationImgPath}/>
-        <img className="favorite" onClick={handleFavorite} src={isFavorite ? favorite : notFavorite}/>
+        <img className="favourite" onClick={handleFavorite} src={isFavourite ? favourite : notFavourite}/>
       </div>
       <div className="destinationCardInfo">
         <p className="destinationName">{destination}</p>
