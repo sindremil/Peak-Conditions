@@ -1,6 +1,8 @@
 import "./component/DestinationCardStyle.css"
+import "./LandingPage.css"
 import DestinationCard from './component/DestinationCardComponent'
 import { getSelectedWeatherData } from "./utils/getDestinationWeatherData"
+import { isFavourite } from "./utils/favourite"
 
 function renderCard(destinationName : string) {
 
@@ -13,12 +15,13 @@ function renderCard(destinationName : string) {
   const { destination, temperature, windSpeed, symbolCode } = weatherData;
 
   return (
-    <div key={destination}>
+    <div key={destination} className="destinationCardContainer">
       <DestinationCard
         destination={destination}
         temperature={temperature}
         windSpeed={windSpeed}
         symbolCode={symbolCode}
+        isLocalStorageFavourite={isFavourite(destinationName)}
       />
     </div>
   )
@@ -26,7 +29,8 @@ function renderCard(destinationName : string) {
 
 export default function LandingPage() {
   
-  const destinationList = ["Aare", "Hemsedal", "Hafjell"]
+  const destinationList = ["Åre", "Hemsedal", "Hafjell", "Kvitfjell", "Norefjell",
+      "Geilo (Vestlia)", "Geilo (Geilosiden)", "Åre (Duved)", "Haukelifjell"]
 
   return (
     <div className="content">

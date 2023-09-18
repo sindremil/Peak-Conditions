@@ -13,8 +13,8 @@
 /* General styling */
 
 .destinationCard {
-  width: 15vw;
-  height: 15vw;
+  width: 25vw;
+  height: 25vw;
   background-color: #406882;
   border-radius: 10%;
   font-family: roboto-regular;
@@ -30,37 +30,40 @@ p {
 
 .destinationCardImg {
   width: 100%;
-  height: 50%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .destinationCardInfo {
-  margin-left: 0.5vw;
+  margin-left: 0.83vw;
   text-align: left;
 }
 
 .destinationName {
-  font-size: 1.5vw;
+  font-size: 2.5vw;
 }
 
 .destinationInfo {
-  font-size: 1.2vw;
+  font-size: 2vw;
 }
 
 .weatherIcon {
-  width: 27%;
+  width: 30%;
   margin-left: auto;
   margin-right: auto;
 }
 
 .details {
-  border-radius: 10%;
   flex-basis: 100%;
-  font-size: 1vw;
+  font-size: 1.67vw;
+  color: white;
+  text-decoration: none;
 }
 
 .details:hover {
   background-color: #2e485c;
   cursor: pointer;
+  color: white;
 }
 
 .destinationCardDivider {
@@ -68,10 +71,19 @@ p {
   color: white;
 }
 
-.favorite {
-  width: 2vw;
-  height: 2vw;
+.imgContainer {
+  position: relative;
+  width: 100%;
+  height: 50%;
+}
+
+.favourite {
+  width: 3.33vw;
+  height: 3.33vw;
   cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 5px;
 }
 
 
@@ -105,7 +117,7 @@ p {
     font-size: 6vw;
   }
 
-  .favorite {
+  .favourite   {
     width: 12vw;
     height: 12vw;
   }
