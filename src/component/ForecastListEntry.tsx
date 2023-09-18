@@ -1,17 +1,18 @@
-import ForecastListEntry from '../schemas/ForecastListEntry';
 import WeatherData from '../schemas/WeatherData';
 
-export default function getForecastListEntry(day: string, data: WeatherData) {
+export default function ForecastListEntry(day: string, data: WeatherData) {
   const dataForDay = getDataForDay(day, data);
-  const foreCastListEntry: ForecastListEntry = {
-    minTemperature: getMinTemperature(dataForDay),
-    maxTemperature: getMaxTemperatures(dataForDay),
-    avgWindSpeed: getAvgWindSpeed(dataForDay),
-    precipitationAmount: getPrecipitationAmount(dataForDay),
-    symbolCodes: getSymbolCodes(dataForDay),
-  };
-
-  return foreCastListEntry;
+  const precipitationAmount = getPrecipitationAmount(dataForDay);
+  return (
+    <tr key={day}>
+      <td>{day}</td>
+      {createSymbols(getSymbolCodes(dataForDay))}
+      <td>{getMaxTemperature(dataForDay)}</td>
+      <td>{getMinTemperature(dataForDay)}</td>
+      <td>{precipitationAmount !== 0 ? precipitationAmount : '-'}</td>
+      <td>{getAvgWindSpeed(dataForDay)}</td>
+    </tr>
+  );
 }
 
 function getDataForDay(day: string, data: WeatherData): WeatherData {
@@ -38,7 +39,7 @@ function getMinTemperature(dataForDay: WeatherData) {
   minTemperature = Math.min(...temperatures);
   return minTemperature;
 }
-function getMaxTemperatures(dataForDay: WeatherData) {
+function getMaxTemperature(dataForDay: WeatherData) {
   let maxTemperature = Number.NEGATIVE_INFINITY; // Initialize with a large negative value
   const temperatures = getTemperatures(dataForDay);
   maxTemperature = Math.max(...temperatures);
@@ -107,4 +108,22 @@ function getSymbolCodes(dataForDay: WeatherData) {
   }
 
   return symbolCodes;
+}
+
+function createSymbols(symbolCodes: string[]) {
+  return (
+    <>
+      {symbolCodes.map((symbolCode, index) => (
+        <td key={index}>
+          {symbolCode && (
+            <img
+              src={'src/assets/weathericons/svg/' + symbolCode + '.svg'}
+              alt={`Weather icon for ${symbolCode}`}
+            />
+          )}
+          {!symbolCode && <div style={{ width: '30px' }}></div>}
+        </td>
+      ))}
+    </>
+  );
 }

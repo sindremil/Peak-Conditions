@@ -1,12 +1,11 @@
 import './ForecastList.css';
 import getDestinationWeatherData from '../utils/getDestinationWeatherData';
-import ForecastListEntry from '../schemas/ForecastListEntry';
-import getForecastListEntry from './ForecastListEntry';
+import ForecastListEntry from './ForecastListEntry';
+import WeatherData from '../schemas/WeatherData';
 
 export default function ForecastList(destination: string, point: number) {
   destination = 'Åre';
   point = 0;
-  let forecastEntries: ForecastListEntry[] = [];
   const daysArray: Date[] = [];
 
   const data = getDestinationWeatherData(destination, point);
@@ -30,10 +29,6 @@ export default function ForecastList(destination: string, point: number) {
       daysArray.push(new Date(currentDay)); // Create a new Date object
       currentDay.setDate(currentDay.getDate() + 1);
     }
-
-    forecastEntries = daysArray.map((day) => {
-      return getForecastListEntry(day.toISOString().slice(0, 10), data);
-    });
   } else {
     // Handle the case where data or timeseries[0].time is undefined
     console.log('Data or timeseries[0].time is undefined');
@@ -56,9 +51,8 @@ export default function ForecastList(destination: string, point: number) {
           </tr>
         </thead>
         <tbody>
-          {}
-          {forecastEntries.map((entry, index) =>
-            renderEntry(entry, index, daysArray)
+          {daysArray.map((day) =>
+            renderEntry(day.toISOString().slice(0, 10), data)
           )}
         </tbody>
       </table>
@@ -66,41 +60,6 @@ export default function ForecastList(destination: string, point: number) {
   );
 }
 
-function createSymbol(entry: ForecastListEntry, index: number) {
-  const symbolCode = entry.symbolCodes[index];
-  return (
-    <>
-      {symbolCode && (
-        <td>
-          <img
-            src={'src/assets/weathericons/svg/' + symbolCode + '.svg'}
-            alt={`Weather icon for ${symbolCode}`}
-          ></img>
-        </td>
-      )}
-      {!symbolCode && <td style={{ width: '30px' }}></td>}
-    </>
-  );
-}
-
-function renderEntry(
-  entry: ForecastListEntry,
-  index: number,
-  daysArray: Date[]
-) {
-  return (
-    <tr key={index}>
-      <td>{daysArray[index].toISOString().slice(0, 10)}</td>
-      {createSymbol(entry, 0)}
-      {createSymbol(entry, 1)}
-      {createSymbol(entry, 2)}
-      {createSymbol(entry, 3)}
-      <td>{entry.maxTemperature}</td>
-      <td>{entry.minTemperature}</td>
-      <td>
-        {entry.precipitationAmount !== 0 ? entry.precipitationAmount : '-'}
-      </td>
-      <td>{entry.avgWindSpeed}</td>
-    </tr>
-  );
+function renderEntry(day: string, data: WeatherData) {
+  return ForecastListEntry(day, data);
 }
