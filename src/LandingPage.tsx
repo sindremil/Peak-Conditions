@@ -1,12 +1,12 @@
 import "./component/DestinationCardStyle.css"
 import "./LandingPage.css"
 import DestinationCard from './component/DestinationCardComponent'
-import getDestinationWeatherData from "./utils/getDestinationWeatherData"
+import { getSelectedWeatherData } from "./utils/getDestinationWeatherData"
 import { isFavourite } from "./utils/favourite"
 
 function renderCard(destinationName : string) {
 
-  const weatherData = getDestinationWeatherData(destinationName, 0, 0)
+  const weatherData = getSelectedWeatherData(destinationName, 0, 0)
 
   if (weatherData === null) {
     return <p key={crypto.randomUUID()}>Error or loading</p>
