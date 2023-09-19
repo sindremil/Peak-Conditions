@@ -1,7 +1,7 @@
 import './component/DestinationCardStyle.css';
 import './LandingPage.css';
 import DestinationCard from './component/DestinationCardComponent';
-import { selectedWeatherData } from './utils/getDestinationWeatherData';
+import { getSelectedWeatherData } from './utils/getDestinationWeatherData';
 import { getFavouritesArray, isFavourite } from './utils/favourite';
 import destinationsConfig from './configs/destinations.json';
 import FilterComponent from './component/FilterComponent';
@@ -15,9 +15,9 @@ function getDestinationNames() {
 }
 
 function renderCard(destinationName: string) {
-  const weatherData = getDestinationWeatherData(destinationName, 0, 0);
+  const weatherData = getSelectedWeatherData(destinationName, 0, 0);
 
-  if (!selectedWeatherData) {
+  if (!getSelectedWeatherData) {
 
     return <p key={crypto.randomUUID()}>Error or loading</p>;
   }
@@ -26,12 +26,13 @@ function renderCard(destinationName: string) {
 
     <div key={crypto.randomUUID()} className="destinationCardContainer">
       <DestinationCard
-        destination={selectedWeatherData.destination}
-        temperature={selectedWeatherData.temperature}
-        windSpeed={selectedWeatherData.windSpeed}
-        symbolCode={selectedWeatherData.symbolCode}
+        destination={weatherData.destination}
+        temperature={weatherData.temperature}
+        windSpeed={weatherData.windSpeed}
+        symbolCode={weatherData.symbolCode}
         isLocalStorageFavourite={isFavourite(destinationName)}
       />
+    </div>
   );
 }
 
