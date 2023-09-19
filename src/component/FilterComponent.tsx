@@ -1,12 +1,10 @@
 interface FilterComponentProps {
   showFavourites: boolean;
   handleShowFavourites: () => void;
-
-  sortBy: string;
   handleSorting: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
-export default function FilterComponent({showFavourites, handleShowFavourites, sortBy, handleSorting}: FilterComponentProps) {
+export default function FilterComponent({showFavourites, handleShowFavourites, handleSorting}: FilterComponentProps) {
 
   return (
     <div>

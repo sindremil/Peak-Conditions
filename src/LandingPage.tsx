@@ -37,15 +37,24 @@ function renderCard(destinationName: string) {
 export default function LandingPage() {
 
   const [showFavourites, setShowFavourites] = useState(sessionStorage.getItem("showFavourites") === "checked" ? true : false);
-  const [sortBy, setSortBy] = useState("lexicographically")
+  const [sortBy, setSortBy] = useState("lexicographic")
   
   function handleShowFavourites() {
     setShowFavourites(prevShowFavourites => !prevShowFavourites);
     !showFavourites ? sessionStorage.setItem("showFavourites", "checked") : sessionStorage.setItem("showFavourites", "unchecked");
   }
 
+  //Gets the value of the option element in the FilterComponent's select element.
   function handleSortBy(event: React.ChangeEvent<HTMLSelectElement>) {
     setSortBy(event.target.value);
+  }
+
+  let destinationList = getDestinationNames();
+  if (sortBy === "lexicographic") {
+    destinationList = destinationList.sort();
+  }
+  else {
+    destinationList = destinationList.sort().reverse();
   }
 
   return (
@@ -53,10 +62,9 @@ export default function LandingPage() {
       <FilterComponent
         showFavourites={showFavourites}
         handleShowFavourites={handleShowFavourites}
-        sortBy={sortBy}
         handleSorting={handleSortBy}
       />
-      {getDestinationNames().map((destination) => (
+      {destinationList.map((destination) => (
         // Conditionally set the style to display "none" if destination is in array2 but not in array1
         <div
           key={destination}
