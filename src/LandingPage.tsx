@@ -1,21 +1,30 @@
-import "./component/DestinationCardStyle.css"
-import "./LandingPage.css"
-import DestinationCard from './component/DestinationCardComponent'
-import getDestinationWeatherData from "./utils/getDestinationWeatherData"
-import { isFavourite } from "./utils/favourite"
+import './component/DestinationCardStyle.css';
+import './LandingPage.css';
+import DestinationCard from './component/DestinationCardComponent';
+import getDestinationWeatherData from './utils/getDestinationWeatherData';
+import { getFavouritesArray, isFavourite } from './utils/favourite';
+import destinationsConfig from './configs/destinations.json';
+import FilterComponent from './component/FilterComponent';
+import { useState } from 'react';
 
-function renderCard(destinationName : string) {
+function getDestinationNames() {
+  const destinationNames = destinationsConfig.destinations.map(
+    (destination) => destination.name
+  );
+  console.log(destinationNames);
+  return destinationNames;
+}
 
-  const weatherData = getDestinationWeatherData(destinationName, 0, 0)
+function renderCard(destinationName: string) {
+  const weatherData = getDestinationWeatherData(destinationName, 0, 0);
 
   if (weatherData === null) {
-    return <p key={crypto.randomUUID()}>Error or loading</p>
+    return <p key={crypto.randomUUID()}>Error or loading</p>;
   }
 
   const { destination, temperature, windSpeed, symbolCode } = weatherData;
 
   return (
-    <div key={destination} className="destinationCardContainer">
       <DestinationCard
         destination={destination}
         temperature={temperature}
@@ -23,18 +32,36 @@ function renderCard(destinationName : string) {
         symbolCode={symbolCode}
         isLocalStorageFavourite={isFavourite(destinationName)}
       />
-    </div>
-  )
+  );
 }
 
 export default function LandingPage() {
+
+  const [showFavourites, setShowFavourites] = useState(false);
   
-  const destinationList = ["Åre", "Hemsedal", "Hafjell", "Kvitfjell", "Norefjell",
-      "Geilo (Vestlia)", "Geilo (Geilosiden)", "Åre (Duved)", "Haukelifjell"]
+  function handleShowFavourites() {
+    setShowFavourites(prevShowFavourites => !prevShowFavourites);
+  }
 
   return (
     <div className="content">
-      {destinationList.map((destination) => (renderCard(destination)))}
+      <FilterComponent
+        showFavourites={showFavourites}
+        handleShowFavourites={handleShowFavourites}
+      />
+      {getDestinationNames().map((destination) => (
+        // Conditionally set the style to display "none" if destination is in array2 but not in array1
+        <div
+          key={destination}
+          className="destinationCardContainer"
+          style={{
+            display:
+              showFavourites && !getFavouritesArray().includes(destination) ? "none" : "block",
+          }}
+        >
+          {renderCard(destination)}
+        </div>
+      ))}
     </div>
-  )
+  );
 }

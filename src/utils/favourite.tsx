@@ -1,4 +1,4 @@
-function getFavouritesArray(): string[] {
+export function getFavouritesArray(): string[] {
   const favoritesString: string | null = localStorage.getItem("favourites");
   let favoritesArray: string[] = [];
   if (favoritesString) {
