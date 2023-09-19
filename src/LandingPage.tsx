@@ -37,7 +37,7 @@ function renderCard(destinationName: string) {
 export default function LandingPage() {
 
   const [showFavourites, setShowFavourites] = useState(sessionStorage.getItem("showFavourites") === "checked" ? true : false);
-  const [sortBy, setSortBy] = useState("lexicographic")
+  const [sortBy, setSortBy] = useState(sessionStorage.getItem("sortBy") || "lexicographic")
   
   function handleShowFavourites() {
     setShowFavourites(prevShowFavourites => !prevShowFavourites);
@@ -47,6 +47,7 @@ export default function LandingPage() {
   //Gets the value of the option element in the FilterComponent's select element.
   function handleSortBy(event: React.ChangeEvent<HTMLSelectElement>) {
     setSortBy(event.target.value);
+    sortBy !== "lexicographic" ? sessionStorage.setItem("sortBy", "lexicographic") : sessionStorage.setItem("sortBy", "reverseLexicographic")
   }
 
   let destinationList = getDestinationNames();
@@ -62,6 +63,7 @@ export default function LandingPage() {
       <FilterComponent
         showFavourites={showFavourites}
         handleShowFavourites={handleShowFavourites}
+        sortBy={sortBy}
         handleSorting={handleSortBy}
       />
       {destinationList.map((destination) => (

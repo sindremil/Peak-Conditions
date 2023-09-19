@@ -1,10 +1,12 @@
 interface FilterComponentProps {
   showFavourites: boolean;
   handleShowFavourites: () => void;
+
+  sortBy: string;
   handleSorting: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
-export default function FilterComponent({showFavourites, handleShowFavourites, handleSorting}: FilterComponentProps) {
+export default function FilterComponent({showFavourites, handleShowFavourites, sortBy, handleSorting}: FilterComponentProps) {
 
   return (
     <div>
@@ -13,6 +15,7 @@ export default function FilterComponent({showFavourites, handleShowFavourites, h
           name="sortBy" 
           id="sortBy"
           onChange={handleSorting}
+          value={sortBy}
         >
             <option value="lexicographic">Alphbetical</option>
             <option value="reverseLexicographic">Reverse alphabetical</option>
