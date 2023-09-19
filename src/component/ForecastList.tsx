@@ -2,6 +2,7 @@ import './ForecastList.css';
 import getDestinationWeatherData from '../utils/getDestinationWeatherData';
 import ForecastListEntry from './ForecastListEntry';
 import WeatherData from '../schemas/WeatherData';
+import isValidWeatherData from '../utils/isValidWeatherData';
 
 export default function ForecastList(destination: string, point: number) {
   destination = 'Åre';
@@ -11,12 +12,7 @@ export default function ForecastList(destination: string, point: number) {
   const data = getDestinationWeatherData(destination, point);
 
   // Check if data is defined and timeseries array has elements
-  if (
-    data &&
-    data.properties &&
-    data.properties.timeseries &&
-    data.properties.timeseries.length > 0
-  ) {
+  if (isValidWeatherData(data)) {
     const firstDayString = data.properties.timeseries[0].time;
     const lastDayString =
       data.properties.timeseries[data.properties.timeseries.length - 1].time;

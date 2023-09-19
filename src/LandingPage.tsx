@@ -1,45 +1,52 @@
-import "./component/DestinationCardStyle.css"
-import "./LandingPage.css"
-import DestinationCard from './component/DestinationCardComponent'
-import { getSelectedWeatherData } from "./utils/getDestinationWeatherData"
-import { isFavourite } from "./utils/favourite"
-import WeatherNowComponent from "./component/WeatherNowComponent"
+import './component/DestinationCardStyle.css';
+import './LandingPage.css';
+import DestinationCard from './component/DestinationCardComponent';
+import { getSelectedWeatherData } from './utils/getDestinationWeatherData';
+import { isFavourite } from './utils/favourite';
+import SelectedWeatherData from './schemas/SelectedWeatherData';
 
-function renderCard(destinationName : string) {
+function renderCard(destinationName: string) {
+  const selectedWeatherData: SelectedWeatherData = getSelectedWeatherData(
+    destinationName,
+    0,
+    0
+  );
 
-  const weatherData = getSelectedWeatherData(destinationName, 0, 0)
-
-  if (weatherData === null) {
-    return <p key={crypto.randomUUID()}>Error or loading</p>
+  if (!selectedWeatherData) {
+    return <p key={crypto.randomUUID()}>Error or loading</p>;
   }
 
-  const { destination, temperature, windSpeed, symbolCode } = weatherData;
-
   return (
-    <div key={destination} className="destinationCardContainer">
+    <div key={crypto.randomUUID()} className="destinationCardContainer">
       <DestinationCard
-        destination={destination}
-        temperature={temperature}
-        windSpeed={windSpeed}
-        symbolCode={symbolCode}
+        destination={selectedWeatherData.destination}
+        temperature={selectedWeatherData.temperature}
+        windSpeed={selectedWeatherData.windSpeed}
+        symbolCode={selectedWeatherData.symbolCode}
         isLocalStorageFavourite={isFavourite(destinationName)}
       />
     </div>
-  )
+  );
 }
 
 export default function LandingPage() {
-  
-  const destinationList = ["Åre", "Hemsedal", "Hafjell", "Kvitfjell", "Norefjell",
-      "Geilo (Vestlia)", "Geilo (Geilosiden)", "Åre (Duved)", "Haukelifjell"]
+  const destinationList = [
+    'Åre',
+    'Hemsedal',
+    'Hafjell',
+    'Kvitfjell',
+    'Norefjell',
+    'Geilo (Vestlia)',
+    'Geilo (Geilosiden)',
+    'Åre (Duved)',
+    'Haukelifjell',
+  ];
 
   return (
     <>
-    <div className="content">
-      {destinationList.map((destination) => (renderCard(destination)))}
-    </div>
-    <WeatherNowComponent/>
-    <WeatherNowComponent/>
+      <div className="content">
+        {destinationList.map((destination) => renderCard(destination))}
+      </div>
     </>
-  )
+  );
 }
