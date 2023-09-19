@@ -2,6 +2,7 @@ import DestinationPoint from '../schemas/DestinationPoint';
 import { useWeatherData } from '../api/FetchWeatherData';
 import SelectedWeatherData from '../schemas/SelectedWeatherData';
 import WeatherData from '../schemas/WeatherData';
+import isValidWeatherData from './isValidWeatherData';
 
 export default function getDestinationWeatherData(
   destinationName: string,
@@ -64,12 +65,7 @@ export function getSelectedWeatherData(
     symbolCode: '',
   };
 
-  if (
-    data &&
-    data.properties &&
-    data.properties.timeseries &&
-    data.properties.timeseries.length > 0
-  ) {
+  if (isValidWeatherData(data)) {
     const dataPath = data.properties.timeseries[timeseries].data;
     weatherData = {
       destination: destinationName,
