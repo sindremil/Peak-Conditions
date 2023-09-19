@@ -6,6 +6,7 @@ import { MemoryRouter } from 'react-router-dom';
 import notFavourite from './../assets/star1.svg';
 import favourite from './../assets/star2.svg';
 import { addFavourite, removeFavourite, isFavourite } from '../utils/favourite';
+import renderer from 'react-test-renderer';
 
 interface MockDestinationCardProps extends SelectedWeatherData {
   isLocalStorageFavourite: boolean;
@@ -20,6 +21,7 @@ const mockData: MockDestinationCardProps = {
 };
 
 describe('DestinationCard', () => {
+  
   it('Destination image is visible', () => {
     renderCard();
     const img = screen.getByRole('img', { name: 'Åre' });
@@ -46,6 +48,21 @@ describe('DestinationCard', () => {
     expect(!isFavourite('Åre'));
     expect(star).toHaveAttribute('src', notFavourite);
   });
+
+  it('DestinationCard snapshot', () => {
+    const tree = renderer.create(
+    <MemoryRouter>
+      <DestinationCard
+        destination={mockData.destination}
+        temperature={mockData.temperature}
+        windSpeed={mockData.windSpeed}
+        symbolCode={mockData.symbolCode}
+        isLocalStorageFavourite={mockData.isLocalStorageFavourite}
+      />
+    </MemoryRouter>)
+    .toJSON();
+    expect(tree).toMatchSnapshot();
+  })
 });
 
 /* Renders a destination card with mock data */
