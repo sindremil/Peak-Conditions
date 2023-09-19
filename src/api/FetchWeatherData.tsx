@@ -33,7 +33,7 @@ export const useWeatherData = (destinationPoint: DestinationPoint) => {
   );
 };
 
-function PointFinder(destinationPoint: DestinationPoint) {
+export function PointFinder(destinationPoint: DestinationPoint) {
   const { destination, pointIndex } = destinationPoint;
 
   const queryResult = destinationsJson.destinations.find(

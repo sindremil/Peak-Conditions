@@ -32,11 +32,16 @@ export default function DestinationCard({destination, temperature, windSpeed, sy
         <img className="destinationCardImg" src={destinationImgPath}/>
         <img className="favourite" onClick={handleFavorite} src={isFavourite ? favourite : notFavourite}/>
       </div>
-      <div className="destinationCardInfo">
+      <div className="destinationNameContainer">
         <p className="destinationName">{destination}</p>
-        <p className="destinationInfo">{temperature}°  {windSpeed}m/s</p>
       </div>
-      <img className="weatherIcon" src={symbolImgPath}/>
+      <div className="destinationInfoContainer">
+        <p className="destinationTemp">{temperature}°</p>
+        <p className="destinationWind">{windSpeed}m/s</p>
+      </div>
+      <div className="destinationSymbol">
+        <img className="weatherIcon" src={symbolImgPath}/>
+      </div>
       <Link to={destination.toLowerCase()} className="details">
         <hr className="destinationCardDivider"/>
         <p>Detaljer</p>
