@@ -4,6 +4,7 @@ interface FilterComponentProps {
 }
 
 export default function FilterComponent({showFavourites, handleShowFavourites}: FilterComponentProps) {
+
   return (
     <div>
       <label>

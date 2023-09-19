@@ -11,7 +11,6 @@ function getDestinationNames() {
   const destinationNames = destinationsConfig.destinations.map(
     (destination) => destination.name
   );
-  console.log(destinationNames);
   return destinationNames;
 }
 
@@ -37,10 +36,11 @@ function renderCard(destinationName: string) {
 
 export default function LandingPage() {
 
-  const [showFavourites, setShowFavourites] = useState(false);
+  const [showFavourites, setShowFavourites] = useState(sessionStorage.getItem("showFavourites") === "checked" ? true : false);
   
   function handleShowFavourites() {
     setShowFavourites(prevShowFavourites => !prevShowFavourites);
+    !showFavourites ? sessionStorage.setItem("showFavourites", "checked") : sessionStorage.setItem("showFavourites", "unchecked");
   }
 
   return (
