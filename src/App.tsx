@@ -3,10 +3,12 @@ import "./component/DestinationCardStyle.css"
 import LandingPage from './LandingPage'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import DestinationPage from './DestinationPage';
+import Navbar from './component/NavBar';
 
 function App() {
   return (
     <Router>
+      <Navbar/>
       <Routes>
         <Route path="/" element={<LandingPage/>}/>
         <Route path="/åre" element={<DestinationPage destination='åre'/>}/>
