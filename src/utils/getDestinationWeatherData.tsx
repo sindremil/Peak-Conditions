@@ -2,6 +2,7 @@ import DestinationPoint from '../schemas/DestinationPoint';
 import { useWeatherData } from '../api/FetchWeatherData';
 import SelectedWeatherData from '../schemas/SelectedWeatherData';
 import WeatherData from '../schemas/WeatherData';
+import isValidWeatherData from './isValidWeatherData';
 
 export default function getDestinationWeatherData(
   destinationName: string,
@@ -54,28 +55,24 @@ export function getSelectedWeatherData(
   destinationName: string,
   point: number,
   timeseries: number
-): SelectedWeatherData | null {
+): SelectedWeatherData {
   const data = getDestinationWeatherData(destinationName, point);
 
-  if (data == null) {
-    return null;
-  } else {
-    const airTemperature =
-      data.properties.timeseries[timeseries].data.instant.details
-        .air_temperature;
-    const windSpeed =
-      data.properties.timeseries[timeseries].data.instant.details.wind_speed;
-    const symbolCode =
-      data.properties.timeseries[timeseries].data.next_1_hours.summary
-        .symbol_code;
+  let weatherData: SelectedWeatherData = {
+    destination: '',
+    temperature: 0,
+    windSpeed: 0,
+    symbolCode: '',
+  };
 
-    const weatherData: SelectedWeatherData = {
+  if (isValidWeatherData(data)) {
+    const dataPath = data.properties.timeseries[timeseries].data;
+    weatherData = {
       destination: destinationName,
-      temperature: airTemperature,
-      windSpeed: windSpeed,
-      symbolCode: symbolCode,
+      temperature: dataPath.instant.details.air_temperature,
+      windSpeed: dataPath.instant.details.wind_speed,
+      symbolCode: dataPath.next_1_hours.summary.symbol_code,
     };
-
-    return weatherData;
   }
+  return weatherData;
 }
