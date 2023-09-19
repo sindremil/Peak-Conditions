@@ -9,7 +9,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<LandingPage/>}/>
-        <Route path="/åre" element={<DestinationPage destination='åre'/>}/>
+        <Route path="/åre" element={<DestinationPage destination='Åre'/>}/>
         <Route path="/hemsedal" element={<DestinationPage destination='Hemsedal'/>}/>
         <Route path="/hafjell" element={<DestinationPage destination='Hafjell'/>}/>
         <Route path="/kvitfjell" element={<DestinationPage destination='Kvitfjell'/>}/>

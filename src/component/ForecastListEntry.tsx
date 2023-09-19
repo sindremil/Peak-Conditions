@@ -1,10 +1,16 @@
 import WeatherData from '../schemas/WeatherData';
 
-export default function ForecastListEntry(day: string, data: WeatherData) {
+export default function ForecastListEntry({
+  day,
+  data,
+}: {
+  day: string;
+  data: WeatherData;
+}) {
   const dataForDay = getDataForDay(day, data);
   const precipitationAmount = getPrecipitationAmount(dataForDay);
   return (
-    <tr key={day}>
+    <tr>
       <td>{day}</td>
       {createSymbols(getSymbolCodes(dataForDay))}
       <td>{getMaxTemperature(dataForDay)}</td>
@@ -106,6 +112,12 @@ function getSymbolCodes(dataForDay: WeatherData) {
       symbolCodes.push('');
     }
   }
+  if (symbolCodes.every((element) => element == '')) {
+    symbolCodes.pop();
+    symbolCodes.push(
+      dataForDay.properties.timeseries[0].data.next_6_hours.summary.symbol_code
+    );
+  }
 
   return symbolCodes;
 }
@@ -115,9 +127,9 @@ function createSymbols(symbolCodes: string[]) {
     <>
       {symbolCodes.map((symbolCode, index) => (
         <td key={index}>
-          {symbolCode && (
+          {symbolCode && typeof symbolCode === 'string' && (
             <img
-              src={'src/assets/weathericons/svg/' + symbolCode + '.svg'}
+              src={`src/assets/weathericons/svg/${symbolCode}.svg`}
               alt={`Weather icon for ${symbolCode}`}
             />
           )}

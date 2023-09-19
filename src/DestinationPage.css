@@ -1,0 +1,26 @@
+#wrapper {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#wrapper > section {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1000px;
+}
+#weatherNowContainer > div {
+    background-color: #406882;
+    border-radius: 20px;
+    margin: 20px;
+}
+
+#forecastListContainer {
+    background-color: #406882;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+  
