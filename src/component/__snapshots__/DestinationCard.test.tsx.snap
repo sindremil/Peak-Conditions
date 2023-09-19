@@ -1,0 +1,68 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`DestinationCard > DestinationCard snapshot 1`] = `
+<div
+  className="destinationCard"
+>
+  <div
+    className="imgContainer"
+  >
+    <img
+      alt="Åre"
+      className="destinationCardImg"
+      src="src/assets/destinationimages/Åre.jpg"
+    />
+    <img
+      alt="Favourite star"
+      className="favourite"
+      onClick={[Function]}
+      src="/src/assets/star1.svg"
+    />
+  </div>
+  <div
+    className="destinationNameContainer"
+  >
+    <p
+      className="destinationName"
+    >
+      Åre
+    </p>
+  </div>
+  <div
+    className="destinationInfoContainer"
+  >
+    <p
+      className="destinationTemp"
+    >
+      -3.7
+      °
+    </p>
+    <p
+      className="destinationWind"
+    >
+      12.1
+      m/s
+    </p>
+  </div>
+  <div
+    className="destinationSymbol"
+  >
+    <img
+      className="weatherIcon"
+      src="src/assets/weathericons/svg/heavyrainandthunder.svg"
+    />
+  </div>
+  <a
+    className="details"
+    href="/åre"
+    onClick={[Function]}
+  >
+    <hr
+      className="destinationCardDivider"
+    />
+    <p>
+      Detaljer
+    </p>
+  </a>
+</div>
+`;
