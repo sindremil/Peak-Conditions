@@ -11,7 +11,7 @@ export default function ForecastListEntry({
   const precipitationAmount = getPrecipitationAmount(dataForDay);
   return (
     <tr>
-      <td>{day}</td>
+      <td>{formatDate(new Date(day))}</td>
       {createSymbols(getSymbolCodes(dataForDay))}
       <td>{getMaxTemperature(dataForDay)}</td>
       <td>{getMinTemperature(dataForDay)}</td>
@@ -128,7 +128,7 @@ function createSymbols(symbolCodes: string[]) {
       {symbolCodes.map((symbolCode, index) => (
         <td key={index}>
           {symbolCode && typeof symbolCode === 'string' && (
-            <img
+            <img className="symbolCodes"
               src={`src/assets/weathericons/svg/${symbolCode}.svg`}
               alt={`Weather icon for ${symbolCode}`}
             />
@@ -138,4 +138,13 @@ function createSymbols(symbolCodes: string[]) {
       ))}
     </>
   );
+}
+
+function formatDate(date: Date) {
+  const options: Intl.DateTimeFormatOptions = {
+    weekday: 'short',
+    day: '2-digit',
+    month: 'short',
+  };
+  return date.toLocaleDateString(undefined, options);
 }

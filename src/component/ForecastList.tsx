@@ -31,9 +31,9 @@ export default function ForecastList({
   }
 
   return (
-    <div key={crypto.randomUUID()}>
+    <div id="forecastListWrapper" key={destination + point}>
       <table>
-        <thead>
+        <thead id="forecastListTableHead">
           <tr>
             <th>Dato</th>
             <th>Natt</th>

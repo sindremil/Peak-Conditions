@@ -1,13 +1,13 @@
-div {
+#forecastListWrapper {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-th {
+#forecastListTableHead > * {
     padding: 5px;
 }
 
-img {
+.symbolCodes {
     max-width: 50px;
 }
