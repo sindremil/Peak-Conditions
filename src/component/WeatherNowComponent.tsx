@@ -27,15 +27,15 @@ export default function WeatherNowComponent({
 }) {
   const weatherNowData = getWeatherNow(destination, point, data);
   return (
-    <section
+    <section id='weatherNowCard'
       key={destination + point}
       onClick={() => handleWeatherComponentClick(point)}
     >
-      <header>
+      <header id='weatherNowHeader'>
         <h4>{weatherNowData.destination}</h4>
         <h4>{weatherNowData.altitude} moh.</h4>
       </header>
-      <summary>
+      <summary id='weatherNowSummary'>
         <img id="skyIcon" src={clearsky_day} alt="clear sky" />
         <div className="conditions">
           <div>
