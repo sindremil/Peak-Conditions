@@ -1,0 +1,28 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5vw;
+  width: 100vw;
+  z-index: 100;
+  background-color: #406882;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.logoImg {
+  margin-left: 45%;
+  width: 20vw;
+}
+
+@media (max-aspect-ratio: 3/4) {
+  .navbar {
+    height: 15vw;
+  }
+
+  .logoImg {
+    margin-left: 15%;
+    width: 45vw;
+  }
+}
