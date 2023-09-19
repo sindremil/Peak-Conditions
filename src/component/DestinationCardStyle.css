@@ -1,21 +1,6 @@
-/* Import external fonts */
-
-@font-face {
-  font-family: roboto-bold;
-  src: url(./../assets/Roboto-Bold.ttf)
-}
-
-@font-face {
-  font-family: roboto-regular;
-  src: url(./../assets/Roboto-Regular.ttf);
-}
-
-/* General styling */
-
 .destinationCard {
   width: 25vw;
   height: 35vw;
-  background-color: #406882;
   border-radius: 3vw;
   font-family: roboto-regular;
   overflow: hidden;

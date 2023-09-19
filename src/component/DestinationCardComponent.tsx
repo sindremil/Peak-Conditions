@@ -27,7 +27,7 @@ export default function DestinationCard({destination, temperature, windSpeed, sy
   }
 
   return (
-    <div className="destinationCard">
+    <div className={`${"card"} ${"destinationCard"}`}>
       <div className="imgContainer">
         <img className="destinationCardImg" src={destinationImgPath} alt={destination}/>
         <img className="favourite" onClick={handleFavorite} src={isFavourite ? favourite : notFavourite} alt="Favourite star"/>

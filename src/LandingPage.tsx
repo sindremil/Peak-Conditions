@@ -24,7 +24,7 @@ function renderCard(destinationName: string) {
 
   return (
 
-    <div key={crypto.randomUUID()} className="destinationCardContainer">
+    <div key={crypto.randomUUID()}>
       <DestinationCard
         destination={weatherData.destination}
         temperature={weatherData.temperature}
