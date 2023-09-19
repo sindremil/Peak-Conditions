@@ -28,6 +28,7 @@ export const useWeatherData = (destinationPoint: DestinationPoint) => {
     [destinationPoint], // Pass destinationPoint as part of the query key
     () => fetchWeatherData(destinationPoint),
     {
+      staleTime: 30 * 60 * 1000, // Stale time set to 30 minutes, as described in ToS https://docs.api.met.no/doc/TermsOfService.html
       enabled: !!destinationPoint, // Enable the query when destinationPoint is truthy
     }
   );
