@@ -59,26 +59,28 @@ export default function LandingPage() {
   }
 
   return (
-    <div className="content">
+    <>
       <FilterComponent
         showFavourites={showFavourites}
         handleShowFavourites={handleShowFavourites}
         sortBy={sortBy}
         handleSorting={handleSortBy}
       />
-      {destinationList.map((destination) => (
-        // Conditionally set the style to display "none" if destination is in array2 but not in array1
-        <div
-          key={destination}
-          className="destinationCardContainer"
-          style={{
-            display:
-              showFavourites && !getFavouritesArray().includes(destination) ? "none" : "block",
-          }}
-        >
-          {renderCard(destination)}
-        </div>
-      ))}
-    </div>
+      <div className="content">
+        {destinationList.map((destination) => (
+          // Conditionally set the style to display "none" if destination is in array2 but not in array1
+          <div
+            key={destination}
+            className="destinationCardContainer"
+            style={{
+              display:
+                showFavourites && !getFavouritesArray().includes(destination) ? "none" : "block",
+            }}
+          >
+            {renderCard(destination)}
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
