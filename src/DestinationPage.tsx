@@ -1,24 +1,68 @@
+import { useState } from 'react';
+import ForecastList from './component/ForecastList';
 import WeatherNowComponent from './component/WeatherNowComponent';
+import getDestinationWeatherData from './utils/getDestinationWeatherData';
+import isValidWeatherData from './utils/isValidWeatherData';
+import './DestinationPage.css';
 
-interface Props {
+export default function DestinationPage({
+  destination,
+}: {
   destination: string;
-}
+}) {
+  const points: number[] = [0, 1, 2];
+  const [selectedPoint, setSelectedPoint] = useState(0);
 
-function renderWeatherNowComponents(destination: string, count: number) {
-  const weatherComponents = [];
-
-  for (let i = 0; i < count; i++) {
-    weatherComponents.push(WeatherNowComponent(destination, i));
+  function handleWeatherComponentClick(point: number) {
+    setSelectedPoint(point);
   }
 
-  return weatherComponents;
-}
+  function renderWeatherNowComponent(destination: string, point: number) {
+    const weatherData = getDestinationWeatherData(destination, point);
+    if (isValidWeatherData(weatherData)) {
+      return (
+        <div key={destination + point}>
+          <WeatherNowComponent
+            destination={destination}
+            point={point}
+            data={weatherData}
+            handleWeatherComponentClick={handleWeatherComponentClick}
+          />
+        </div>
+      );
+    }
+  }
 
-export default function DestinationPage({ destination }: Props) {
+  function renderForecastLists(destination: string, points: number[]) {
+    const forecastList = [];
+    for (let point = 0; point < points.length; point++) {
+      forecastList.push(
+        <div
+          key={destination + point}
+          style={{
+            display: selectedPoint == point ? 'block' : 'none',
+          }}
+        >
+          <ForecastList
+            key={destination + point}
+            destination={destination}
+            point={point}
+          />
+        </div>
+      );
+    }
+    return forecastList;
+  }
+
   return (
-    <>
+    <div id="wrapper">
       <h1>{destination}</h1>
-      {renderWeatherNowComponents(destination, 3)}
-    </>
+      <section id="weatherNowContainer">
+        {points.map((point) => renderWeatherNowComponent(destination, point))}
+      </section>
+      <section id="forecastListContainer">
+        <div>{renderForecastLists(destination, points)}</div>
+      </section>
+    </div>
   );
 }

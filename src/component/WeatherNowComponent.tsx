@@ -3,9 +3,8 @@ import thermotstat from './../assets/weahterNowComponent/thermostat.svg';
 import waterDrop from './../assets/weahterNowComponent/waterDrop.svg';
 import wind from './../assets/weahterNowComponent/wind.svg';
 import './WeatherNowStyle.css';
-import getDestinationWeatherData from '../utils/getDestinationWeatherData';
 import { PointFinder } from '../api/FetchWeatherData';
-import isValidWeatherData from '../utils/isValidWeatherData';
+import WeatherData from '../schemas/WeatherData';
 
 interface WeatherNowData {
   destination: string;
@@ -15,13 +14,23 @@ interface WeatherNowData {
   altitude: number;
 }
 
-export default function WeatherNowComponent(
-  destination: string,
-  point: number
-) {
-  const weatherNowData = getWeatherNow(destination, point);
+export default function WeatherNowComponent({
+  destination,
+  point,
+  data,
+  handleWeatherComponentClick,
+}: {
+  destination: string;
+  point: number;
+  data: WeatherData;
+  handleWeatherComponentClick: (point: number) => void;
+}) {
+  const weatherNowData = getWeatherNow(destination, point, data);
   return (
-    <section key={crypto.randomUUID()}>
+    <section
+      key={destination + point}
+      onClick={() => handleWeatherComponentClick(point)}
+    >
       <header>
         <h4>{weatherNowData.destination}</h4>
         <h4>{weatherNowData.altitude} moh.</h4>
@@ -57,29 +66,19 @@ export default function WeatherNowComponent(
 
 function getWeatherNow(
   destination: string,
-  pointIndex: number
+  pointIndex: number,
+  weatherData: WeatherData
 ): WeatherNowData {
-  const weatherData = getDestinationWeatherData(destination, pointIndex);
   const point = PointFinder({
     destination: destination,
     pointIndex: pointIndex,
   });
-  if (isValidWeatherData(weatherData)) {
-    const dataPath = weatherData.properties.timeseries[0].data;
-    return {
-      destination: point.name,
-      temperature: dataPath.instant.details.air_temperature,
-      precipitation: dataPath.next_1_hours.details.precipitation_amount,
-      windSpeed: dataPath.instant.details.wind_speed,
-      altitude: point.alt,
-    };
-  } else {
-    return {
-      destination: '',
-      temperature: 0,
-      precipitation: 0,
-      windSpeed: 0,
-      altitude: 0,
-    };
-  }
+  const dataPath = weatherData.properties.timeseries[0].data;
+  return {
+    destination: point.name,
+    temperature: dataPath.instant.details.air_temperature,
+    precipitation: dataPath.next_1_hours.details.precipitation_amount,
+    windSpeed: dataPath.instant.details.wind_speed,
+    altitude: point.alt,
+  };
 }

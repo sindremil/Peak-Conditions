@@ -1,21 +1,24 @@
 import './ForecastList.css';
-import getDestinationWeatherData from '../utils/getDestinationWeatherData';
 import ForecastListEntry from './ForecastListEntry';
 import WeatherData from '../schemas/WeatherData';
+import getDestinationWeatherData from '../utils/getDestinationWeatherData';
 import isValidWeatherData from '../utils/isValidWeatherData';
 
-export default function ForecastList(destination: string, point: number) {
-  destination = 'Åre';
-  point = 0;
+export default function ForecastList({
+  destination,
+  point,
+}: {
+  destination: string;
+  point: number;
+}) {
   const daysArray: Date[] = [];
-
-  const data = getDestinationWeatherData(destination, point);
-
-  // Check if data is defined and timeseries array has elements
-  if (isValidWeatherData(data)) {
-    const firstDayString = data.properties.timeseries[0].time;
+  const weatherData = getDestinationWeatherData(destination, point);
+  if (isValidWeatherData(weatherData)) {
+    const firstDayString = weatherData.properties.timeseries[0].time;
     const lastDayString =
-      data.properties.timeseries[data.properties.timeseries.length - 1].time;
+      weatherData.properties.timeseries[
+        weatherData.properties.timeseries.length - 1
+      ].time;
 
     const firstDay = new Date(firstDayString);
     const currentDay = firstDay;
@@ -25,30 +28,27 @@ export default function ForecastList(destination: string, point: number) {
       daysArray.push(new Date(currentDay)); // Create a new Date object
       currentDay.setDate(currentDay.getDate() + 1);
     }
-  } else {
-    // Handle the case where data or timeseries[0].time is undefined
-    console.log('Data or timeseries[0].time is undefined');
   }
 
   return (
-    <div>
+    <div key={crypto.randomUUID()}>
       <table>
         <thead>
           <tr>
-            <th>Date</th>
-            <th>Morning</th>
-            <th>Afternoon</th>
-            <th>Evening</th>
-            <th>Night</th>
-            <th>Max Temperature</th>
-            <th>Min Temperature</th>
-            <th>Precipitation Amount</th>
-            <th>Avg Wind Speed</th>
+            <th>Dato</th>
+            <th>Natt</th>
+            <th>Morgen</th>
+            <th>Ettermiddag</th>
+            <th>Kveld</th>
+            <th>Maks temperatur</th>
+            <th>Min temperatur</th>
+            <th>Nedbør</th>
+            <th>Vind</th>
           </tr>
         </thead>
         <tbody>
           {daysArray.map((day) =>
-            renderEntry(day.toISOString().slice(0, 10), data)
+            renderEntry(day.toISOString().slice(0, 10), weatherData)
           )}
         </tbody>
       </table>
@@ -57,5 +57,5 @@ export default function ForecastList(destination: string, point: number) {
 }
 
 function renderEntry(day: string, data: WeatherData) {
-  return ForecastListEntry(day, data);
+  return <ForecastListEntry key={day} day={day} data={data} />;
 }
