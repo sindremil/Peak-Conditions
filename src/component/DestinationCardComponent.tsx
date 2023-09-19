@@ -11,11 +11,10 @@ interface DestinationCardProps extends SelectedWeatherData {
 
 export default function DestinationCard({destination, temperature, windSpeed, symbolCode, isLocalStorageFavourite}: DestinationCardProps) {
 
+  const [isFavourite, setIsFavorite] = useState(isLocalStorageFavourite);
   
   const destinationImgPath: string = "src/assets/destinationimages/" + destination + ".jpg"
   const symbolImgPath: string = "src/assets/weathericons/svg/" + symbolCode + ".svg"
-
-  const [isFavourite, setIsFavorite] = useState(isLocalStorageFavourite);
 
   function handleFavorite() {
     setIsFavorite(!isFavourite);
