@@ -55,7 +55,7 @@ export default function DestinationPage({
   }
 
   return (
-    <div id="wrapper">
+    <div id="DestinationPageWrapper">
       <h1>{destination}</h1>
       <section id="weatherNowContainer">
         {points.map((point) => renderWeatherNowComponent(destination, point))}

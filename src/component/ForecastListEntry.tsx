@@ -128,7 +128,7 @@ function createSymbols(symbolCodes: string[]) {
       {symbolCodes.map((symbolCode, index) => (
         <td key={index}>
           {symbolCode && typeof symbolCode === 'string' && (
-            <img
+            <img className="symbolCodes"
               src={`src/assets/weathericons/svg/${symbolCode}.svg`}
               alt={`Weather icon for ${symbolCode}`}
             />
