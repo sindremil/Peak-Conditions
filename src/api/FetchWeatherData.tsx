@@ -5,7 +5,7 @@ import DestinationPoint from "../schemas/DestinationPoint";
 import Point from "../schemas/Point";
 import destinationsJson from "../configs/destinations.json";
 
-const fetchWeatherData = async (DestinationPoint: DestinationPoint) => {
+export const fetchWeatherData = async (DestinationPoint: DestinationPoint) => {
   const point: Point = PointFinder(DestinationPoint);
   const query: string = PointParser(point);
   const response = await fetch(query, {

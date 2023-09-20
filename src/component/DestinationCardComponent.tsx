@@ -5,7 +5,7 @@ import SelectedWeatherData from "../schemas/SelectedWeatherData";
 import { Link } from "react-router-dom";
 import { addFavourite, removeFavourite } from "../utils/favourite";
 
-interface DestinationCardProps extends SelectedWeatherData {
+export interface DestinationCardProps extends SelectedWeatherData {
   isLocalStorageFavourite: boolean;
 }
 
