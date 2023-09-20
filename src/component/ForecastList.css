@@ -2,10 +2,8 @@
   display: flex;
     align-items: center;
     justify-content: center;
+    margin: 3px;
     padding: 2px;
-}
-
-.tableHeader {
 }
 
 .symbolCodes{
@@ -19,21 +17,6 @@
   text-align: center;
   justify-content: center;
   padding: 5px;
-}
-
-#forecastListTableHeader {
-
-}
-
-#forecastListTableBody {
-
-}
-
-.forecastListDay {
-
-}
-
-.forecastListDataNumbers {
 }
 
 .hide {
