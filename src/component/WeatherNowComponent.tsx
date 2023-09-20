@@ -1,4 +1,3 @@
-import clearsky_day from './../assets/weathericons/svg/clearsky_day.svg';
 import thermotstat from './../assets/weahterNowComponent/thermostat.svg';
 import waterDrop from './../assets/weahterNowComponent/waterDrop.svg';
 import wind from './../assets/weahterNowComponent/wind.svg';
@@ -37,7 +36,7 @@ export default function WeatherNowComponent({
         <h4>{weatherNowData.altitude} moh.</h4>
       </header>
       <summary id='weatherNowSummary'>
-        <img id="skyIcon" src={`src/assets/weathericons/svg/${weatherNowData.symbolCode}.svg`}
+        <img id="skyIcon" src={`https://raw.githubusercontent.com/metno/weathericons/89e3173756248b4696b9b10677b66c4ef435db53/weather/svg/${weatherNowData.symbolCode}.svg`}
               alt={`Weather icon for ${weatherNowData.symbolCode}`} />
         <div className="conditions">
           <div>

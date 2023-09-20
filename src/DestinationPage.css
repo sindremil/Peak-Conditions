@@ -7,6 +7,7 @@
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 5%
 }
 
 #DestinationPageWrapper > h1 {
@@ -28,4 +29,10 @@
 
 #forecastListContainer {
     background-color: #406882;
+}
+
+@media (max-aspect-ratio: 3/4) {
+  #DestinationPageWrapper {
+    margin-top: 20%;
+  }
 }

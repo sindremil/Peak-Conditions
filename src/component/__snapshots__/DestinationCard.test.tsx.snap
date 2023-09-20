@@ -16,7 +16,7 @@ exports[`DestinationCard > DestinationCard snapshot 1`] = `
       alt="Favourite star"
       className="favourite"
       onClick={[Function]}
-      src="/src/assets/star1.svg"
+      src="/project1/src/assets/star1.svg"
     />
   </div>
   <div
@@ -49,7 +49,7 @@ exports[`DestinationCard > DestinationCard snapshot 1`] = `
   >
     <img
       className="weatherIcon"
-      src="src/assets/weathericons/svg/heavyrainandthunder.svg"
+      src="https://raw.githubusercontent.com/metno/weathericons/89e3173756248b4696b9b10677b66c4ef435db53/weather/svg/heavyrainandthunder.svg"
     />
   </div>
   <a
