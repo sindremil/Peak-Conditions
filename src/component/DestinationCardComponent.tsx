@@ -14,7 +14,7 @@ export default function DestinationCard({destination, temperature, windSpeed, sy
   const [isFavourite, setIsFavorite] = useState(isLocalStorageFavourite);
   
   const destinationImgPath: string = "src/assets/destinationimages/" + destination + ".jpg"
-  const symbolImgPath: string = "src/assets/weathericons/svg/" + symbolCode + ".svg"
+  const symbolImgPath: string = "https://raw.githubusercontent.com/metno/weathericons/89e3173756248b4696b9b10677b66c4ef435db53/weather/svg/" + symbolCode + ".svg"
 
   function handleFavorite() {
     setIsFavorite(!isFavourite);

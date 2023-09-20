@@ -141,7 +141,7 @@ function createSymbols(symbolCodes: string[], count: number) {
           {symbolCode && typeof symbolCode === 'string' && (
             <img
               className="symbolCodes"
-              src={`src/assets/weathericons/svg/${symbolCode}.svg`}
+              src={`https://raw.githubusercontent.com/metno/weathericons/89e3173756248b4696b9b10677b66c4ef435db53/weather/svg/${symbolCode}.svg`}
               alt={`Weather icon for ${symbolCode}`}
             />
           )}
