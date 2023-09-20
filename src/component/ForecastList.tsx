@@ -32,26 +32,25 @@ export default function ForecastList({
 
   return (
     <div id="forecastListWrapper" key={destination + point}>
-      <table>
-        <thead id="forecastListTableHead">
-          <tr>
-            <th>Dato</th>
-            <th>Natt</th>
-            <th>Morgen</th>
-            <th>Ettermiddag</th>
-            <th>Kveld</th>
-            <th>Maks temperatur</th>
-            <th>Min temperatur</th>
-            <th>Nedbør</th>
-            <th>Vind</th>
-          </tr>
-        </thead>
-        <tbody>
+      <div id="forecastListTable">
+        <div id="forecastListTableHeader">
+            <div className='tableHeader'>Dato</div>
+            <div className='tableHeader'>Natt</div>
+            <div className='tableHeader'>Morgen</div>
+            <div className='tableHeader'>Ettermiddag</div>
+            <div className='tableHeader'>Kveld</div>
+            <div className='tableHeader showOnSmall'>Vær</div>
+            <div className='tableHeader hideOnSmall'>Maks temperatur</div>
+            <div className='tableHeader hideOnSmall'>Min temperatur</div>
+            <div className='tableHeader hideOnSmall'>Nedbør</div>
+            <div className='tableHeader hideOnSmall'>Vind</div>
+        </div>
+        <tbody id="forecastListTableBody">
           {daysArray.map((day) =>
             renderEntry(day.toISOString().slice(0, 10), weatherData)
           )}
         </tbody>
-      </table>
+      </div>
     </div>
   );
 }

@@ -39,8 +39,10 @@ export default function DestinationPage({
       forecastList.push(
         <div
           key={destination + point}
+          className='forecastListDisplay'
           style={{
-            display: selectedPoint == point ? 'block' : 'none',
+            display: selectedPoint == point ? 'flex' : 'none',
+            flex: 1,
           }}
         >
           <ForecastList
@@ -61,7 +63,7 @@ export default function DestinationPage({
         {points.map((point) => renderWeatherNowComponent(destination, point))}
       </section>
       <section id="forecastListContainer">
-        <div>{renderForecastLists(destination, points)}</div>
+        {renderForecastLists(destination, points)}
       </section>
     </div>
   );

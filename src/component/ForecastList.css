@@ -2,12 +2,185 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-}
-
-#forecastListTableHead > * {
-    padding: 5px;
+    flex: 1;
+    width: 100%;
 }
 
 .symbolCodes {
-    max-width: 50px;
+    min-width: 10px;
+    max-width: 70px;
+}
+
+#forecastListTable {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex: 1;
+}
+
+#forecastListTableHeader {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+#forecastListTableBody {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.tableRow, .tableHeader, .tableData {
+    width: 100%;
+}
+
+.tableRow {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.tableHeader, .tableData {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc; /* Optional: Add borders for visual separation */
+    word-wrap: break-word;
+}
+
+.showOnSmall {
+    display: none;
+}
+
+.forecastListSymbols, .forecastListDataNumbers {
+    display: flex;
+    flex-direction: row;
+}
+
+.forecastListDate {
+    width: 20%;
+}
+
+.forecastListSymbols, .forecastListDataNumbers {
+    width: 50%;
+}
+
+@media (max-width: 1500px) {
+    .tableHeader, .tableData {
+        min-width: 70px;
+        max-width: 70px;
+    }
+}
+@media (max-width: 1350px) {
+    .tableHeader, .tableData {
+        min-width: 65px;
+        max-width: 65px;
+    }
+}
+
+@media (max-width: 1250px) {
+    .tableHeader, .tableData {
+        min-width: 60px;
+        max-width: 60px;
+    }
+}
+
+
+@media (max-width: 1165px) {
+    .tableHeader, .tableData {
+        padding: 15px;
+    }
+}
+
+
+@media (max-width: 1050px) {
+    .tableHeader, .tableData {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 950px) {
+    .tableHeader, .tableData {
+        min-width: 55px;
+        max-width: 55px;
+        padding: 7px;
+    }
+}
+
+
+@media (max-width: 872px) {
+    .tableHeader, .tableData {
+        min-width: 50px;
+        max-width: 50px;
+        padding: 5px;
+    }
+}
+
+@media (max-width: 720px) {
+    .showOnSmall {
+        display: flex;
+        justify-content: center;
+    }
+
+    .hideOnSmall {
+        display: none;
+    }
+
+    .forecastListDataNumbers {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    .tableHeader, .tableData {
+        min-width: 70px;
+        max-width: 70px;
+    }
+
+    .showOnSmall, .forecastListDataNumbers, .forecastListDataNumbers > .tableData {
+        min-width: 100px;
+    }
+}
+
+@media (max-width: 560px) {
+    .symbolCodes {
+        min-width: 40px;
+        max-width: 40px;
+    }
+
+    .tableHeader, .tableData {
+        min-width: 55px;
+        max-width: 55px;
+    }
+
+    .tableHeader:not(.hideOnSmall) {
+        display:inline;
+    }
+
+    .showOnSmall, .forecastListDataNumbers, .forecastListDataNumbers > .tableData {
+        min-width: 100px;
+    }
+}
+
+@media (max-width: 500px) {
+    .showOnSmall, .forecastListDataNumbers, .forecastListDataNumbers > .tableData {
+        min-width: 60px;
+    }
+}
+
+@media (max-width: 450px) {
+    #forecastListWrapper * {
+        font-size: 12px;
+    }
+
+    .tableHeader, .tableData {
+        min-width: 40px;
+        max-width: 40px;
+    }
+
+    .showOnSmall, .forecastListDataNumbers, .forecastListDataNumbers > .tableData {
+        min-width: 30px;
+    }
 }
