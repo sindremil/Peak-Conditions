@@ -12,12 +12,12 @@ function renderCard(destinationName: string) {
 
   if (!getSelectedWeatherData) {
 
-    return <p key={crypto.randomUUID()}>Error or loading</p>;
+    return <p key={Math.random().toString(36).substring(2, 10)}>Error or loading</p>;
   }
 
   return (
 
-    <div key={crypto.randomUUID()}>
+    <div key={Math.random().toString(36).substring(2, 10)}>
       <DestinationCard
         destination={weatherData.destination}
         temperature={weatherData.temperature}
