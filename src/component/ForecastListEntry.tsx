@@ -10,12 +10,11 @@ export default function ForecastListEntry({
   const dataForDay = getDataForDay(day, data);
   const precipitationAmount = getPrecipitationAmount(dataForDay);
   return (
-    <>
-      <div className="tableData forecastListDate">
-        {formatDate(new Date(day))}
-      </div>
-      <div className='forecastListSymbols'>{createSymbols(getSymbolCodes(dataForDay))}</div>
+    <div className='forecastListDay'>
       <div className="forecastListDataNumbers">
+        <div className="tableData forecastListDate">
+          {formatDate(new Date(day))}
+        </div>
         <div className="tableData">{getMaxTemperature(dataForDay)}°</div>
         <div className="tableData">{getMinTemperature(dataForDay)}°</div>
         <div className="tableData">
@@ -23,7 +22,8 @@ export default function ForecastListEntry({
         </div>
         <div className="tableData">{getAvgWindSpeed(dataForDay)} m/s</div>
       </div>
-    </>
+      <div className='forecastListSymbols'>{createSymbols(getSymbolCodes(dataForDay))}</div>
+    </div>
   );
 }
 

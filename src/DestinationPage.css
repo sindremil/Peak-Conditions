@@ -28,12 +28,5 @@
 
 #forecastListContainer {
     display: flex;
-    flex: 1;
     background-color: #406882;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#forecastListContainer, .forecastListDisplay, #forecastListWrapper {
-    width: 100%;
 }

@@ -34,22 +34,22 @@ export default function ForecastList({
     <div id="forecastListWrapper" key={destination + point}>
       <div id="forecastListTable">
         <div id="forecastListTableHeader">
-            <div className='tableHeader'>Dato</div>
-            <div className='tableHeader'>Natt</div>
-            <div className='tableHeader'>Morgen</div>
-            <div className='tableHeader'>Ettermiddag</div>
-            <div className='tableHeader'>Kveld</div>
-            <div className='tableHeader showOnSmall'>Vær</div>
-            <div className='tableHeader hideOnSmall'>Maks temperatur</div>
-            <div className='tableHeader hideOnSmall'>Min temperatur</div>
-            <div className='tableHeader hideOnSmall'>Nedbør</div>
-            <div className='tableHeader hideOnSmall'>Vind</div>
+            <div className={`${"tableHeader"} ${"hide"}`}>Dato</div>
+            <div className={`${"tableHeader"} ${"hide"}`}>Maks temperatur</div>
+            <div className={`${"tableHeader"} ${"hide"}`}>Min temperatur</div>
+            <div className={`${"tableHeader"} ${"hide"}`}>Nedbør</div>
+            <div className={`${"tableHeader"} ${"hide"}`}>Vind</div>
+            <div className={`${"tableHeader"}`}>Vær</div>
+            <div className={`${"tableHeader"}`}>Natt</div>
+            <div className={`${"tableHeader"}`}>Morgen</div>
+            <div className={`${"tableHeader"}`}>Ettermiddag</div>
+            <div className={`${"tableHeader"}`}>Kveld</div>
         </div>
-        <tbody id="forecastListTableBody">
+        <div id="forecastListTableBody">
           {daysArray.map((day) =>
             renderEntry(day.toISOString().slice(0, 10), weatherData)
           )}
-        </tbody>
+        </div>
       </div>
     </div>
   );
