@@ -61,14 +61,16 @@ export default function LandingPage() {
   }
 
   return (
-    <>
-      <FilterComponent
-        showFavourites={showFavourites}
-        handleShowFavourites={handleShowFavourites}
-        sortBy={sortBy}
-        handleSorting={handleSortBy}
-      />
-      <div className="content">
+    <main className="landingPageContainer">
+      <aside className="filterContainer">
+        <FilterComponent
+          showFavourites={showFavourites}
+          handleShowFavourites={handleShowFavourites}
+          sortBy={sortBy}
+          handleSorting={handleSortBy}
+        />
+      </aside>
+      <section className="destinationCardsWrapper">
         {destinationList.map((destination) => (
           // Conditionally set the style to display "none" if destination is in array2 but not in array1
           <div
@@ -82,7 +84,7 @@ export default function LandingPage() {
             {renderCard(destination)}
           </div>
         ))}
-      </div>
-    </>
+      </section>
+    </main>
   );
 }
