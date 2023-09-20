@@ -1,9 +1,9 @@
 .landingPageContainer {
-  margin-top: 7.5%;
+  margin: 5% 6%;
   display: flex;
   justify-content: center;
   flex-direction: column;
-}
+} 
 
 .filterContainer {
   margin: 1.5%;
@@ -12,7 +12,7 @@
 .destinationCardsWrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: center;  
 }
 
 .destinationCardContainer {
@@ -21,7 +21,7 @@
 
 @media (max-aspect-ratio: 3/4) {
   .landingPageContainer {
-    margin-top: 20%;
+    margin: 20% 0 0 0;
   }
   
 }

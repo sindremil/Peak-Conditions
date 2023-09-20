@@ -12,7 +12,10 @@ export default function FilterComponent({showFavourites, handleShowFavourites, s
 
   return (
     <div className={`${"card"} ${"filterCard"}`}>
-      <label>Sorter etter
+      <div>
+        <label>
+          Sorter etter
+        </label>
         <select 
           name="sortBy" 
           id="sortBy"
@@ -20,19 +23,22 @@ export default function FilterComponent({showFavourites, handleShowFavourites, s
           value={sortBy}
         >
             <option value="lexicographic">Alfabetisk</option>
-            <option value="reverseLexicographic">Reverste alfabetisk</option>
+            <option value="reverseLexicographic">Reversert alfabetisk</option>
         </select>
-      </label>
-      <label className='showFavouritesCheckbox'>
-        Vis favoritter
+      </div>
+      <div>
+        <label>
+          Vis favoritter
+        </label>
         <input
+          className='showFavouritesCheckbox'
           type="checkbox"
           name="showFavourites"
           id="showFavourites"
           checked={showFavourites}
           onChange={handleShowFavourites}
         />
-      </label>
-    </div>
+        </div>
+      </div>
   );
 }
