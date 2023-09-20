@@ -18,6 +18,8 @@ Peak Conditions vil aldri sende flere requests til meteorologisk institutts API 
 
 ## Hva som er testet
 
+Ettersom dekningsgrad ikke var fokuset for P1, har vi bare testet en komponent. DestinationCardComponent har to normale komponent tester, og en snapshot test. Dataen er mocket slik at ingen API kall blir gjort. For å kjøre testene kjør 'npm test'.
+
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
