@@ -33,23 +33,23 @@ export default function ForecastList({
   return (
     <div id="forecastListWrapper" key={destination + point}>
       <div id="forecastListTable">
-            <div className={`${"tableHeader"}`}>Dato</div>
-            <div className={`${"tableHeader"} ${"hide"}`}>Maks temp.</div>
-            <div className={`${"tableHeader"} ${"hide"}`}>Min temp.</div>
-            <div className={`${"tableHeader"} ${"hide"}`}>Nedbør</div>
-            <div className={`${"tableHeader"} ${"hide"}`}>Vind</div>
-            <div className={`${"tableHeader"}`}>Natt</div>
-            <div className={`${"tableHeader"}`}>Morgen</div>
-            <div className={`${"tableHeader"}`}>Ettermiddag</div>
-            <div className={`${"tableHeader"}`}>Kveld</div>
-          {daysArray.map((day, index) =>
-            renderEntry(day.toISOString().slice(0, 10), weatherData, index)
-          )}
+        <div className={`${'tableHeader'}`}>Dato</div>
+        <div className={`${'tableHeader'} ${'hide'}`}>Maks temp.</div>
+        <div className={`${'tableHeader'} ${'hide'}`}>Min temp.</div>
+        <div className={`${'tableHeader'} ${'hide'}`}>Nedbør</div>
+        <div className={`${'tableHeader'} ${'hide'}`}>Vind</div>
+        <div className={`${'tableHeader'}`}>Natt</div>
+        <div className={`${'tableHeader'}`}>Morgen</div>
+        <div className={`${'tableHeader'}`}>Ettermiddag</div>
+        <div className={`${'tableHeader'}`}>Kveld</div>
+        {daysArray.map((day, index) =>
+          renderEntry(day.toISOString().slice(0, 10), weatherData, index)
+        )}
       </div>
     </div>
   );
 }
 
 function renderEntry(day: string, data: WeatherData, index: number) {
-  return <ForecastListEntry key={day} day={day} data={data} index={index}/>;
+  return <ForecastListEntry key={day} day={day} data={data} index={index} />;
 }

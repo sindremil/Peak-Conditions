@@ -21,7 +21,6 @@ const mockData: MockDestinationCardProps = {
 };
 
 describe('DestinationCard', () => {
-  
   it('Destination image is visible', () => {
     renderCard();
     const img = screen.getByRole('img', { name: 'Åre' });
@@ -50,19 +49,21 @@ describe('DestinationCard', () => {
   });
 
   it('DestinationCard snapshot', () => {
-    const tree = renderer.create(
-    <MemoryRouter>
-      <DestinationCard
-        destination={mockData.destination}
-        temperature={mockData.temperature}
-        windSpeed={mockData.windSpeed}
-        symbolCode={mockData.symbolCode}
-        isLocalStorageFavourite={mockData.isLocalStorageFavourite}
-      />
-    </MemoryRouter>)
-    .toJSON();
+    const tree = renderer
+      .create(
+        <MemoryRouter>
+          <DestinationCard
+            destination={mockData.destination}
+            temperature={mockData.temperature}
+            windSpeed={mockData.windSpeed}
+            symbolCode={mockData.symbolCode}
+            isLocalStorageFavourite={mockData.isLocalStorageFavourite}
+          />
+        </MemoryRouter>
+      )
+      .toJSON();
     expect(tree).toMatchSnapshot();
-  })
+  });
 });
 
 /* Renders a destination card with mock data */

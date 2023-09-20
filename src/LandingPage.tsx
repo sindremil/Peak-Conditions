@@ -11,12 +11,12 @@ function renderCard(destinationName: string) {
   const weatherData = getSelectedWeatherData(destinationName, 0, 0);
 
   if (!getSelectedWeatherData) {
-
-    return <p key={Math.random().toString(36).substring(2, 10)}>Error or loading</p>;
+    return (
+      <p key={Math.random().toString(36).substring(2, 10)}>Error or loading</p>
+    );
   }
 
   return (
-
     <div key={Math.random().toString(36).substring(2, 10)}>
       <DestinationCard
         destination={weatherData.destination}
@@ -30,26 +30,32 @@ function renderCard(destinationName: string) {
 }
 
 export default function LandingPage() {
+  const [showFavourites, setShowFavourites] = useState(
+    sessionStorage.getItem('showFavourites') === 'checked' ? true : false
+  );
+  const [sortBy, setSortBy] = useState(
+    sessionStorage.getItem('sortBy') || 'lexicographic'
+  );
 
-  const [showFavourites, setShowFavourites] = useState(sessionStorage.getItem("showFavourites") === "checked" ? true : false);
-  const [sortBy, setSortBy] = useState(sessionStorage.getItem("sortBy") || "lexicographic")
-  
   function handleShowFavourites() {
-    setShowFavourites(prevShowFavourites => !prevShowFavourites);
-    !showFavourites ? sessionStorage.setItem("showFavourites", "checked") : sessionStorage.setItem("showFavourites", "unchecked");
+    setShowFavourites((prevShowFavourites) => !prevShowFavourites);
+    !showFavourites
+      ? sessionStorage.setItem('showFavourites', 'checked')
+      : sessionStorage.setItem('showFavourites', 'unchecked');
   }
 
   //Gets the value of the option element in the FilterComponent's select element.
   function handleSortBy(event: React.ChangeEvent<HTMLSelectElement>) {
     setSortBy(event.target.value);
-    sortBy !== "lexicographic" ? sessionStorage.setItem("sortBy", "lexicographic") : sessionStorage.setItem("sortBy", "reverseLexicographic")
+    sortBy !== 'lexicographic'
+      ? sessionStorage.setItem('sortBy', 'lexicographic')
+      : sessionStorage.setItem('sortBy', 'reverseLexicographic');
   }
 
   let destinationList = getDestinationNames();
-  if (sortBy === "lexicographic") {
+  if (sortBy === 'lexicographic') {
     destinationList = destinationList.sort();
-  }
-  else {
+  } else {
     destinationList = destinationList.sort().reverse();
   }
 
@@ -71,7 +77,9 @@ export default function LandingPage() {
             className="destinationCardContainer"
             style={{
               display:
-                showFavourites && !getFavouritesArray().includes(destination) ? "none" : "block",
+                showFavourites && !getFavouritesArray().includes(destination)
+                  ? 'none'
+                  : 'block',
             }}
           >
             {renderCard(destination)}

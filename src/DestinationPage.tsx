@@ -39,7 +39,7 @@ export default function DestinationPage({
       forecastList.push(
         <div
           key={destination + point}
-          className='forecastListDisplay'
+          className="forecastListDisplay"
           style={{
             display: selectedPoint == point ? 'grid' : 'none',
           }}

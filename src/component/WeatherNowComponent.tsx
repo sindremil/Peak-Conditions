@@ -27,17 +27,21 @@ export default function WeatherNowComponent({
 }) {
   const weatherNowData = getWeatherNow(destination, point, data);
   return (
-    <section id='weatherNowCard'
+    <section
+      id="weatherNowCard"
       key={destination + point}
       onClick={() => handleWeatherComponentClick(point)}
     >
-      <header id='weatherNowHeader'>
+      <header id="weatherNowHeader">
         <h4>{weatherNowData.destination}</h4>
         <h4>{weatherNowData.altitude} moh.</h4>
       </header>
-      <summary id='weatherNowSummary'>
-        <img id="skyIcon" src={`https://raw.githubusercontent.com/metno/weathericons/89e3173756248b4696b9b10677b66c4ef435db53/weather/svg/${weatherNowData.symbolCode}.svg`}
-              alt={`Weather icon for ${weatherNowData.symbolCode}`} />
+      <summary id="weatherNowSummary">
+        <img
+          id="skyIcon"
+          src={`https://raw.githubusercontent.com/metno/weathericons/89e3173756248b4696b9b10677b66c4ef435db53/weather/svg/${weatherNowData.symbolCode}.svg`}
+          alt={`Weather icon for ${weatherNowData.symbolCode}`}
+        />
         <div className="conditions">
           <div>
             <img

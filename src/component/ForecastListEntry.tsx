@@ -3,7 +3,7 @@ import WeatherData from '../schemas/WeatherData';
 export default function ForecastListEntry({
   day,
   data,
-  index
+  index,
 }: {
   day: string;
   data: WeatherData;
@@ -13,17 +13,22 @@ export default function ForecastListEntry({
   const precipitationAmount = getPrecipitationAmount(dataForDay);
   return (
     <>
-
-        <div id={`tableData${index * 9}`} className="tableData forecastListDate">
-          {formatDate(new Date(day))}
-        </div>
-        <div className="tableData" id={`tableData${index * 9 + 1}`}>{getMaxTemperature(dataForDay)}°</div>
-        <div className="tableData" id={`tableData${index * 9 + 2}`}>{getMinTemperature(dataForDay)}°</div>
-        <div className="tableData" id={`tableData${index * 9 + 3}`}>
-          {precipitationAmount !== 0 ? precipitationAmount + ' mm' : '-'}
-        </div>
-        <div className="tableData" id={`tableData${index * 9 + 4}`}>{getAvgWindSpeed(dataForDay)} m/s</div>
-        {createSymbols(getSymbolCodes(dataForDay), index)}
+      <div id={`tableData${index * 9}`} className="tableData forecastListDate">
+        {formatDate(new Date(day))}
+      </div>
+      <div className="tableData" id={`tableData${index * 9 + 1}`}>
+        {getMaxTemperature(dataForDay)}°
+      </div>
+      <div className="tableData" id={`tableData${index * 9 + 2}`}>
+        {getMinTemperature(dataForDay)}°
+      </div>
+      <div className="tableData" id={`tableData${index * 9 + 3}`}>
+        {precipitationAmount !== 0 ? precipitationAmount + ' mm' : '-'}
+      </div>
+      <div className="tableData" id={`tableData${index * 9 + 4}`}>
+        {getAvgWindSpeed(dataForDay)} m/s
+      </div>
+      {createSymbols(getSymbolCodes(dataForDay), index)}
     </>
   );
 }
@@ -136,7 +141,7 @@ function createSymbols(symbolCodes: string[], count: number) {
         <div
           key={index}
           id={`tableData${9 * count + 5 + index}`}
-          className='tableData'
+          className="tableData"
         >
           {symbolCode && typeof symbolCode === 'string' && (
             <img

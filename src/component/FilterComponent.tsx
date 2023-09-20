@@ -1,4 +1,4 @@
-import './../component/FilterComponent.css'
+import './../component/FilterComponent.css';
 
 interface FilterComponentProps {
   showFavourites: boolean;
@@ -8,37 +8,37 @@ interface FilterComponentProps {
   handleSorting: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
-export default function FilterComponent({showFavourites, handleShowFavourites, sortBy, handleSorting}: FilterComponentProps) {
-
+export default function FilterComponent({
+  showFavourites,
+  handleShowFavourites,
+  sortBy,
+  handleSorting,
+}: FilterComponentProps) {
   return (
-    <div className={`${"card"} ${"filterCard"}`}>
+    <div className={`${'card'} ${'filterCard'}`}>
       <div>
-        <label>
-          Sorter etter
-        </label>
-        <select 
-          name="sortBy" 
+        <label>Sorter etter</label>
+        <select
+          name="sortBy"
           id="sortBy"
           onChange={handleSorting}
           value={sortBy}
         >
-            <option value="lexicographic">Alfabetisk</option>
-            <option value="reverseLexicographic">Reversert alfabetisk</option>
+          <option value="lexicographic">Alfabetisk</option>
+          <option value="reverseLexicographic">Reversert alfabetisk</option>
         </select>
       </div>
       <div>
-        <label>
-          Vis favoritter
-        </label>
+        <label>Vis favoritter</label>
         <input
-          className='showFavouritesCheckbox'
+          className="showFavouritesCheckbox"
           type="checkbox"
           name="showFavourites"
           id="showFavourites"
           checked={showFavourites}
           onChange={handleShowFavourites}
         />
-        </div>
       </div>
+    </div>
   );
 }
