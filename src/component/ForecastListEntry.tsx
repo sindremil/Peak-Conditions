@@ -3,26 +3,27 @@ import WeatherData from '../schemas/WeatherData';
 export default function ForecastListEntry({
   day,
   data,
+  index
 }: {
   day: string;
   data: WeatherData;
+  index: number;
 }) {
   const dataForDay = getDataForDay(day, data);
   const precipitationAmount = getPrecipitationAmount(dataForDay);
   return (
     <>
-      <div className="tableData forecastListDate">
-        {formatDate(new Date(day))}
-      </div>
-      <div className='forecastListSymbols'>{createSymbols(getSymbolCodes(dataForDay))}</div>
-      <div className="forecastListDataNumbers">
-        <div className="tableData">{getMaxTemperature(dataForDay)}°</div>
-        <div className="tableData">{getMinTemperature(dataForDay)}°</div>
-        <div className="tableData">
+
+        <div id={`tableData${index * 9}`} className="tableData forecastListDate">
+          {formatDate(new Date(day))}
+        </div>
+        <div className="tableData" id={`tableData${index * 9 + 1}`}>{getMaxTemperature(dataForDay)}°</div>
+        <div className="tableData" id={`tableData${index * 9 + 2}`}>{getMinTemperature(dataForDay)}°</div>
+        <div className="tableData" id={`tableData${index * 9 + 3}`}>
           {precipitationAmount !== 0 ? precipitationAmount + ' mm' : '-'}
         </div>
-        <div className="tableData">{getAvgWindSpeed(dataForDay)} m/s</div>
-      </div>
+        <div className="tableData" id={`tableData${index * 9 + 4}`}>{getAvgWindSpeed(dataForDay)} m/s</div>
+        {createSymbols(getSymbolCodes(dataForDay), index)}
     </>
   );
 }
@@ -128,14 +129,14 @@ function getSymbolCodes(dataForDay: WeatherData) {
   return symbolCodes;
 }
 
-function createSymbols(symbolCodes: string[]) {
-  const timesOfDay = ['Night', 'Morning', 'Afternoon', 'Evening'];
+function createSymbols(symbolCodes: string[], count: number) {
   return (
     <>
       {symbolCodes.map((symbolCode, index) => (
         <div
           key={index}
-          className={`tableData forecastList${timesOfDay[index]}`}
+          id={`tableData${9 * count + 5 + index}`}
+          className='tableData'
         >
           {symbolCode && typeof symbolCode === 'string' && (
             <img

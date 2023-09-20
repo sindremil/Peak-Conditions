@@ -33,28 +33,23 @@ export default function ForecastList({
   return (
     <div id="forecastListWrapper" key={destination + point}>
       <div id="forecastListTable">
-        <div id="forecastListTableHeader">
-            <div className='tableHeader'>Dato</div>
-            <div className='tableHeader'>Natt</div>
-            <div className='tableHeader'>Morgen</div>
-            <div className='tableHeader'>Ettermiddag</div>
-            <div className='tableHeader'>Kveld</div>
-            <div className='tableHeader showOnSmall'>Vær</div>
-            <div className='tableHeader hideOnSmall'>Maks temperatur</div>
-            <div className='tableHeader hideOnSmall'>Min temperatur</div>
-            <div className='tableHeader hideOnSmall'>Nedbør</div>
-            <div className='tableHeader hideOnSmall'>Vind</div>
-        </div>
-        <tbody id="forecastListTableBody">
-          {daysArray.map((day) =>
-            renderEntry(day.toISOString().slice(0, 10), weatherData)
+            <div className={`${"tableHeader"}`}>Dato</div>
+            <div className={`${"tableHeader"} ${"hide"}`}>Maks temp.</div>
+            <div className={`${"tableHeader"} ${"hide"}`}>Min temp.</div>
+            <div className={`${"tableHeader"} ${"hide"}`}>Nedbør</div>
+            <div className={`${"tableHeader"} ${"hide"}`}>Vind</div>
+            <div className={`${"tableHeader"}`}>Natt</div>
+            <div className={`${"tableHeader"}`}>Morgen</div>
+            <div className={`${"tableHeader"}`}>Ettermiddag</div>
+            <div className={`${"tableHeader"}`}>Kveld</div>
+          {daysArray.map((day, index) =>
+            renderEntry(day.toISOString().slice(0, 10), weatherData, index)
           )}
-        </tbody>
       </div>
     </div>
   );
 }
 
-function renderEntry(day: string, data: WeatherData) {
-  return <ForecastListEntry key={day} day={day} data={data} />;
+function renderEntry(day: string, data: WeatherData, index: number) {
+  return <ForecastListEntry key={day} day={day} data={data} index={index}/>;
 }
