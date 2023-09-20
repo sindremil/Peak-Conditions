@@ -41,8 +41,7 @@ export default function DestinationPage({
           key={destination + point}
           className='forecastListDisplay'
           style={{
-            display: selectedPoint == point ? 'flex' : 'none',
-            flex: 1,
+            display: selectedPoint == point ? 'grid' : 'none',
           }}
         >
           <ForecastList

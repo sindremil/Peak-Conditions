@@ -12,6 +12,7 @@ interface WeatherNowData {
   precipitation: number;
   windSpeed: number;
   altitude: number;
+  symbolCode: string;
 }
 
 export default function WeatherNowComponent({
@@ -36,7 +37,8 @@ export default function WeatherNowComponent({
         <h4>{weatherNowData.altitude} moh.</h4>
       </header>
       <summary id='weatherNowSummary'>
-        <img id="skyIcon" src={clearsky_day} alt="clear sky" />
+        <img id="skyIcon" src={`src/assets/weathericons/svg/${weatherNowData.symbolCode}.svg`}
+              alt={`Weather icon for ${weatherNowData.symbolCode}`} />
         <div className="conditions">
           <div>
             <img
@@ -80,5 +82,6 @@ function getWeatherNow(
     precipitation: dataPath.next_1_hours.details.precipitation_amount,
     windSpeed: dataPath.instant.details.wind_speed,
     altitude: point.alt,
+    symbolCode: dataPath.next_1_hours.summary.symbol_code,
   };
 }
