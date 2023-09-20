@@ -9,7 +9,7 @@ import getDestinationNames from './utils/getDestinationNames';
 function App() {
   const destinationList = getDestinationNames();
   return (
-    <Router>
+    <Router basename='/project1'>
       <Navbar/>
       <Routes>
         <Route path="/" element={<LandingPage/>}/>
