@@ -1,5 +1,16 @@
 # Peak Conditions
 
+## Viktig informasjon
+Det finnes to versjoner av appen. Den som er på virtual machine bruker samme bilde på alle destinasjoner. Hvis man kjører med npm run dev så vil man få de faktiske bildene.
+
+## Kjøring av appen
+
+For å kjøre appen i så må man skrive npm install og så npm run dev.
+
+## Beskrivelse av appen
+
+Peak Conditions skal gi brukere en bedre måte sjekek været på. Når man først går inn på siden så ser man destinasjoner og været på det laveste punktet til skistedet. Når man trykker på detaljer så får man været akuratt nå på tre punkter og et langtidsvarsel for det laveste punktet. Hvis man trykker på en av de to andre punktene så langtidsvarslet gjelde for det punktet.
+
 ## Valg vi har tatt
 
 Vi har antatt at man kan presantere ett og ett kort i en grid (en form for liste) der scorlling er muligheten til å bla seg frem eller tilbake. Man hopper til en spesifikk ressurs ved å trykke på 'detaljer' under kortet.
