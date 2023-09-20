@@ -95,7 +95,7 @@ p {
 @media (max-aspect-ratio: 3/4) {
 
   .destinationCard {
-    width: 90vw;
+    width: 100%;
     height: 126vw;
     border-radius: 10vw;
   }

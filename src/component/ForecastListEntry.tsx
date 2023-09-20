@@ -10,14 +10,20 @@ export default function ForecastListEntry({
   const dataForDay = getDataForDay(day, data);
   const precipitationAmount = getPrecipitationAmount(dataForDay);
   return (
-    <tr>
-      <td>{formatDate(new Date(day))}</td>
-      {createSymbols(getSymbolCodes(dataForDay))}
-      <td>{getMaxTemperature(dataForDay)}</td>
-      <td>{getMinTemperature(dataForDay)}</td>
-      <td>{precipitationAmount !== 0 ? precipitationAmount : '-'}</td>
-      <td>{getAvgWindSpeed(dataForDay)}</td>
-    </tr>
+    <>
+      <div className="tableData forecastListDate">
+        {formatDate(new Date(day))}
+      </div>
+      <div className='forecastListSymbols'>{createSymbols(getSymbolCodes(dataForDay))}</div>
+      <div className="forecastListDataNumbers">
+        <div className="tableData">{getMaxTemperature(dataForDay)}°</div>
+        <div className="tableData">{getMinTemperature(dataForDay)}°</div>
+        <div className="tableData">
+          {precipitationAmount !== 0 ? precipitationAmount + ' mm' : '-'}
+        </div>
+        <div className="tableData">{getAvgWindSpeed(dataForDay)} m/s</div>
+      </div>
+    </>
   );
 }
 
@@ -123,18 +129,23 @@ function getSymbolCodes(dataForDay: WeatherData) {
 }
 
 function createSymbols(symbolCodes: string[]) {
+  const timesOfDay = ['Night', 'Morning', 'Afternoon', 'Evening'];
   return (
     <>
       {symbolCodes.map((symbolCode, index) => (
-        <td key={index}>
+        <div
+          key={index}
+          className={`tableData forecastList${timesOfDay[index]}`}
+        >
           {symbolCode && typeof symbolCode === 'string' && (
-            <img className="symbolCodes"
+            <img
+              className="symbolCodes"
               src={`src/assets/weathericons/svg/${symbolCode}.svg`}
               alt={`Weather icon for ${symbolCode}`}
             />
           )}
-          {!symbolCode && <div style={{ width: '30px' }}></div>}
-        </td>
+          {!symbolCode && <div className="symbolCodes"></div>}
+        </div>
       ))}
     </>
   );
