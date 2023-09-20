@@ -10,7 +10,7 @@ exports[`DestinationCard > DestinationCard snapshot 1`] = `
     <img
       alt="Åre"
       className="destinationCardImg"
-      src="/project1/src/assets/destinationimages/åre.jpg"
+      src="src/assets/destinationimages/Åre.jpg"
     />
     <img
       alt="Favourite star"
