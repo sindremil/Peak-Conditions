@@ -1,3 +1,5 @@
+import './../component/FilterComponent.css'
+
 interface FilterComponentProps {
   showFavourites: boolean;
   handleShowFavourites: () => void;
@@ -9,20 +11,20 @@ interface FilterComponentProps {
 export default function FilterComponent({showFavourites, handleShowFavourites, sortBy, handleSorting}: FilterComponentProps) {
 
   return (
-    <div>
-      <label>Sort by:
+    <div className={`${"card"} ${"filterCard"}`}>
+      <label>Sorter etter
         <select 
           name="sortBy" 
           id="sortBy"
           onChange={handleSorting}
           value={sortBy}
         >
-            <option value="lexicographic">Alphbetical</option>
-            <option value="reverseLexicographic">Reverse alphabetical</option>
+            <option value="lexicographic">Alfabetisk</option>
+            <option value="reverseLexicographic">Reverste alfabetisk</option>
         </select>
       </label>
-      <label>
-        Show Favorites:
+      <label className='showFavouritesCheckbox'>
+        Vis favoritter
         <input
           type="checkbox"
           name="showFavourites"
