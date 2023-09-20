@@ -1,3 +1,4 @@
+import aare from './../assets/destinationimages/åre.jpg';
 import notFavourite from "./../assets/star1.svg";
 import favourite from "./../assets/star2.svg";
 import { useState } from "react";
@@ -13,7 +14,7 @@ export default function DestinationCard({destination, temperature, windSpeed, sy
 
   const [isFavourite, setIsFavorite] = useState(isLocalStorageFavourite);
   
-  const destinationImgPath: string = "src/assets/destinationimages/" + destination + ".jpg"
+  //const destinationImgPath: string = "src/assets/destinationimages/" + destination + ".jpg"
   const symbolImgPath: string = "https://raw.githubusercontent.com/metno/weathericons/89e3173756248b4696b9b10677b66c4ef435db53/weather/svg/" + symbolCode + ".svg"
 
   function handleFavorite() {
@@ -29,7 +30,7 @@ export default function DestinationCard({destination, temperature, windSpeed, sy
   return (
     <div className={`${"card"} ${"destinationCard"}`}>
       <div className="imgContainer">
-        <img className="destinationCardImg" src={destinationImgPath} alt={destination}/>
+        <img className="destinationCardImg" src={aare} alt={destination}/>
         <img className="favourite" onClick={handleFavorite} src={isFavourite ? favourite : notFavourite} alt="Favourite star"/>
       </div>
       <div className="destinationNameContainer">
