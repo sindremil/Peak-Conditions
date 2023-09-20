@@ -1,4 +1,4 @@
-import './App.css'
+import './global.css'
 import "./component/DestinationCardStyle.css"
 import LandingPage from './LandingPage'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";

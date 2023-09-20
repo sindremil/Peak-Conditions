@@ -1,27 +1,27 @@
-body {
-  background-color: #1A374D;
-  color: white;
+.landingPageContainer {
+  margin: 5% 6%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+} 
+
+.filterContainer {
+  margin: 1.5%;
 }
 
-.content {
-  margin-top: 5%;
+.destinationCardsWrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: center;  
 }
 
 .destinationCardContainer {
   margin: 1.5%;
-  border-radius: 3vw;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
 }
 
 @media (max-aspect-ratio: 3/4) {
-  .content {
-    margin-top: 20%;
+  .landingPageContainer {
+    margin: 20% 0 0 0;
   }
-
-  .destinationCardContainer {
-    border-radius: 10vw;
-  }
+  
 }
