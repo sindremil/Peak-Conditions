@@ -4,17 +4,18 @@ import LandingPage from './LandingPage'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import DestinationPage from './DestinationPage';
 import Navbar from './component/NavBar';
+import getDestinationNames from './utils/getDestinationNames';
 
 function App() {
+  const destinationList = getDestinationNames();
   return (
     <Router>
       <Navbar/>
       <Routes>
         <Route path="/" element={<LandingPage/>}/>
-        <Route path="/åre" element={<DestinationPage destination='Åre'/>}/>
-        <Route path="/hemsedal" element={<DestinationPage destination='Hemsedal'/>}/>
-        <Route path="/hafjell" element={<DestinationPage destination='Hafjell'/>}/>
-        <Route path="/kvitfjell" element={<DestinationPage destination='Kvitfjell'/>}/>
+        {destinationList.map((destination) => (
+          <Route key={destination} path={destination.toLowerCase()} element={<DestinationPage destination={destination}/>}/>
+        ))}
       </Routes>
     </Router>
   );

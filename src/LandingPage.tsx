@@ -3,16 +3,9 @@ import './LandingPage.css';
 import DestinationCard from './component/DestinationCardComponent';
 import { getSelectedWeatherData } from './utils/getDestinationWeatherData';
 import { getFavouritesArray, isFavourite } from './utils/favourite';
-import destinationsConfig from './configs/destinations.json';
 import FilterComponent from './component/FilterComponent';
 import { useState } from 'react';
-
-function getDestinationNames() {
-  const destinationNames = destinationsConfig.destinations.map(
-    (destination) => destination.name
-  );
-  return destinationNames;
-}
+import getDestinationNames from './utils/getDestinationNames';
 
 function renderCard(destinationName: string) {
   const weatherData = getSelectedWeatherData(destinationName, 0, 0);
