@@ -31,6 +31,15 @@ Peak Conditions vil aldri sende flere requests til meteorologisk institutts API 
 
 Ettersom dekningsgrad ikke var fokuset for P1, har vi bare testet en komponent. DestinationCardComponent har to normale komponent tester, og en snapshot test. Dataen er mocket slik at ingen API kall blir gjort. For å kjøre testene kjør 'npm test'.
 
+## Endringer fra første til andre vurdering
+
+- Fikset bug som gjorde at siden ikke hadde riktig font.
+- Fikset bug som gjorde at musepekeren ikke endret tilstand når den svevet over en klikkbar WeatherNow Componenet
+- Gjorde det enklere å se hvilket punkt langstidsvarslet tilhører
+- Endret fargene til iconene på WeatherNow componenten
+- La til favicon.
+- La til dynamisk document title som er basert på hvilke side man er på
+
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
