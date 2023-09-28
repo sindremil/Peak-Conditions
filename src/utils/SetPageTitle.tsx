@@ -9,7 +9,7 @@ const SetPageTitle: React.FC<SetTitleProps> = ({ title }) => {
   const location = useLocation();
 
   useEffect(() => {
-    document.title = `${title} | Peak Condtiions`;
+    document.title = `${title} | Peak Conditions`;
   }, [title, location.pathname]);
 
   return null; // SetPageTitle is a utility component, it doesn't render anything
