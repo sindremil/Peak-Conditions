@@ -1,4 +1,5 @@
 import './../component/FilterComponent.css';
+import Chip from './Chip';
 
 interface FilterComponentProps {
   showFavourites: boolean;
@@ -15,8 +16,13 @@ export default function FilterComponent({
   handleSorting,
 }: FilterComponentProps) {
   return (
-    <div className={`${'card'} ${'filterCard'}`}>
-      <div>
+    <div className={`${'filterCard'}`}>
+      <Chip
+        label={"Vis favoritter"}
+        selected={showFavourites}
+        onClick={handleShowFavourites}
+      ></Chip>
+      <div style={{display: "none"}}>
         <label>Sorter etter</label>
         <select
           name="sortBy"
@@ -27,17 +33,6 @@ export default function FilterComponent({
           <option value="lexicographic">Alfabetisk</option>
           <option value="reverseLexicographic">Reversert alfabetisk</option>
         </select>
-      </div>
-      <div>
-        <label>Vis favoritter</label>
-        <input
-          className="showFavouritesCheckbox"
-          type="checkbox"
-          name="showFavourites"
-          id="showFavourites"
-          checked={showFavourites}
-          onChange={handleShowFavourites}
-        />
       </div>
     </div>
   );
