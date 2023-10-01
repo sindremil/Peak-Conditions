@@ -37,6 +37,13 @@ Ettersom dekningsgrad ikke var fokuset for P1, har vi bare testet en komponent. 
 - Fikset bug som gjorde at musepekeren ikke endret tilstand når den svevet over en klikkbar WeatherNow Componenet
 - Gjorde det enklere å se hvilket punkt langstidsvarslet tilhører
 - Endret fargene til iconene på WeatherNow componenten
+
+## Expanding the ESLint configuration
+
+- Fikset bug som gjorde at siden ikke hadde riktig font.
+- Fikset bug som gjorde at musepekeren ikke endret tilstand når den svevet over en klikkbar WeatherNow Componenet
+- Gjorde det enklere å se hvilket punkt langstidsvarslet tilhører
+- Endret fargene til iconene på WeatherNow componenten
 - La til favicon.
 - La til dynamisk document title som er basert på hvilke side man er på
 - Endret navbar til å være position absolute fra position fixed
