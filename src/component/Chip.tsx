@@ -16,16 +16,18 @@ const Chip: React.FC<ChipProps> = ({ label, selected, onClick }) => {
   };
 
   return (
-    <button
-      className={`chip ${selected ? 'selected' : ''}`}
-      onClick={handleChipClick}
-      role="button"
-      tabIndex={0}
-      aria-label={label}
-    >
-      <img src={checkmark} alt="checkmark" className={`checkmark ${selected ? '' : 'hidden'}`}/>
-      <span className="chip-label">{label}</span>
-    </button>
+    <div className='chip-container'>
+      <button
+        className={`chip ${selected ? 'selected' : ''}`}
+        onClick={handleChipClick}
+        role="listbox"
+        tabIndex={0}
+        aria-label={label}
+      >
+        <img src={checkmark} alt="checkmark" className={`chipIcon ${selected ? '' : 'hidden'}`}/>
+        <span className="chip-label" id='favouritesChipLabel'>{label}</span>
+      </button>
+    </div>
   );
 };
 

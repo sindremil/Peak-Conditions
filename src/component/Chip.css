@@ -13,10 +13,10 @@
 }
 
 .hidden {
-  display: none;
+   visibility: hidden;
 }
 
-.checkmark {
+.chipIcon {
   height: 18px;
   margin-right: 4px;
 }
@@ -29,4 +29,38 @@
 .chip-label {
   font-size: 1rem;
   color: white;
+}
+
+.chip-container {
+  position: relative;
+  margin: 0 1vw;
+}
+
+#favouritesChipLabel {
+  padding-right: 22px;
+}
+
+.menu-items {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  color: black;
+  border: 2px solid white;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 8px;
+  margin: 0;
+  z-index: 1;
+}
+
+.menu-items li {
+  cursor: pointer;
+  padding: 8px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.menu-items li:hover {
+  background-color: lightgray;
 }

@@ -1,39 +1,51 @@
+// FilterComponent.tsx
+import React from 'react';
 import './../component/FilterComponent.css';
 import Chip from './Chip';
+import MenuChip from './MenuChip';
 
 interface FilterComponentProps {
   showFavourites: boolean;
   handleShowFavourites: () => void;
-
   sortBy: string;
-  handleSorting: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  handleSorting: (order: string) => void;
 }
 
-export default function FilterComponent({
+const FilterComponent: React.FC<FilterComponentProps> = ({
   showFavourites,
   handleShowFavourites,
   sortBy,
   handleSorting,
-}: FilterComponentProps) {
+}) => {
+  const menuItems = [
+    {
+      label: 'Stigende',
+      onClick: () => {
+        handleSorting("lexicographic")
+      },
+    },
+    {
+      label: 'Synkende',
+      onClick: () => {
+        handleSorting("reverseLexicographic")
+      },
+    },
+  ];
+
   return (
     <div className={`${'filterCard'}`}>
+      <MenuChip
+        label={sortBy}
+        selected={false}
+        menuItems={menuItems}
+      />
       <Chip
-        label={"Vis favoritter"}
+        label="Vis favoritter"
         selected={showFavourites}
         onClick={handleShowFavourites}
-      ></Chip>
-      <div style={{display: "none"}}>
-        <label>Sorter etter</label>
-        <select
-          name="sortBy"
-          id="sortBy"
-          onChange={handleSorting}
-          value={sortBy}
-        >
-          <option value="lexicographic">Alfabetisk</option>
-          <option value="reverseLexicographic">Reversert alfabetisk</option>
-        </select>
-      </div>
+      />
     </div>
   );
-}
+};
+
+export default FilterComponent;
