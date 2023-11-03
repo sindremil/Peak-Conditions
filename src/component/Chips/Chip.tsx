@@ -1,6 +1,6 @@
 import React from 'react';
 import './Chip.css';
-import checkmark from './../assets/checkmark.svg';
+import checkmark from '../../assets/checkmark.svg';
 
 interface ChipProps {
   label: string;

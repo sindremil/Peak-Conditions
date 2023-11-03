@@ -1,8 +1,8 @@
 import './ForecastList.css';
 import ForecastListEntry from './ForecastListEntry';
-import WeatherData from '../schemas/WeatherData';
-import getDestinationWeatherData from '../utils/getDestinationWeatherData';
-import isValidWeatherData from '../utils/isValidWeatherData';
+import WeatherData from '../../schemas/WeatherData';
+import getDestinationWeatherData from '../../utils/getDestinationWeatherData';
+import isValidWeatherData from '../../utils/isValidWeatherData';
 
 export default function ForecastList({
   destination,

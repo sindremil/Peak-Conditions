@@ -1,9 +1,9 @@
-import thermotstat from './../assets/weahterNowComponent/thermostat.svg';
-import waterDrop from './../assets/weahterNowComponent/waterDrop.svg';
-import wind from './../assets/weahterNowComponent/wind.svg';
+import thermotstat from '../../assets/weahterNowComponent/thermostat.svg';
+import waterDrop from '../../assets/weahterNowComponent/waterDrop.svg';
+import wind from '../../assets/weahterNowComponent/wind.svg';
 import './WeatherNowStyle.css';
-import { PointFinder } from '../api/FetchWeatherData';
-import WeatherData from '../schemas/WeatherData';
+import { PointFinder } from '../../api/FetchWeatherData';
+import WeatherData from '../../schemas/WeatherData';
 
 interface WeatherNowData {
   destination: string;

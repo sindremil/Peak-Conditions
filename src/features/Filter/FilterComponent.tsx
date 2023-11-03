@@ -1,6 +1,6 @@
-import './../component/FilterComponent.css';
-import Chip from './Chip';
-import MenuChip from './MenuChip';
+import './FilterComponent.css';
+import Chip from '../../component/Chips/Chip';
+import MenuChip from '../../component/Chips/MenuChip';
 
 interface FilterComponentProps {
   showFavourites: boolean;

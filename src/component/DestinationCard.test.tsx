@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import DestinationCard from './DestinationCardComponent';
+import DestinationCard from '../features/DestinationCard/DestinationCardComponent';
 import { render, screen, fireEvent } from '@testing-library/react';
 import SelectedWeatherData from '../schemas/SelectedWeatherData';
 import { MemoryRouter } from 'react-router-dom';

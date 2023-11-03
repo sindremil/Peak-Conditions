@@ -1,9 +1,8 @@
 import './global.css';
-import './component/DestinationCardStyle.css';
-import LandingPage from './LandingPage';
+import LandingPage from './pages/LandingPage/LandingPage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import DestinationPage from './DestinationPage';
-import Navbar from './component/NavBar';
+import DestinationPage from './pages/DestinationPage/DestinationPage';
+import Navbar from './features/Navbar/NavBar';
 import getDestinationNames from './utils/getDestinationNames';
 import SetPageTitle from './utils/SetPageTitle';
 
