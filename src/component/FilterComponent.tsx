@@ -1,5 +1,3 @@
-// FilterComponent.tsx
-import React from 'react';
 import './../component/FilterComponent.css';
 import Chip from './Chip';
 import MenuChip from './MenuChip';
@@ -19,13 +17,13 @@ const FilterComponent: React.FC<FilterComponentProps> = ({
 }) => {
   const menuItems = [
     {
-      label: 'Stigende',
+      label: 'A - Z',
       onClick: () => {
         handleSorting("lexicographic")
       },
     },
     {
-      label: 'Synkende',
+      label: 'Z - A',
       onClick: () => {
         handleSorting("reverseLexicographic")
       },

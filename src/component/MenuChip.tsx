@@ -35,7 +35,7 @@ const MenuChip: React.FC<MenuChipProps> = ({ label, selected, menuItems }) => {
         tabIndex={0}
         aria-label={label}
       >
-        <span className="chip-label">{label === 'lexicographic' ? 'Stigende' : 'Synkende'}</span>
+        <span className="chip-label">{label === 'lexicographic' ? 'A - Z' : 'Z - A'}</span>
         <img src={isMenuOpen ? expandLess : expandMore} alt="menu" className={`chipIcon`} />
       </button>
       {isMenuOpen && menuItems && (
