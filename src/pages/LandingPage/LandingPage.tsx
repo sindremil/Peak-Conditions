@@ -1,11 +1,10 @@
-import './component/DestinationCardStyle.css';
 import './LandingPage.css';
-import DestinationCard from './component/DestinationCardComponent';
-import { getSelectedWeatherData } from './utils/getDestinationWeatherData';
-import { getFavouritesArray, isFavourite } from './utils/favourite';
-import FilterComponent from './component/FilterComponent';
+import DestinationCard from '../../features/DestinationCard/DestinationCardComponent';
+import { getSelectedWeatherData } from '../../utils/getDestinationWeatherData';
+import { getFavouritesArray, isFavourite } from '../../utils/favourite';
+import FilterComponent from '../../features/Filter/FilterComponent';
 import { useState } from 'react';
-import getDestinationNames from './utils/getDestinationNames';
+import getDestinationNames from '../../utils/getDestinationNames';
 
 function renderCard(destinationName: string) {
   const weatherData = getSelectedWeatherData(destinationName, 0, 0);

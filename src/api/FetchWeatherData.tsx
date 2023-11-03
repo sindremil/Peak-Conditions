@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import PointParser from '../utils/PointParser';
-import DestinationPoint from '../schemas/DestinationPoint';
-import Point from '../schemas/Point';
+import DestinationPoint from '../interfaces/DestinationPoint';
+import Point from '../interfaces/Point';
 import destinationsJson from '../configs/destinations.json';
 
 const fetchWeatherData = async (DestinationPoint: DestinationPoint) => {

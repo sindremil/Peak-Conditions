@@ -1,9 +1,10 @@
-import notFavourite from './../assets/star1.svg';
-import favourite from './../assets/star2.svg';
+import notFavourite from '../../assets/star1.svg';
+import './DestinationCardStyle.css';
+import favourite from '../../assets/star2.svg';
 import { useState } from 'react';
-import SelectedWeatherData from '../schemas/SelectedWeatherData';
+import SelectedWeatherData from '../../interfaces/SelectedWeatherData';
 import { Link } from 'react-router-dom';
-import { addFavourite, removeFavourite } from '../utils/favourite';
+import { addFavourite, removeFavourite } from '../../utils/favourite';
 
 interface DestinationCardProps extends SelectedWeatherData {
   isLocalStorageFavourite: boolean;

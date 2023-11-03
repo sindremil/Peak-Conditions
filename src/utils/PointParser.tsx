@@ -1,4 +1,4 @@
-import Point from '../schemas/Point.tsx';
+import Point from '../interfaces/Point.tsx';
 
 //Parses a Point object into an API query
 export default function getPointQuery(point: Point): string {

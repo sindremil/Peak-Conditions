@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import ForecastList from './component/ForecastList';
-import WeatherNowComponent from './component/WeatherNowComponent';
-import getDestinationWeatherData from './utils/getDestinationWeatherData';
-import isValidWeatherData from './utils/isValidWeatherData';
+import ForecastList from '../../features/Forecast/ForecastList';
+import WeatherNowComponent from '../../features/WeatherNow/WeatherNowComponent';
+import getDestinationWeatherData from '../../utils/getDestinationWeatherData';
+import isValidWeatherData from '../../utils/isValidWeatherData';
 import './DestinationPage.css';
 
 export default function DestinationPage({

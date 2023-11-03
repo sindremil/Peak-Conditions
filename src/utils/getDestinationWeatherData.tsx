@@ -1,7 +1,7 @@
-import DestinationPoint from '../schemas/DestinationPoint';
+import DestinationPoint from '../interfaces/DestinationPoint';
 import { useWeatherData } from '../api/FetchWeatherData';
-import SelectedWeatherData from '../schemas/SelectedWeatherData';
-import WeatherData from '../schemas/WeatherData';
+import SelectedWeatherData from '../interfaces/SelectedWeatherData';
+import WeatherData from '../interfaces/WeatherData';
 import isValidWeatherData from './isValidWeatherData';
 
 export default function getDestinationWeatherData(

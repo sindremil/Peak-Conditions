@@ -1,4 +1,4 @@
-import peakConditionsLogo from './../assets/peakConditionsLogo.svg';
+import peakConditionsLogo from '../../assets/peakConditionsLogo.svg'
 import './NavBarStyle.css';
 import { Link } from 'react-router-dom';
 

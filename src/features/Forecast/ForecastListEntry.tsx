@@ -1,4 +1,4 @@
-import WeatherData from '../schemas/WeatherData';
+import WeatherData from '../../interfaces/WeatherData';
 
 export default function ForecastListEntry({
   day,
