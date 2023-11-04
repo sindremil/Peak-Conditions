@@ -1,6 +1,6 @@
 import './ForecastList.css';
 import ForecastListEntry from './ForecastListEntry';
-import WeatherData from '../../schemas/WeatherData';
+import WeatherData from '../../interfaces/WeatherData';
 import getDestinationWeatherData from '../../utils/getDestinationWeatherData';
 import isValidWeatherData from '../../utils/isValidWeatherData';
 

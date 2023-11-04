@@ -1,7 +1,7 @@
 //import { useWeatherData } from "../api/FetchWeatherData";
 
 import { useWeatherData } from '../api/FetchWeatherData';
-import DestinationPoint from '../schemas/DestinationPoint';
+import DestinationPoint from '../interfaces/DestinationPoint';
 
 function DebugComponent() {
   const destinationPoint: DestinationPoint = {

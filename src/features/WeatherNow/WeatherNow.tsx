@@ -3,7 +3,7 @@ import waterDrop from '../../assets/weahterNowComponent/waterDrop.svg';
 import wind from '../../assets/weahterNowComponent/wind.svg';
 import './WeatherNowStyle.css';
 import { PointFinder } from '../../api/FetchWeatherData';
-import WeatherData from '../../schemas/WeatherData';
+import WeatherData from '../../interfaces/WeatherData';
 
 interface WeatherNowData {
   destination: string;
