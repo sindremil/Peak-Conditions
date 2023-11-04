@@ -1,4 +1,3 @@
-import React from 'react';
 import './Chip.css';
 import checkmark from './../assets/checkmark.svg';
 
@@ -8,7 +7,7 @@ interface ChipProps {
   onClick?: () => void;
 }
 
-const Chip: React.FC<ChipProps> = ({ label, selected, onClick }) => {
+function Chip({ label, selected, onClick }: ChipProps): JSX.Element {
   const handleChipClick = () => {
     if (onClick) {
       onClick();
@@ -29,6 +28,6 @@ const Chip: React.FC<ChipProps> = ({ label, selected, onClick }) => {
       </button>
     </div>
   );
-};
+}
 
 export default Chip;

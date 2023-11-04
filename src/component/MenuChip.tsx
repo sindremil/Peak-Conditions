@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './Chip.css';
 import expandMore from './../assets/expandMore.svg';
 import expandLess from './../assets/expandLess.svg';
@@ -14,7 +14,7 @@ interface MenuChipProps {
   menuItems?: MenuItem[];
 }
 
-const MenuChip: React.FC<MenuChipProps> = ({ label, selected, menuItems }) => {
+function MenuChip({ label, selected, menuItems }: MenuChipProps): JSX.Element {
   const [isMenuOpen, setMenuOpen] = useState(false);
 
   const handleMenuChipClick = () => {
