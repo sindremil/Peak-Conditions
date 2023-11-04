@@ -1,4 +1,4 @@
-import './FilterComponent.css';
+import './Filter.css';
 import Chip from '../../component/Chips/Chip';
 import MenuChip from '../../component/Chips/MenuChip';
 

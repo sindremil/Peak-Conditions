@@ -20,9 +20,9 @@ export default function DestinationCard({
   const [isFavourite, setIsFavorite] = useState(isLocalStorageFavourite);
 
   const destinationImgPath: string =
-    'src/assets/destinationimages/' + destination + '.jpg';
+    'images/destinations/' + destination.toLowerCase() + '.jpg';
   const symbolImgPath: string =
-    'https://raw.githubusercontent.com/metno/weathericons/89e3173756248b4696b9b10677b66c4ef435db53/weather/svg/' +
+    'images/weather/' +
     symbolCode +
     '.svg';
 
