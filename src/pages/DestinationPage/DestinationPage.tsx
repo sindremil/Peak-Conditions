@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import ForecastList from '../../features/Forecast/ForecastList';
-import WeatherNowComponent from '../../features/WeatherNow/WeatherNowComponent';
+import WeatherNowComponent from '../../features/WeatherNow/WeatherNow';
 import getDestinationWeatherData from '../../utils/getDestinationWeatherData';
 import isValidWeatherData from '../../utils/isValidWeatherData';
 import './DestinationPage.css';
