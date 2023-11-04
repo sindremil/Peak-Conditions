@@ -45,8 +45,8 @@ export default function LandingPage() {
   }
 
   //Gets the value of the option element in the FilterComponent's select element.
-  function handleSortBy(event: React.ChangeEvent<HTMLSelectElement>) {
-    setSortBy(event.target.value);
+  function handleSortBy(order: string) {
+    setSortBy(order);
     sortBy !== 'lexicographic'
       ? sessionStorage.setItem('sortBy', 'lexicographic')
       : sessionStorage.setItem('sortBy', 'reverseLexicographic');
