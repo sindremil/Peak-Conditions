@@ -1,8 +1,8 @@
 import './LandingPage.css';
-import DestinationCard from '../../features/DestinationCard/DestinationCardComponent';
+import DestinationCard from '../../features/DestinationCard/DestinationCard';
 import { getSelectedWeatherData } from '../../utils/getDestinationWeatherData';
 import { getFavouritesArray, isFavourite } from '../../utils/favourite';
-import FilterComponent from '../../features/Filter/FilterComponent';
+import FilterComponent from '../../features/Filter/Filter';
 import { useState } from 'react';
 import getDestinationNames from '../../utils/getDestinationNames';
 
