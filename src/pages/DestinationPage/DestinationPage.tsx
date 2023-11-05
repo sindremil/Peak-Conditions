@@ -58,12 +58,9 @@ export default function DestinationPage({
   return (
     <div id={style.DestinationPageWrapper}>
       <h1>{destination}</h1>
-      <section>
+{/*       <section>
         {points.map((point) => renderWeatherNowComponent(destination, point))}
-      </section>
-      <section id={style.forecastListContainer}>
-        {renderForecastLists(destination, points)}
-      </section>
+      </section> */}
       <NewForecastList destination='Åre' pointIndex={0}/>
     </div>
   );
