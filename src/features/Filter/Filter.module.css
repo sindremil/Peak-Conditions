@@ -1,11 +1,7 @@
-.filterCard {
+.filterContainer {
   display: flex;
   justify-content: right;
   margin: 1.5%;
-}
-
-.filterCard > div > label {
-  margin-right: 2vw;
 }
 
 @media (max-aspect-ratio: 3/4) {

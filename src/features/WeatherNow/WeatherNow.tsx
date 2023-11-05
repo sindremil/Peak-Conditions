@@ -1,7 +1,7 @@
 import thermotstat from '../../assets/weahterNowComponent/thermostat.svg';
 import waterDrop from '../../assets/weahterNowComponent/waterDrop.svg';
 import wind from '../../assets/weahterNowComponent/wind.svg';
-import './WeatherNowStyle.css';
+import style from './WeatherNow.module.css';
 import { PointFinder } from '../../api/FetchWeatherData';
 import WeatherData from '../../interfaces/WeatherData';
 
@@ -28,24 +28,24 @@ export default function WeatherNowComponent({
   const weatherNowData = getWeatherNow(destination, point, data);
   return (
     <section
-      id="weatherNowCard"
+      id={style.weatherNowCard}
       key={destination + point}
       onClick={() => handleWeatherComponentClick(point)}
     >
-      <header id="weatherNowHeader">
+      <header id={style.weatherNowHeader}>
         <h4>{weatherNowData.destination}</h4>
         <h4>{weatherNowData.altitude} moh.</h4>
       </header>
-      <summary id="weatherNowSummary">
+      <summary id={style.weatherNowSummary}>
         <img
-          id="skyIcon"
+          id={style.skyIcon}
           src={`https://raw.githubusercontent.com/metno/weathericons/89e3173756248b4696b9b10677b66c4ef435db53/weather/svg/${weatherNowData.symbolCode}.svg`}
           alt={`Weather icon for ${weatherNowData.symbolCode}`}
         />
-        <div className="conditions">
+        <div className={style.conditions}>
           <div>
             <img
-              className="conditionIcons"
+              className={style.conditionIcons}
               src={thermotstat}
               alt="thermostat"
             />
@@ -53,14 +53,14 @@ export default function WeatherNowComponent({
           </div>
           <div>
             <img
-              className="conditionIcons"
+              className={style.conditionIcons}
               src={waterDrop}
               alt="percipiation"
             />
             <p>{weatherNowData.precipitation}</p>
           </div>
           <div>
-            <img className="conditionIcons" src={wind} alt="wind" />
+            <img className={style.conditionIcons} src={wind} alt="wind" />
             <p>{weatherNowData.windSpeed}</p>
           </div>
         </div>

@@ -3,7 +3,7 @@ import ForecastList from '../../features/Forecast/ForecastList';
 import WeatherNowComponent from '../../features/WeatherNow/WeatherNow';
 import getDestinationWeatherData from '../../utils/getDestinationWeatherData';
 import isValidWeatherData from '../../utils/isValidWeatherData';
-import './DestinationPage.css';
+import style from './DestinationPage.module.css';
 
 export default function DestinationPage({
   destination,
@@ -21,7 +21,7 @@ export default function DestinationPage({
     const weatherData = getDestinationWeatherData(destination, point);
     if (isValidWeatherData(weatherData)) {
       return (
-        <div key={destination + point}>
+        <div key={destination + point} id={style.weatherNowContainer}>
           <WeatherNowComponent
             destination={destination}
             point={point}
@@ -39,7 +39,6 @@ export default function DestinationPage({
       forecastList.push(
         <div
           key={destination + point}
-          className="forecastListDisplay"
           style={{
             display: selectedPoint == point ? 'grid' : 'none',
           }}
@@ -56,12 +55,12 @@ export default function DestinationPage({
   }
 
   return (
-    <div id="DestinationPageWrapper">
+    <div id={style.DestinationPageWrapper}>
       <h1>{destination}</h1>
-      <section id="weatherNowContainer">
+      <section>
         {points.map((point) => renderWeatherNowComponent(destination, point))}
       </section>
-      <section id="forecastListContainer">
+      <section id={style.forecastListContainer}>
         {renderForecastLists(destination, points)}
       </section>
     </div>

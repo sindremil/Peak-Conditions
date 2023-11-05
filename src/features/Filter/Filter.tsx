@@ -1,4 +1,4 @@
-import './Filter.css';
+import style from './Filter.module.css';
 import Chip from '../../component/Chips/Chip';
 import MenuChip from '../../component/Chips/MenuChip';
 
@@ -31,7 +31,7 @@ const FilterComponent: React.FC<FilterComponentProps> = ({
   ];
 
   return (
-    <div className={`${'filterCard'}`}>
+    <div className={style.filterContainer}>
       <MenuChip
         label={sortBy}
         selected={false}
