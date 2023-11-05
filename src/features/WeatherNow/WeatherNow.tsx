@@ -2,7 +2,7 @@ import thermotstat from '../../assets/weahterNowComponent/thermostat.svg';
 import waterDrop from '../../assets/weahterNowComponent/waterDrop.svg';
 import wind from '../../assets/weahterNowComponent/wind.svg';
 import style from './WeatherNow.module.css';
-import { PointFinder } from '../../api/FetchWeatherData';
+import { PointFinder } from '../../api/fetchWeatherData';
 import WeatherData from '../../interfaces/WeatherData';
 
 interface WeatherNowData {

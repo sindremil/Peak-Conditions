@@ -1,5 +1,5 @@
+import { useWeatherDataQuery } from '../hooks/useWeatherData';
 import DestinationPoint from '../interfaces/DestinationPoint';
-import { useWeatherData } from '../api/FetchWeatherData';
 import SelectedWeatherData from '../interfaces/SelectedWeatherData';
 import WeatherData from '../interfaces/WeatherData';
 import isValidWeatherData from './isValidWeatherData';
@@ -13,7 +13,7 @@ export default function getDestinationWeatherData(
     pointIndex: point,
   };
   const { data, isLoading, isError, isFetched, isRefetching, isSuccess } =
-    useWeatherData(destinationPoint);
+    useWeatherDataQuery(destinationPoint);
 
   const weatherData: WeatherData = {
     type: '',
