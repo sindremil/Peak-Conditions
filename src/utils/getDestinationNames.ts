@@ -1,4 +1,4 @@
-import destinationsConfig from './../configs/destinations.json';
+import destinationsConfig from '../configs/destinations.json';
 
 export default function getDestinationNames() {
   const destinationNames = destinationsConfig.destinations.map(
