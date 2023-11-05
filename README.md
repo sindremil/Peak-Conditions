@@ -40,4 +40,6 @@ Ettersom dekningsgrad ikke var fokuset for P1, har vi bare testet en komponent. 
 - La til favicon.
 - La til dynamisk document title som er basert på hvilke side man er på
 - Endret navbar til å være position absolute fra position fixed
+- Endret på filstrukturen til prosjektets sånn at filer som hører sammen er gruppert.
+- Endret på ESLint config til airbnb, airbnb typescript og prettier (Altså config som fjerner formattering fra ESLint).
 
