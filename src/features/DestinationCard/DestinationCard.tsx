@@ -1,5 +1,5 @@
 import notFavourite from '../../assets/star1.svg';
-import './DestinationCardStyle.css';
+import style from './DestinationCard.module.css';
 import favourite from '../../assets/star2.svg';
 import { useState } from 'react';
 import SelectedWeatherData from '../../interfaces/SelectedWeatherData';
@@ -21,10 +21,7 @@ export default function DestinationCard({
 
   const destinationImgPath: string =
     'images/destinations/' + destination.toLowerCase() + '.jpg';
-  const symbolImgPath: string =
-    'images/weather/' +
-    symbolCode +
-    '.svg';
+  const symbolImgPath: string = 'images/weather/' + symbolCode + '.svg';
 
   function handleFavorite() {
     setIsFavorite(!isFavourite);
@@ -36,32 +33,36 @@ export default function DestinationCard({
   }
 
   return (
-    <div className={`${'card'} ${'destinationCard'}`}>
-      <div className="imgContainer">
+    <div className={`${'card'} ${style.destinationCard}`}>
+      <div className={style.imgContainer}>
         <img
-          className="destinationCardImg"
+          className={style.destinationCardImg}
           src={destinationImgPath}
           alt={destination}
         />
         <img
-          className="favourite"
+          className={style.favourite}
           onClick={handleFavorite}
           src={isFavourite ? favourite : notFavourite}
           alt="Favourite star"
         />
       </div>
-      <div className="destinationNameContainer">
-        <p className="destinationName">{destination}</p>
+      <div className={style.destinationNameContainer}>
+        <p className={style.destinationName}>{destination}</p>
       </div>
-      <div className="destinationInfoContainer">
-        <p className="destinationTemp">{temperature}°</p>
-        <p className="destinationWind">{windSpeed}m/s</p>
+      <div className={style.destinationInfoContainer}>
+        <p className={style.destinationTemp}>{temperature}°</p>
+        <p className={style.destinationWind}>{windSpeed}m/s</p>
       </div>
-      <div className="destinationSymbol">
-        <img className="weatherIcon" src={symbolImgPath} />
+      <div className={style.destinationSymbol}>
+        <img
+          className={style.weatherIcon}
+          src={symbolImgPath}
+          alt="Weather symbol"
+        />
       </div>
-      <Link to={destination.toLowerCase()} className="details">
-        <hr className="destinationCardDivider" />
+      <Link to={destination.toLowerCase()} className={style.details}>
+        <hr className={style.destinationCardDivider} />
         <p>Detaljer</p>
       </Link>
     </div>
