@@ -13,17 +13,34 @@ function ForecastListEntry({ destinationPoint, timeseriesIndex }: { destinationP
     return <tr><td colSpan={4}>Error fetching forecast</td></tr>;
   }
 
-  const time = timeseriesData?.time;
-  const weather = timeseriesData?.data.next_1_hours.summary.symbol_code;
+  const time = formatTime(timeseriesData?.time || "");
+  const symbolCode = timeseriesData?.data.next_1_hours.summary.symbol_code;
   const precipitation = timeseriesData?.data.next_1_hours.details.precipitation_amount;
   const wind = timeseriesData?.data.instant.details.wind_speed;
 
+  const symbolImgPath: string = 'images/weather/' + symbolCode + '.svg';
+
+  function formatTime(isoString: string): string {
+    const date = new Date(isoString);
+  
+    // Get the day of the week as a string
+    const dayOfWeek = new Intl.DateTimeFormat('no', { weekday: 'short' }).format(date);
+  
+    // Get the hours and minutes, converting from 24h to 12h format if needed
+    // padStart() ensures minutes and hours always are two digits
+    const hours = date.getUTCHours().toString().padStart(2, '0');
+    const minutes = date.getUTCMinutes().toString().padStart(2, '0'); 
+  
+    // Return the formatted string
+    return `${dayOfWeek} ${hours}:${minutes}`;
+  }
+  
   return (
     <tr>
       <td>{time}</td>
-      <td>{weather}</td>
+      <td><img src={symbolImgPath} alt={symbolCode}/></td>
       <td>{precipitation} mm</td>
-      <td>{wind} km/h</td>
+      <td>{wind} m/s</td>
     </tr>
   );
 }
@@ -45,10 +62,10 @@ export default function NewForecastList({ destination, pointIndex }: Destination
     <table>
       <thead>
         <tr>
-          <th>Time</th>
-          <th>Weather</th>
-          <th>Precipitation</th>
-          <th>Wind</th>
+          <th>Tid</th>
+          <th>Vær</th>
+          <th>Nedbør</th>
+          <th>Vind</th>
         </tr>
       </thead>
       <tbody>
