@@ -9,42 +9,34 @@ interface FilterComponentProps {
   handleSorting: (order: string) => void;
 }
 
-function FilterComponent({
+const FilterComponent: React.FC<FilterComponentProps> = ({
   showFavourites,
   handleShowFavourites,
   sortBy,
   handleSorting,
-}: FilterComponentProps): JSX.Element {
+}) => {
   const menuItems = [
     {
       label: 'A - Z',
       onClick: () => {
-        handleSorting('lexicographic');
+        handleSorting("lexicographic")
       },
     },
     {
       label: 'Z - A',
       onClick: () => {
-        handleSorting('reverseLexicographic');
+        handleSorting("reverseLexicographic")
       },
     },
   ];
 
   return (
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <div className={`${'filterCard'}`}>
-      <MenuChip label={sortBy} selected={false} menuItems={menuItems} />
-=======
-=======
->>>>>>> a84b5a8e468e638542677cc51adf5a205c88b6dc
     <div className={style.filterContainer}>
       <MenuChip
         label={sortBy}
         selected={false}
         menuItems={menuItems}
       />
->>>>>>> 66008cc (♻Refactored code to use css modules)
       <Chip
         label="Vis favoritter"
         selected={showFavourites}
@@ -52,6 +44,6 @@ function FilterComponent({
       />
     </div>
   );
-}
+};
 
 export default FilterComponent;

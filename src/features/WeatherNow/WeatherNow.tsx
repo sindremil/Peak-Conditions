@@ -2,8 +2,8 @@ import thermotstat from '../../assets/weahterNowComponent/thermostat.svg';
 import waterDrop from '../../assets/weahterNowComponent/waterDrop.svg';
 import wind from '../../assets/weahterNowComponent/wind.svg';
 import style from './WeatherNow.module.css';
-import { PointFinder } from '../../api/FetchWeatherData';
 import WeatherData from '../../interfaces/WeatherData';
+import { PointFinder } from '../../api/FetchWeatherData';
 
 interface WeatherNowData {
   destination: string;
@@ -28,18 +28,6 @@ export default function WeatherNowComponent({
   const weatherNowData = getWeatherNow(destination, point, data);
   return (
     <section
-<<<<<<< HEAD
-<<<<<<< HEAD
-      className="weatherNowCard"
-      key={destination + point}
-      onClick={() => handleWeatherComponentClick(point)}
-    >
-      <header className="weatherNowHeader">
-        <h4>{weatherNowData.destination}</h4>
-        <h4>{weatherNowData.altitude} moh.</h4>
-      </header>
-      <summary className="weatherNowSummary">
-=======
       id={style.weatherNowCard}
       key={destination + point}
       onClick={() => handleWeatherComponentClick(point)}
@@ -49,18 +37,6 @@ export default function WeatherNowComponent({
         <h4>{weatherNowData.altitude} moh.</h4>
       </header>
       <summary id={style.weatherNowSummary}>
->>>>>>> 66008cc (♻Refactored code to use css modules)
-=======
-      id={style.weatherNowCard}
-      key={destination + point}
-      onClick={() => handleWeatherComponentClick(point)}
-    >
-      <header id={style.weatherNowHeader}>
-        <h4>{weatherNowData.destination}</h4>
-        <h4>{weatherNowData.altitude} moh.</h4>
-      </header>
-      <summary id={style.weatherNowSummary}>
->>>>>>> a84b5a8e468e638542677cc51adf5a205c88b6dc
         <img
           id={style.skyIcon}
           src={`https://raw.githubusercontent.com/metno/weathericons/89e3173756248b4696b9b10677b66c4ef435db53/weather/svg/${weatherNowData.symbolCode}.svg`}
