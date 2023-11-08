@@ -32,9 +32,12 @@ function FilterComponent({
 
   return (
 <<<<<<< HEAD
+<<<<<<< HEAD
     <div className={`${'filterCard'}`}>
       <MenuChip label={sortBy} selected={false} menuItems={menuItems} />
 =======
+=======
+>>>>>>> a84b5a8e468e638542677cc51adf5a205c88b6dc
     <div className={style.filterContainer}>
       <MenuChip
         label={sortBy}
