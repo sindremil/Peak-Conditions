@@ -1,6 +1,6 @@
-import './../component/FilterComponent.css';
-import Chip from './Chip';
-import MenuChip from './MenuChip';
+import style from './Filter.module.css';
+import Chip from '../../component/Chips/Chip';
+import MenuChip from '../../component/Chips/MenuChip';
 
 interface FilterComponentProps {
   showFavourites: boolean;
@@ -31,8 +31,20 @@ function FilterComponent({
   ];
 
   return (
+<<<<<<< HEAD
+<<<<<<< HEAD
     <div className={`${'filterCard'}`}>
       <MenuChip label={sortBy} selected={false} menuItems={menuItems} />
+=======
+=======
+>>>>>>> a84b5a8e468e638542677cc51adf5a205c88b6dc
+    <div className={style.filterContainer}>
+      <MenuChip
+        label={sortBy}
+        selected={false}
+        menuItems={menuItems}
+      />
+>>>>>>> 66008cc (♻Refactored code to use css modules)
       <Chip
         label="Vis favoritter"
         selected={showFavourites}

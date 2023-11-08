@@ -1,9 +1,8 @@
 import './ForecastList.css';
 import ForecastListEntry from './ForecastListEntry';
-import WeatherData from '../schemas/WeatherData';
-import getDestinationWeatherData from '../utils/getDestinationWeatherData';
-import isValidWeatherData from '../utils/isValidWeatherData';
-import getDestinationPointsName from '../utils/getDestinationPointName';
+import WeatherData from '../../interfaces/WeatherData';
+import getDestinationWeatherData from '../../utils/getDestinationWeatherData';
+import isValidWeatherData from '../../utils/isValidWeatherData';
 
 export default function ForecastList({
   destination,
@@ -31,10 +30,8 @@ export default function ForecastList({
     }
   }
 
-
   return (
     <div id="forecastListWrapper" key={destination + point}>
-      <h4>{getDestinationPointsName(destination, point)}</h4>
       <div id="forecastListTable">
         <div className={`${'tableHeader'}`}>Dato</div>
         <div className={`${'tableHeader'} ${'hide'}`}>Maks temp.</div>

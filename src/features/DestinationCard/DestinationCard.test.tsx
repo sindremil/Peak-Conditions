@@ -1,11 +1,15 @@
 import { describe, expect, it } from 'vitest';
-import DestinationCard from './DestinationCardComponent';
+<<<<<<< HEAD
+import DestinationCard from '../DestinationCard/DestinationCard';
+=======
+import DestinationCard from './DestinationCard';
+>>>>>>> a84b5a8e468e638542677cc51adf5a205c88b6dc
 import { render, screen, fireEvent } from '@testing-library/react';
-import SelectedWeatherData from '../schemas/SelectedWeatherData';
+import SelectedWeatherData from '../../interfaces/SelectedWeatherData';
 import { MemoryRouter } from 'react-router-dom';
 import notFavourite from './../assets/star1.svg';
 import favourite from './../assets/star2.svg';
-import { addFavourite, removeFavourite, isFavourite } from '../utils/favourite';
+import { addFavourite, removeFavourite, isFavourite } from '../../utils/favourite';
 import renderer from 'react-test-renderer';
 
 interface MockDestinationCardProps extends SelectedWeatherData {

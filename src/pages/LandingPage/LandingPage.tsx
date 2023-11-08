@@ -1,11 +1,10 @@
-import './component/DestinationCardStyle.css';
-import './LandingPage.css';
-import DestinationCard from './component/DestinationCardComponent';
-import { getSelectedWeatherData } from './utils/getDestinationWeatherData';
-import { getFavouritesArray, isFavourite } from './utils/favourite';
-import FilterComponent from './component/FilterComponent';
+import style from './LandingPage.module.css';
+import DestinationCard from '../../features/DestinationCard/DestinationCard';
+import { getSelectedWeatherData } from '../../utils/getDestinationWeatherData';
+import { getFavouritesArray, isFavourite } from '../../utils/favourite';
+import FilterComponent from '../../features/Filter/Filter';
 import { useState } from 'react';
-import getDestinationNames from './utils/getDestinationNames';
+import getDestinationNames from '../../utils/getDestinationNames';
 
 function renderCard(destinationName: string) {
   const weatherData = getSelectedWeatherData(destinationName, 0, 0);
@@ -60,8 +59,8 @@ export default function LandingPage() {
   }
 
   return (
-    <main className="landingPageContainer">
-      <aside className="filterContainer">
+    <main className={style.landingPageContainer}>
+      <aside className={style.filterContainer}>
         <FilterComponent
           showFavourites={showFavourites}
           handleShowFavourites={handleShowFavourites}
@@ -69,12 +68,12 @@ export default function LandingPage() {
           handleSorting={handleSortBy}
         />
       </aside>
-      <section className="destinationCardsWrapper">
+      <section className={style.destinationCardsWrapper}>
         {destinationList.map((destination) => (
           // Conditionally set the style to display "none" if destination is in array2 but not in array1
           <div
             key={destination}
-            className="destinationCardContainer"
+            className={style.destinationCardContainer}
             style={{
               display:
                 showFavourites && !getFavouritesArray().includes(destination)
