@@ -10,7 +10,7 @@ function ForecastListEntry({
 }: {
   destinationPoint: DestinationPoint;
   timeseriesIndex: number;
-}) {
+}): JSX.Element {
   const { timeseriesData, isLoading, isError } = useTimeseriesData(
     destinationPoint,
     timeseriesIndex

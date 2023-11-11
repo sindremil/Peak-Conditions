@@ -1,0 +1,27 @@
+.button {
+  padding: 10px 20px;
+  margin: 0 0px;
+  border: none;
+  background-color: #ffffff;
+  cursor: pointer;
+  /* Add additional styling as needed */
+}
+
+.activeButton {
+  border: none;
+  padding: 10px 20px;
+  color: #ffffff;
+  background-color: #406882;
+  /* Add additional styling for the active state as needed */
+}
+
+/* You might want to add :hover and :focus styles for better UX */
+.button:hover,
+.activeButton:hover {
+  /* hover styles */
+}
+
+.button:focus,
+.activeButton:focus {
+  /* focus styles */
+}

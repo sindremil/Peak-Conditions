@@ -1,8 +1,9 @@
 .table {
-  width: 60%;
+  width: 70%;
   border-collapse: collapse;
   table-layout: auto;
   border-radius: 25px;
+  font-size: 1.5rem;
 }
 
 tbody tr, thead tr {
@@ -25,20 +26,23 @@ th {
 
 td {
   text-align: center;
-  padding: 8px 0;
 }
 
 .symbolSize {
-  height: 2rem;
+  height: 4rem;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 620px) {
   .table {
     font-size: 14px;
   }
 
   th {
     padding: 16px;
+  }
+
+  .symbolSize {
+    height: 2rem;
   }
 }
 

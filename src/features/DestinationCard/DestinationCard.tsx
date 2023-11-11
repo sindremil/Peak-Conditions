@@ -61,7 +61,7 @@ export default function DestinationCard({
           alt="Weather symbol"
         />
       </div>
-      <Link to={destination.toLowerCase()} className={style.details}>
+      <Link to={encodeURIComponent(destination)} className={style.details}>
         <hr className={style.destinationCardDivider} />
         <p>Detaljer</p>
       </Link>
