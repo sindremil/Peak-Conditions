@@ -92,7 +92,7 @@ p {
 
 /* Change sizes when using mobile, so that cards appear one after one */
 
-@media (max-aspect-ratio: 3/4) {
+@media (max-width: 480px) {
 
   .destinationCard {
     width: 100%;

@@ -1,37 +1,14 @@
 #DestinationPageWrapper {
-    width: 90%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    flex-wrap: wrap;
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
     margin-top: 5%
 }
 
-#DestinationPageWrapper > h1 {
-    width: 100%;
-}
-
-#DestinationPageWrapper > section {
-    width: 100%;
-    border-radius: 20px;
-    box-sizing: border-box;
-    margin-bottom: 20px;
-}
-
-#weatherNowContainer {
-    background-color: #406882;
-    border-radius: 20px;
-    margin-bottom: 20px;
-}
-
-#forecastListContainer {
-    background-color: #406882;
-}
-
-@media (max-aspect-ratio: 3/4) {
+@media (max-width: 480px) {
   #DestinationPageWrapper {
     margin-top: 20%;
   }

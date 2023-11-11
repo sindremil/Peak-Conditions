@@ -1,9 +1,4 @@
 @font-face {
-  font-family: roboto-bold;
-  src: url(./assets/Roboto-Bold.ttf)
-}
-  
-@font-face {
   font-family: roboto-regular;
   src: url(./assets/Roboto-Regular.ttf);
 }
@@ -11,6 +6,8 @@
 body {
   background-color: #1A374D;
   color: white;
+  font-family: "Roboto-Regular", sans-serif;
+  margin: 16px;
 }
 
 .card {

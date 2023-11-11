@@ -42,4 +42,5 @@ Ettersom dekningsgrad ikke var fokuset for P1, har vi bare testet en komponent. 
 - Endret navbar til å være position absolute fra position fixed
 - Endret på filstrukturen til prosjektets sånn at filer som hører sammen er gruppert.
 - Endret på ESLint config til airbnb, airbnb typescript og prettier (Altså config som fjerner formattering fra ESLint).
+- Endret på ForecastList til å vise time for time og mer tilpasset informasjon.
 
