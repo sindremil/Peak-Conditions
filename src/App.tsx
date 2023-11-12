@@ -1,6 +1,6 @@
 import "./global.css";
-import LandingPage from "./pages/LandingPage/LandingPage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import LandingPage from "./pages/LandingPage/LandingPage";
 import DestinationPage from "./pages/DestinationPage/DestinationPage";
 
 function App() {

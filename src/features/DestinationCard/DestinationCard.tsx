@@ -1,34 +1,40 @@
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import notFavourite from '../../assets/star1.svg';
 import style from './DestinationCard.module.css';
 import favourite from '../../assets/star2.svg';
-import { useState } from 'react';
-import SelectedWeatherData from '../../interfaces/SelectedWeatherData';
-import { Link } from 'react-router-dom';
 import { addFavourite, removeFavourite } from '../../utils/favourite';
+import useTimeseriesData from '../../hooks/useTimeseriesData';
+import DestinationPoint from '../../interfaces/DestinationPoint';
 
-interface DestinationCardProps extends SelectedWeatherData {
+interface DestinationCardProps {
+  destinationPoint: DestinationPoint
   isLocalStorageFavourite: boolean;
 }
 
-export default function DestinationCard({
-  destination,
-  temperature,
-  windSpeed,
-  symbolCode,
-  isLocalStorageFavourite,
-}: DestinationCardProps) {
+export default function DestinationCard(DestinationCardProps: DestinationCardProps) {
+  const { destinationPoint, isLocalStorageFavourite } = DestinationCardProps;
   const [isFavourite, setIsFavorite] = useState(isLocalStorageFavourite);
+  const { timeseriesData, isLoading, isError } = useTimeseriesData(destinationPoint, 0);
+
+  if (isLoading || isError) {
+    return <p>Loading</p>
+  }
+
+  const symbolCode = timeseriesData?.data.next_1_hours.summary.symbol_code;
+  const temperature = timeseriesData?.data.instant.details.air_temperature;
+  const windSpeed = timeseriesData?.data.instant.details.wind_speed;
 
   const destinationImgPath: string =
-    'images/destinations/' + destination.toLowerCase() + '.jpg';
-  const symbolImgPath: string = 'images/weather/' + symbolCode + '.svg';
+    `images/destinations/${  destinationPoint.destination.toLowerCase()  }.jpg`;
+  const symbolImgPath: string = `images/weather/${  symbolCode  }.svg`;
 
   function handleFavorite() {
     setIsFavorite(!isFavourite);
     if (!isFavourite) {
-      addFavourite(destination);
+      addFavourite(destinationPoint.destination);
     } else {
-      removeFavourite(destination);
+      removeFavourite(destinationPoint.destination);
     }
   }
 
@@ -38,7 +44,7 @@ export default function DestinationCard({
         <img
           className={style.destinationCardImg}
           src={destinationImgPath}
-          alt={destination}
+          alt={destinationPoint.destination}
         />
         <img
           className={style.favourite}
@@ -48,7 +54,7 @@ export default function DestinationCard({
         />
       </div>
       <div className={style.destinationNameContainer}>
-        <p className={style.destinationName}>{destination}</p>
+        <p className={style.destinationName}>{destinationPoint.destination}</p>
       </div>
       <div className={style.destinationInfoContainer}>
         <p className={style.destinationTemp}>{temperature}°</p>
@@ -61,7 +67,7 @@ export default function DestinationCard({
           alt="Weather symbol"
         />
       </div>
-      <Link to={encodeURIComponent(destination)} className={style.details}>
+      <Link to={encodeURIComponent(destinationPoint.destination)} className={style.details}>
         <hr className={style.destinationCardDivider} />
         <p>Detaljer</p>
       </Link>

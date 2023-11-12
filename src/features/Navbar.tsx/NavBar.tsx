@@ -1,6 +1,6 @@
+import { Link } from 'react-router-dom';
 import peakConditionsLogo from '../../assets/peakConditionsLogo.svg'
 import style from './NavbarStyle.module.css';
-import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   return (
