@@ -6,10 +6,11 @@ import PeakSelector from '../../component/PeakSelector/PeakSelector';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import SetPageTitle from '../../utils/SetPageTitle';
+import useScrollToTop from '../../hooks/useScrollToTop';
 
 export default function DestinationPage() {
   const [activePoint, setActivePoint] = useState<number>(0);
-  
+  useScrollToTop();
   const { destinationParam } = useParams();
   const destination = decodeURIComponent(destinationParam || "");
 
