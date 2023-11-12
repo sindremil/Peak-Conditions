@@ -3,9 +3,3 @@
   justify-content: right;
   margin: 1.5%;
 }
-
-@media (max-aspect-ratio: 3/4) {
-  .showFavouritesCheckbox {
-    transform: scale(1.3334);
-  }
-}

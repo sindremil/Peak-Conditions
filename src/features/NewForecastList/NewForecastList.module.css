@@ -1,0 +1,44 @@
+.table {
+  width: 60%;
+  border-collapse: collapse;
+  table-layout: auto;
+  border-radius: 25px;
+}
+
+tbody tr, thead tr {
+  border-bottom: 1px solid white;
+}
+
+tbody tr:last-child {
+  border-bottom: none;
+}
+
+tr {
+  border-collapse: solid;
+  border-bottom: 2px red;
+}
+
+th {
+  text-align: center;
+  padding: 24px 0;
+}
+
+td {
+  text-align: center;
+  padding: 8px 0;
+}
+
+.symbolSize {
+  height: 2rem;
+}
+
+@media (max-width: 480px) {
+  .table {
+    font-size: 14px;
+  }
+
+  th {
+    padding: 16px;
+  }
+}
+

@@ -7,6 +7,10 @@ body {
   background-color: #1A374D;
   color: white;
   font-family: "Roboto-Regular", sans-serif;
+<<<<<<< HEAD
+=======
+  margin: 16px;
+>>>>>>> 4527238 (✨Styled NewForecastList)
 }
 
 .card {

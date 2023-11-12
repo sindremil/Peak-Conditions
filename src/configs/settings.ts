@@ -1,2 +1,2 @@
 // Sets how far ahead the forecast list shoud go
-export const forecastListHours: number = 54;
+export const forecastListHours: number = 48;
