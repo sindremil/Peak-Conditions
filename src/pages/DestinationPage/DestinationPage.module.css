@@ -8,6 +8,16 @@
     margin-top: 5%
 }
 
+.floatingNav {
+  position: fixed;
+  bottom: 10%; /* This will put the top of the nav at the bottom half of the screen */
+  left: 50%; /* Start at half the width */
+  transform: translate(-50%, 50%); /* This centers it horizontally and moves it up by half its height */
+  display: flex;
+  justify-content: center; /* This will center the buttons inside the nav */
+  align-items: center;
+}
+
 @media (max-width: 480px) {
   #DestinationPageWrapper {
     margin-top: 20%;

@@ -1,27 +1,37 @@
 .button {
   padding: 10px 20px;
-  margin: 0 0px;
   border: none;
   background-color: #ffffff;
   cursor: pointer;
-  /* Add additional styling as needed */
+  transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s; /* Added box-shadow to the transition */
+  box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.6); /* Subtle shadow */
+  position: relative; /* Needed for z-index */
 }
 
 .activeButton {
-  border: none;
   padding: 10px 20px;
+  border: none;
   color: #ffffff;
   background-color: #406882;
-  /* Add additional styling for the active state as needed */
+  transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+  box-shadow: 2px 4px 6px 0 rgba(0, 0, 0, 0.6); /* More pronounced shadow for active state */
+  position: relative; /* Needed for z-index */
 }
 
-/* You might want to add :hover and :focus styles for better UX */
-.button:hover,
+/* Hover styles */
+.button:hover,  
 .activeButton:hover {
-  /* hover styles */
+  color: #333; /* Darker text color for hover */
+  transform: translateY(-2px); /* Slight lift effect on hover */
+  box-shadow: 3px 3px 9px 0 rgba(0, 0, 0, 0.6); /* Larger shadow on hover */
+  z-index: 1; /* Ensure the shadow isn't cut off by adjacent buttons */
 }
 
+/* Focus styles */
 .button:focus,
 .activeButton:focus {
-  /* focus styles */
+  color: white;
+  outline: none; /* Remove the default focus outline */
+  box-shadow: 3px 3px 9px 0 rgba(0, 0, 0, 0.6); /* Focus shadow */
+  z-index: 1; /* Ensure the shadow isn't cut off by adjacent buttons */
 }

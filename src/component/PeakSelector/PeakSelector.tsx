@@ -9,7 +9,7 @@ export default function PeakSelector({ label, onClick, isActive }: PeakSelectorP
   const buttonStyle = isActive ? styles.activeButton : styles.button;
   return (
     <button className={buttonStyle} onClick={onClick}>
-      {"Punkt " + label}
+      {label}
     </button>
   );
 };
