@@ -4,6 +4,7 @@ import WeatherNowComponent from '../../features/WeatherNow/WeatherNow';
 import getDestinationWeatherData from '../../utils/getDestinationWeatherData';
 import isValidWeatherData from '../../utils/isValidWeatherData';
 import style from './DestinationPage.module.css';
+import NewForecastList from '../../features/NewForecastList/NewForecastList';
 
 export default function DestinationPage({
   destination,
@@ -63,6 +64,7 @@ export default function DestinationPage({
       <section id={style.forecastListContainer}>
         {renderForecastLists(destination, points)}
       </section>
+      <NewForecastList destination='Åre' pointIndex={0}/>
     </div>
   );
 }
