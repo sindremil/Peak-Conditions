@@ -1,37 +1,24 @@
 #DestinationPageWrapper {
-    width: 90%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    flex-wrap: wrap;
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
     margin-top: 5%
 }
 
-#DestinationPageWrapper > h1 {
-    width: 100%;
+.floatingNav {
+  position: fixed;
+  bottom: 10%; /* This will put the top of the nav at the bottom half of the screen */
+  left: 50%; /* Start at half the width */
+  transform: translate(-50%, 50%); /* This centers it horizontally and moves it up by half its height */
+  display: flex;
+  justify-content: center; /* This will center the buttons inside the nav */
+  align-items: center;
 }
 
-#DestinationPageWrapper > section {
-    width: 100%;
-    border-radius: 20px;
-    box-sizing: border-box;
-    margin-bottom: 20px;
-}
-
-#weatherNowContainer {
-    background-color: #406882;
-    border-radius: 20px;
-    margin-bottom: 20px;
-}
-
-#forecastListContainer {
-    background-color: #406882;
-}
-
-@media (max-aspect-ratio: 3/4) {
+@media (max-width: 480px) {
   #DestinationPageWrapper {
     margin-top: 20%;
   }

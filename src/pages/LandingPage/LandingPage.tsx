@@ -5,6 +5,7 @@ import { getFavouritesArray, isFavourite } from '../../utils/favourite';
 import FilterComponent from '../../features/Filter/Filter';
 import { useState } from 'react';
 import getDestinationNames from '../../utils/getDestinationNames';
+import Navbar from '../../features/Navbar.tsx/NavBar';
 
 function renderCard(destinationName: string) {
   const weatherData = getSelectedWeatherData(destinationName, 0, 0);
@@ -59,6 +60,8 @@ export default function LandingPage() {
   }
 
   return (
+    <>
+    <Navbar />
     <main className={style.landingPageContainer}>
       <aside className={style.filterContainer}>
         <FilterComponent
@@ -86,5 +89,6 @@ export default function LandingPage() {
         ))}
       </section>
     </main>
+    </>
   );
 }

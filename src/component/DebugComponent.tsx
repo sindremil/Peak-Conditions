@@ -1,6 +1,4 @@
-//import { useWeatherData } from "../api/FetchWeatherData";
-
-import { useWeatherData } from '../api/FetchWeatherData';
+import { useWeatherData } from '../api/fetchWeatherData';
 import DestinationPoint from '../interfaces/DestinationPoint';
 
 function DebugComponent() {

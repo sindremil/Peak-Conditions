@@ -19,7 +19,7 @@
   margin: 1.5%;
 }
 
-@media (max-aspect-ratio: 3/4) {
+@media (max-width: 480px) {
   .landingPageContainer {
     margin: 20% 0 0 0;
   }
