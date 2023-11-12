@@ -50,8 +50,8 @@ function ForecastListEntry({
 
     // Get the hours and minutes, converting from 24h to 12h format if needed
     // padStart() ensures minutes and hours always are two digits
-    const hours = date.getUTCHours().toString().padStart(2, "0");
-    const minutes = date.getUTCMinutes().toString().padStart(2, "0");
+    const hours = date.getHours().toString().padStart(2, "0");
+    const minutes = date.getMinutes().toString().padStart(2, "0");
 
     // Return the formatted string
     return `${dayOfWeek} ${hours}:${minutes}`;
