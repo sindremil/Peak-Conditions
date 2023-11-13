@@ -17,7 +17,7 @@ export function removeFavourite(destinationName: string) {
   const favoritesArray = getFavouritesArray();
   const destinationIndex = favoritesArray.indexOf(destinationName);
 
-  //If destinatnion not found, then do nothing
+  // If destinatnion not found, then do nothing
   if (destinationIndex !== -1) {
     favoritesArray.splice(destinationIndex, 1);
   }
@@ -26,7 +26,7 @@ export function removeFavourite(destinationName: string) {
 
 export function isFavourite(destinationName: string): boolean {
   const favouritesArray: string[] = getFavouritesArray();
-  if (favouritesArray.indexOf(destinationName) == -1) {
+  if (favouritesArray.indexOf(destinationName) === -1) {
     return false;
   }
   return true;

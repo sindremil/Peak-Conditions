@@ -11,7 +11,7 @@ interface MenuItem {
 interface MenuChipProps {
   label: string;
   selected: boolean;
-  menuItems?: MenuItem[];
+  menuItems: MenuItem[];
 }
 
 function MenuChip({ label, selected, menuItems }: MenuChipProps): JSX.Element {
@@ -26,24 +26,36 @@ function MenuChip({ label, selected, menuItems }: MenuChipProps): JSX.Element {
     onClick();
   };
 
+  const handleKeyPress = (event: React.KeyboardEvent, onClick: () => void) => {
+    if (event.key === 'Enter') {
+      handleMenuItemClick(onClick);
+    }
+  };
+
   return (
     <div className="chip-container">
       <button
         className={`chip ${selected ? 'selected' : ''}`}
         onClick={handleMenuChipClick}
-        role="button"
         tabIndex={0}
         aria-label={label}
+        type='button'
       >
         <span className="chip-label">{label === 'lexicographic' ? 'A - Z' : 'Z - A'}</span>
-        <img src={isMenuOpen ? expandLess : expandMore} alt="menu" className={`chipIcon`} />
+        <img src={isMenuOpen ? expandLess : expandMore} alt="Toggle menu" className="chipIcon" />
       </button>
       {isMenuOpen && menuItems && (
         <ul className="menu-items">
-          {menuItems.map((menuItem, index) => (
-            <li key={index} onClick={() => handleMenuItemClick(menuItem.onClick)}>
+          {menuItems.map((menuItem) => (
+            <button className='buttonListItem'
+              key={menuItem.label}
+              type='button'
+              onClick={() => handleMenuItemClick(menuItem.onClick)}
+              onKeyDown = {(event) => handleKeyPress(event, menuItem.onClick)}
+              tabIndex={0}
+            >
               {menuItem.label}
-            </li>
+            </button>
           ))}
         </ul>
       )}

@@ -18,7 +18,10 @@
     "@tanstack/react-query-devtools": "^4.33.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.15.0"
+    "react-router-dom": "^6.15.0",
+    "@vitejs/plugin-react-swc": "^3.3.2",
+    "vite": "^4.4.5",
+    "@testing-library/jest-dom": ""
   },
   "devDependencies": {
     "@tanstack/eslint-plugin-query": "^5.6.0",
@@ -29,7 +32,6 @@
     "@types/react-test-renderer": "^18.0.2",
     "@typescript-eslint/eslint-plugin": "^6.9.1",
     "@typescript-eslint/parser": "^6.9.1",
-    "@vitejs/plugin-react-swc": "^3.3.2",
     "@vitest/coverage-v8": "^0.34.4",
     "eslint": "^8.2.0",
     "eslint-config-airbnb": "^19.0.4",
@@ -46,7 +48,6 @@
     "prettier": "^3.0.3",
     "react-test-renderer": "^18.2.0",
     "typescript": "^5.0.2",
-    "vite": "^4.4.5",
     "vitest": "^0.34.4"
   }
 }

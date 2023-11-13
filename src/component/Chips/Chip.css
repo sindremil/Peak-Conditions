@@ -55,12 +55,32 @@
   z-index: 1;
 }
 
-.menu-items li {
-  cursor: pointer;
-  padding: 8px;
-  transition: background-color 0.3s ease-in-out;
+.buttonListItem {
+  display: block; /* Make the button fill the container like a block element */
+  padding: 8px 16px; /* Provide some padding inside the button */
+  border: 1px solid #ddd; /* A light border to mimic list item separators */
+  border-radius: 4px; /* Optional: rounded corners */
+  background-color: #f9f9f9; /* A light background color */
+  text-align: left; /* Align text to the left like in a list */
+  color: #333; /* A color for the text */
+  cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+  transition: background-color 0.3s, box-shadow 0.3s; /* Transition for hover effects */
+  width: 100%;
+
+  /* Remove default button styling */
+  border: none;
+  outline: none;
+  box-shadow: none;
 }
 
-.menu-items li:hover {
-  background-color: lightgray;
+.buttonListItem:hover, .buttonListItem:focus {
+  background-color: #e6e6e6; /* Slightly darker background on hover/focus */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* A subtle shadow for depth */
+  outline: none; /* Remove focus outline */
 }
+
+.buttonListItem:active {
+  background-color: #d4d4d4; /* Even darker for the active state */
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2); /* Inset shadow for a "pressed" effect */
+}
+

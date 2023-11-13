@@ -9,12 +9,12 @@ interface FilterComponentProps {
   handleSorting: (order: string) => void;
 }
 
-const FilterComponent: React.FC<FilterComponentProps> = ({
+function FilterComponent({
   showFavourites,
   handleShowFavourites,
   sortBy,
   handleSorting,
-}) => {
+}: FilterComponentProps) {
   const menuItems = [
     {
       label: 'A - Z',

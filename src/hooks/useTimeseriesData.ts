@@ -1,10 +1,10 @@
-import { useWeatherDataQuery } from "./useWeatherData";
 import DestinationPoint from "../interfaces/DestinationPoint";
+import useWeatherDataQuery from "./useWeatherData";
 
 // Returns the forecast object at the index of a timeseries
 // Visit api docs for more info about timeseries and forecast objects
 // https://docs.api.met.no/doc/ForecastJSON.html
-export function useTimeseriesData(
+export default function useTimeseriesData(
   destinationPoint: DestinationPoint,
   index: number
 ) {
