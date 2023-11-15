@@ -1,7 +1,7 @@
 .table {
-  width: 70%;
+  width: 90%;
   border-collapse: collapse;
-  table-layout: auto;
+  table-layout: fixed;
   border-radius: 25px;
   font-size: 1.5rem;
 }
@@ -35,6 +35,7 @@ td {
 @media (max-width: 620px) {
   .table {
     font-size: 14px;
+    table-layout: auto;
   }
 
   th {

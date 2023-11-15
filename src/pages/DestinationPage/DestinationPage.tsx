@@ -36,7 +36,7 @@ export default function DestinationPage() {
     <>
     <Navbar />
     <main id={style.DestinationPageWrapper}>
-      <header>
+      <header className={style.header}>
         <BackButton to='..'/>
         <h2>{`${destination}, ${points[activePoint].name}, ${points[activePoint].alt} moh.`}</h2>
       </header>
