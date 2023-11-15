@@ -1,5 +1,5 @@
 import './Chip.css';
-import checkmark from '../../assets/checkmark.svg';
+import checkmark from '../../assets/chip/checkmark.svg';
 
 interface ChipProps {
   label: string;

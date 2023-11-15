@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './Chip.css';
-import expandMore from '../../assets/expandMore.svg';
-import expandLess from '../../assets/expandLess.svg';
+import expandMore from '../../assets/chip/expandMore.svg';
+import expandLess from '../../assets/chip/expandLess.svg';
 
 interface MenuItem {
   label: string;
