@@ -12,5 +12,5 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: './src/setup.ts',
   },
-  base: '/project1',
+  base: '/project1/',
 });
