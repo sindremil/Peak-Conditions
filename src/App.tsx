@@ -5,7 +5,7 @@ import DestinationPage from "./pages/DestinationPage/DestinationPage";
 
 function App() {
   return (
-    <Router basename="/project1">
+    <Router basename="/project1/">
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/:destinationParam" element={<DestinationPage />} />
