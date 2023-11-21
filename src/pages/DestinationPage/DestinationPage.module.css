@@ -5,6 +5,7 @@
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
+    max-width: 800px;
     margin-top: 5%
 }
 
@@ -18,8 +19,28 @@
   align-items: center;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between; /* Aligns items on opposite ends */
+  width: 100%; /* Ensure the header spans the full width */
+  padding: 2rem 0rem; /* Add some padding on the sides */
+}
+
+.header h2 {
+  margin: 0;
+  margin-left: 75px;
+}
+
 @media (max-width: 480px) {
   #DestinationPageWrapper {
     margin-top: 20%;
+  }
+
+  .header {
+    align-items: center;
+  }
+
+  .header h2{
+    font-size: 1.25rem;
   }
 }

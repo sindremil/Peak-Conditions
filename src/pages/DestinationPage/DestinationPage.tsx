@@ -7,6 +7,7 @@ import destinationsJson from '../../configs/destinations.json'
 import PeakSelector from '../../component/PeakSelector/PeakSelector';
 import useScrollToTop from '../../hooks/useScrollToTop';
 import usePageTitle from '../../hooks/usePageTitle';
+import BackButton from '../../component/BackButton/BackButton';
 
 export default function DestinationPage() {
   const [activePoint, setActivePoint] = useState<number>(0);
@@ -35,7 +36,10 @@ export default function DestinationPage() {
     <>
     <Navbar />
     <main id={style.DestinationPageWrapper}>
-      <h2>{`${destination}, ${points[activePoint].name}, ${points[activePoint].alt} moh.`}</h2>
+      <header className={style.header}>
+        <BackButton to='..'/>
+        <h2>{`${destination}, ${points[activePoint].name}, ${points[activePoint].alt} moh.`}</h2>
+      </header>
       <nav className={style.floatingNav}>
         {points.map((point, index) => (
           <PeakSelector key={point.name} label={labels[index]} onClick={() => handelPeakSelectorClick(index)} isActive={index === activePoint} />
