@@ -1,6 +1,7 @@
 # Peak Conditions
 
 ## Viktig informasjon
+
 Det finnes to versjoner av appen. Den som er på virtual machine bruker samme bilde på alle destinasjoner. Hvis man kjører med npm run dev så vil man få de faktiske bildene.
 
 ## Kjøring av appen
@@ -15,7 +16,7 @@ Peak Conditions skal gi brukere en bedre måte sjekek været på. Når man førs
 
 Vi har antatt at man kan presantere ett og ett kort i en grid (en form for liste) der scorlling er muligheten til å bla seg frem eller tilbake. Man hopper til en spesifikk ressurs ved å trykke på 'detaljer' under kortet.
 
-Vi har et filter der man kan sortere skisteder etter navn. Man kan også velge å bare vise favoritter. Favoritter huskes hvis du lukker igjen nettleseren din og åpner den igjen. Hvis du refresher siden vil den huske om du filtrerer alfabetisk eller reversert alfabetisk, men hvis laster inn siden på nytt så vil den filtrere  alfabetisk.
+Vi har et filter der man kan sortere skisteder etter navn. Man kan også velge å bare vise favoritter. Favoritter huskes hvis du lukker igjen nettleseren din og åpner den igjen. Hvis du refresher siden vil den huske om du filtrerer alfabetisk eller reversert alfabetisk, men hvis laster inn siden på nytt så vil den filtrere alfabetisk.
 
 Man kan trykke på stjernen i et destinasjonskort for å legge den til som favoritt. Dette valget huskes hvis du starer nettleseren på nytt.
 
@@ -50,4 +51,3 @@ Det er komponent tester for NavBar og DestinationCard. Dekningsgraden på kompon
 - Endret på filstrukturen til prosjektets sånn at filer som hører sammen er gruppert.
 - Endret på ESLint config til airbnb, airbnb typescript og prettier (Altså config som fjerner formattering fra ESLint).
 - Endret på ForecastList til å vise time for time og mer tilpasset informasjon.
-

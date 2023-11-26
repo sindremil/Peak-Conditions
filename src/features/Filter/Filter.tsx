@@ -1,6 +1,6 @@
-import style from './Filter.module.css';
-import Chip from '../../component/Chips/Chip';
-import MenuChip from '../../component/Chips/MenuChip';
+import style from "./Filter.module.css";
+import Chip from "../../component/Chips/Chip";
+import MenuChip from "../../component/Chips/MenuChip";
 
 interface FilterComponentProps {
   showFavourites: boolean;
@@ -17,26 +17,22 @@ function FilterComponent({
 }: FilterComponentProps) {
   const menuItems = [
     {
-      label: 'A - Z',
+      label: "A - Z",
       onClick: () => {
-        handleSorting("lexicographic")
+        handleSorting("lexicographic");
       },
     },
     {
-      label: 'Z - A',
+      label: "Z - A",
       onClick: () => {
-        handleSorting("reverseLexicographic")
+        handleSorting("reverseLexicographic");
       },
     },
   ];
 
   return (
     <div className={style.filterContainer}>
-      <MenuChip
-        label={sortBy}
-        selected={false}
-        menuItems={menuItems}
-      />
+      <MenuChip label={sortBy} selected={false} menuItems={menuItems} />
       <Chip
         label="Vis favoritter"
         selected={showFavourites}
@@ -44,6 +40,6 @@ function FilterComponent({
       />
     </div>
   );
-};
+}
 
 export default FilterComponent;

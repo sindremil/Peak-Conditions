@@ -15,8 +15,8 @@
   display: block; /* To override any default image styles */
   margin: 0; /* Resets margin */
   padding: 0; /* Resets padding */
-  width: 1.5rem; 
-  height: 1.5rem; 
+  width: 1.5rem;
+  height: 1.5rem;
   margin-right: 5px;
 }
 
@@ -29,4 +29,3 @@
 .backButton:hover p {
   text-decoration: underline;
 }
-

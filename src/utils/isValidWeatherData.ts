@@ -1,4 +1,4 @@
-import WeatherData from '../interfaces/WeatherData';
+import WeatherData from "../interfaces/WeatherData";
 
 export default function isValidWeatherData(weatherData: WeatherData): boolean {
   return (

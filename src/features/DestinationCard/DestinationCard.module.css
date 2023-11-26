@@ -8,7 +8,6 @@
   flex-wrap: wrap;
   position: relative;
   transition: transform 0.3s ease;
-
 }
 
 p {
@@ -48,7 +47,8 @@ p {
   margin-top: 4%;
 }
 
-.destinationTemp, .destinationWind {
+.destinationTemp,
+.destinationWind {
   font-size: 2.2vw;
   margin-left: 10%;
 }
@@ -110,11 +110,9 @@ p {
   height: auto; /* Maintains the aspect ratio of the image */
 }
 
-
 /* Change sizes when using mobile, so that cards appear one after one */
 
 @media (max-width: 480px) {
-
   .destinationCard {
     width: 100%;
     height: 126vw;
@@ -125,7 +123,8 @@ p {
     font-size: 9vw;
   }
 
-  .destinationTemp, .destinationWind {
+  .destinationTemp,
+  .destinationWind {
     font-size: 9.2vw;
   }
 
@@ -133,7 +132,7 @@ p {
     font-size: 6vw;
   }
 
-  .favouriteButton   {
+  .favouriteButton {
     width: 12vw;
     height: 12vw;
   }

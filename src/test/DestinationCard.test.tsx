@@ -45,14 +45,14 @@ describe("DestinationCard", async () => {
       expect(star).toHaveAttribute("src", favourite);
       expect(isFavourite("Åre")).toBe(true);
       // Try using Enter key instead of mouse click
-      fireEvent.keyDown(button, { key: "Enter", code: "Enter" })
+      fireEvent.keyDown(button, { key: "Enter", code: "Enter" });
 
       // Card is supposed to be not favourite again after second click
       expect(star).toHaveAttribute("src", notFavourite);
       expect(isFavourite("Åre")).toBe(false);
 
       // Try using Space key instead of mouse click
-      fireEvent.keyDown(button, { key: "Space", code: "Space" })
+      fireEvent.keyDown(button, { key: "Space", code: "Space" });
       expect(star).toHaveAttribute("src", favourite);
       expect(isFavourite("Åre")).toBe(true);
     });

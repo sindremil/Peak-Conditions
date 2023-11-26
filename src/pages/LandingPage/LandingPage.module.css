@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-} 
+}
 
 .filterContainer {
   margin: 1.5%;
@@ -12,7 +12,7 @@
 .destinationCardsWrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;  
+  justify-content: center;
 }
 
 .destinationCardContainer {
@@ -23,5 +23,4 @@
   .landingPageContainer {
     margin: 20% 0 0 0;
   }
-  
 }

@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 export default function usePageTitle(title: string): void {
   const location = useLocation();
@@ -7,6 +7,4 @@ export default function usePageTitle(title: string): void {
   useEffect(() => {
     document.title = `${title} | Peak Conditions`;
   }, [title, location.pathname]);
-};
-
-
+}

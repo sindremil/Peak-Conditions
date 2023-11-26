@@ -6,28 +6,25 @@ import useWeatherDataQuery from "./useWeatherData";
 // https://docs.api.met.no/doc/ForecastJSON.html
 export default function useTimeseriesData(
   destinationPoint: DestinationPoint,
-  index: number
+  index: number,
 ) {
-  const {
-    data,
-    isLoading,
-    isError,
-    error
-  } = useWeatherDataQuery(destinationPoint);
+  const { data, isLoading, isError, error } =
+    useWeatherDataQuery(destinationPoint);
 
   if (isLoading || isError) {
     return {
-      isLoading, isError, error
+      isLoading,
+      isError,
+      error,
     };
   }
 
   const timeseriesData = data.properties.timeseries[index];
 
-
   return {
     timeseriesData,
     isLoading,
     isError,
-    error
+    error,
   };
 }
