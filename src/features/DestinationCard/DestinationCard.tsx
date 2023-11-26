@@ -15,13 +15,13 @@ interface DestinationCardProps {
 }
 
 export default function DestinationCard(
-  DestinationCardProps: DestinationCardProps
+  DestinationCardProps: DestinationCardProps,
 ) {
   const { destinationPoint, isLocalStorageFavourite } = DestinationCardProps;
   const [isFavourite, setIsFavorite] = useState(isLocalStorageFavourite);
   const { timeseriesData, isLoading, isError } = useTimeseriesData(
     destinationPoint,
-    0
+    0,
   );
 
   if (isLoading || isError) {
