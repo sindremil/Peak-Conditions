@@ -29,7 +29,7 @@ Peak Conditions vil aldri sende flere requests til meteorologisk institutts API 
 
 ## Hva som er testet
 
-Det er komponent tester for NavBar og DestinationCard. Dekningsgraden på komponentene er høy, og API kall blir avbrutt av Mock Service Worker. NavBar har i tillegg en snapshot test.
+Det er komponent tester for NavBar og DestinationCard. Dekningsgraden på komponentene er høy, og API kall blir avbrutt av Mock Service Worker. NavBar har i tillegg en snapshot test. For å kjøre testene pass på at du har kjørt npm install. Deretter kjører du npm run test.
 
 ## Endringer fra første til andre vurdering
 
