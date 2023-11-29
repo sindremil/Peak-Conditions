@@ -1,0 +1,49 @@
+.table {
+  width: 90%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  border-radius: 25px;
+  font-size: 1.5rem;
+}
+
+tbody tr,
+thead tr {
+  border-bottom: 1px solid white;
+}
+
+tbody tr:last-child {
+  border-bottom: none;
+}
+
+tr {
+  border-collapse: solid;
+  border-bottom: 2px red;
+}
+
+th {
+  text-align: center;
+  padding: 24px 0;
+}
+
+td {
+  text-align: center;
+}
+
+.symbolSize {
+  height: 4rem;
+}
+
+@media (max-width: 620px) {
+  .table {
+    font-size: 14px;
+    table-layout: auto;
+  }
+
+  th {
+    padding: 16px;
+  }
+
+  .symbolSize {
+    height: 2rem;
+  }
+}

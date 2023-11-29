@@ -1,0 +1,31 @@
+.backButton {
+  all: unset; /* This removes all inherited and default styles */
+  background: none; /* Removes any background styles */
+  border: none; /* Removes borders */
+  padding: 0; /* Resets padding */
+  margin: 0; /* Resets margin */
+  font-family: inherit; /* Inherits font from parent */
+  color: inherit; /* Inherits text color from parent */
+  text-align: left; /* Default text alignment */
+  cursor: pointer;
+  display: flex;
+}
+
+.backButton img {
+  display: block; /* To override any default image styles */
+  margin: 0; /* Resets margin */
+  padding: 0; /* Resets padding */
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 5px;
+}
+
+.backButton p {
+  margin: 0; /* Resets paragraph margin */
+  padding: 0; /* Resets paragraph padding */
+  align-self: center;
+}
+
+.backButton:hover p {
+  text-decoration: underline;
+}

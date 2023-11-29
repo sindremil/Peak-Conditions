@@ -1,18 +1,18 @@
 module.exports = {
-  root: true,
-  env: { browser: true, es2020: true },
+  plugins: ["@tanstack/query"],
   extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react-hooks/recommended',
+    "airbnb",
+    "airbnb/hooks",
+    "airbnb-typescript",
+    "eslint-config-prettier",
+    "plugin:@tanstack/eslint-plugin-query/recommended",
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
-  parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh'],
-  rules: {
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
-    ],
+  parserOptions: {
+    project: ["./tsconfig.json", "./tsconfig.node.json"],
   },
-}
+  rules: {
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/require-default-props": "off",
+  },
+};

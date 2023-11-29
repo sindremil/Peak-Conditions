@@ -1,0 +1,5 @@
+.filterContainer {
+  display: flex;
+  justify-content: right;
+  margin: 1.5%;
+}

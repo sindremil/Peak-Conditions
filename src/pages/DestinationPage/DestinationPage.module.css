@@ -1,0 +1,49 @@
+#DestinationPageWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px;
+  margin-top: 5%;
+}
+
+.floatingNav {
+  position: fixed;
+  bottom: 10%; /* This will put the top of the nav at the bottom half of the screen */
+  left: 50%; /* Start at half the width */
+  transform: translate(
+    -50%,
+    50%
+  ); /* This centers it horizontally and moves it up by half its height */
+  display: flex;
+  justify-content: center; /* This will center the buttons inside the nav */
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between; /* Aligns items on opposite ends */
+  width: 100%; /* Ensure the header spans the full width */
+  padding: 2rem 0rem; /* Add some padding on the sides */
+}
+
+.header h2 {
+  margin: 0;
+  margin-left: 75px;
+}
+
+@media (max-width: 480px) {
+  #DestinationPageWrapper {
+    margin-top: 20%;
+  }
+
+  .header {
+    align-items: center;
+  }
+
+  .header h2 {
+    font-size: 1.25rem;
+  }
+}
