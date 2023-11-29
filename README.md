@@ -23,6 +23,14 @@ For å kjøre Prettier må man kjøre følgende kommando:
 npm run prettier
 ``` 
 
+## Kjøring av tester
+
+For å kjøre testene må man kjøre følgende kommando:
+
+```terminal
+npm run prettier
+``` 
+
 ## Beskrivelse av appen
 
 Peak Conditions skal gi brukere en bedre måte sjekke været hos skisteder. Når man først går inn på siden så ser man destinasjoner og været på det laveste punktet til skistedet. Når man trykker på en destinasjon så får man opp været time for time for det laveste punktet. Man kan velge om man vil se været for et punkt på bunn av et skisted, midten eller toppen ved å trykke på en av knappene som er fiksert til midten av skjermen.  
@@ -43,7 +51,7 @@ Appen vil aldri sende flere requests til meteorologisk institutts API enn nødve
 
 ## Hva som er testet
 
-Det er komponent tester for NavBar, DestinationCard og NewForecastList. Dekningsgraden på komponentene er høy, og API kall blir avbrutt av Mock Service Worker. NavBar og NewForecastList har i tillegg en snapshot test. For å kjøre testene pass på at du har kjørt npm install. Deretter kjører du npm run test.
+Det er komponent tester for NavBar, DestinationCard og NewForecastList. Dekningsgraden på komponentene er høy, og API kall blir avbrutt av Mock Service Worker. NavBar og NewForecastList har i tillegg en snapshot test.
 
 ## Endringer fra første til andre vurdering
 
