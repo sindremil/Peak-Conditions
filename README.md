@@ -2,7 +2,7 @@
 
 ## Kjøring av appen
 
-For å kjøre appen lokalt så må man ha node 20.6.0 og nvm 9.8.0. Deretter skriv følgende fra rotmappen til prosjektet:
+Prosjektet ble bygd og utviklet med node versjon 20.6.0 og npm versjon 9.8.0. Det kan være at flere versjoner kan kjøre prosjektet, men dette var de vi brukte. For å kjøre lokalt, kjør følgende kommando fra rotmappen:
 
 ```terminal
 npm install
@@ -37,11 +37,11 @@ Peak Conditions skal gi brukere en bedre måte sjekke været hos skisteder. Når
 
 ## Funksjonalitet
 
-Vi har antatt at man kan presentere ett og ett kort i en grid (en form for liste) der scorlling er muligheten til å bla seg frem eller tilbake. Man hopper til en spesifikk ressurs ved å trykke på kortet.
+Vi har antatt at man kan presentere ett og ett kort i en grid (en form for liste) der scrolling er muligheten til å bla seg frem eller tilbake. Man hopper til en spesifikk ressurs ved å trykke på kortet.
 
 Siden har også sortering og filtrering. Det er mulig å sortere skistedene alfabetisk. Det er mulig å filtere bort skisteder som ikke er favoritter. Skisteder som er lagret som favoritter huskes hvis du lukker igjen nettleseren din og åpner den igjen. Hvis du refresher siden vil den huske om du filtrerer alfabetisk eller reversert alfabetisk og om du har valgt å bare vise favoritter.
 
-Man kan trykke på stjernen i et destinasjonskort for å legge den til som favoritt. Dette valget huskes hvis du starer nettleseren på nytt.
+Man kan trykke på stjernen i et destinasjonskort for å legge den til som favoritt. Dette valget huskes hvis du starter nettleseren på nytt.
 
 Siden er responsiv som gjør at appen kan brukes på store skjermer og mindre smarttelefoner.
 
@@ -51,7 +51,7 @@ Appen vil aldri sende flere requests til meteorologisk institutts API enn nødve
 
 ## Hva som er testet
 
-Det er komponent tester for NavBar, DestinationCard og NewForecastList. Dekningsgraden på komponentene er høy, og API kall blir avbrutt av Mock Service Worker. NavBar og NewForecastList har i tillegg en snapshot test.
+Det er komponent tester for NavBar, DestinationCard og NewForecastList. Dekningsgraden på komponentene er høy, og API kall blir avbrutt av Mock Service Worker. NavBar og NewForecastList har i tillegg en snapshot tests.
 
 ## Endringer fra første til andre vurdering
 
