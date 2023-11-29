@@ -25,7 +25,7 @@ npm run prettier
 
 ## Beskrivelse av appen
 
-Peak Conditions skal gi brukere en bedre måte sjekke været hos skisteder. Når man først går inn på siden så ser man destinasjoner og været på det laveste punktet til skistedet. Når man trykker på en destinasjon så får man opp været time for time for det laveste punktet. Man kan velge om man får været for et punkt på bunn av skisteder, midten eller toppen ved å trykke på en av knappene som er fiksert til midten av skjermen.  
+Peak Conditions skal gi brukere en bedre måte sjekke været hos skisteder. Når man først går inn på siden så ser man destinasjoner og været på det laveste punktet til skistedet. Når man trykker på en destinasjon så får man opp været time for time for det laveste punktet. Man kan velge om man vil se været for et punkt på bunn av et skisted, midten eller toppen ved å trykke på en av knappene som er fiksert til midten av skjermen.  
 
 ## Funksjonalitet
 
@@ -49,16 +49,19 @@ Ettersom dekningsgrad ikke var fokuset for P1, har vi bare testet en komponent. 
 
 - Fikset bug som gjorde at siden ikke hadde riktig font.
 - Fjernet weatherNowComponent fra DestinationPage (og prosjektet).
-- Endret værmelding til å være time for time istedenfor dag for dag.
+- Endret værmelding til å være time for time istedenfor dag for dag (ved hjelp av ny komponent og sletting av den gamle) 
 - La til knapper som lar brukeren velge hvilket punkt man ser på. Disse knappene erstatter WeatherNowComponent
-- La til favicon og page title som er dynamisk
+- La til favicon
+- La til page title som er dynamisk
 - Endret navbar til å være position fixed fra position absolute
-- Endret på filstrukturen til prosjektets sånn at filer som hører sammen er gruppert.
-- Endret på ESLint config til airbnb, airbnb typescript og prettier (altså config som fjerner formattering fra ESLint).
-- Endret på Filter componeneten sånn at den tar mindre plass og er enklere å bruke på telefon.
-- Fjerner knapp for detaljer fra DestinationCard som gjør at hele kortet kan trykkes på. Kortene kan 
-- Flyttet bilder av skisteder og værikoner fra assets mappen til public mappen sånn at de kan hentes inn dynamisk. 
-- La til en custom hooks for å simplifisere komponenter.
+- Endret på filstrukturen til prosjektets sånn at filer som hører sammen er gruppert
+- Endret på ESLint config til airbnb, airbnb typescript og prettier (altså config som fjerner formattering fra ESLint)
+- Endret på Filter componeneten sånn at den tar mindre plass og er enklere å bruke på telefon
+- Fjerner knapp for detaljer fra DestinationCard som gjør at hele kortet kan trykkes på
+- Flyttet bilder av skisteder og værikoner fra assets mappen til public mappen sånn at de kan hentes inn dynamisk
+- La til custom hooks for å simplifisere logikk i komponenter
+- La til knapp for å navigere tilbake til LandingPage fra en DestinationPage
+- Forbedret implementasjon av routing
 
 ## Bilder av endringer
 
