@@ -20,7 +20,7 @@ npm run lint
 For å kjøre Prettier må man kjøre følgende kommando:
 
 ```terminal
-npm run prettier
+npm run test
 ``` 
 
 ## Kjøring av tester
