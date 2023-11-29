@@ -13,7 +13,7 @@ function ForecastListEntry({
 }): JSX.Element {
   const { timeseriesData, isLoading, isError } = useTimeseriesData(
     destinationPoint,
-    timeseriesIndex
+    timeseriesIndex,
   );
 
   if (isLoading) {
@@ -68,7 +68,7 @@ function ForecastListEntry({
         />
       </td>
       <td>{temperature}</td>
-      <td>{precipitation !== 0 ? `${precipitation  } mm` : null}</td>
+      <td>{precipitation !== 0 ? `${precipitation} mm` : null}</td>
       <td>{wind} m/s</td>
     </tr>
   );
@@ -80,13 +80,13 @@ export default function NewForecastList({
   pointIndex,
 }: DestinationPoint) {
   const rows = [];
-  for (let i = 0; i < forecastListHours; i+=1) {
+  for (let i = 0; i < forecastListHours; i += 1) {
     rows.push(
       <ForecastListEntry
         key={i}
         destinationPoint={{ destination, pointIndex }}
         timeseriesIndex={i}
-      />
+      />,
     );
   }
 

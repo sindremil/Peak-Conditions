@@ -7,13 +7,13 @@
         {
           "name": "Åre by",
           "lat": 63.4036,
-          "lon": 13.0590,
+          "lon": 13.059,
           "alt": 389
         },
         {
           "name": "Mörvikshummeln",
           "lat": 63.4152,
-          "lon": 13.0630,
+          "lon": 13.063,
           "alt": 827
         },
         {
@@ -30,7 +30,7 @@
       "points": [
         {
           "name": "Lodgen",
-          "lat": 60.8626, 
+          "lat": 60.8626,
           "lon": 8.5142,
           "alt": 620
         },
@@ -78,19 +78,19 @@
       "points": [
         {
           "name": "Målområdet",
-          "lat": 61.4722, 
-          "lon": 10.1670,
+          "lat": 61.4722,
+          "lon": 10.167,
           "alt": 185
         },
         {
           "name": "Veslesetertoppen (Varden)",
-          "lat": 61.4346, 
+          "lat": 61.4346,
           "lon": 10.0927,
           "alt": 948
         },
         {
           "name": "Selgestadsæterkampen",
-          "lat": 61.4649, 
+          "lat": 61.4649,
           "lon": 10.1206,
           "alt": 1032
         }
@@ -102,14 +102,14 @@
       "points": [
         {
           "name": "Dalstasjonen",
-          "lat": 60.2206, 
+          "lat": 60.2206,
           "lon": 9.5979,
           "alt": 178
         },
         {
           "name": "Bøseter",
           "lat": 60.2263,
-          "lon": 9.5250,
+          "lon": 9.525,
           "alt": 802
         },
         {
@@ -126,8 +126,8 @@
       "points": [
         {
           "name": "Bunnstasjonen",
-          "lat": 60.5216, 
-          "lon": 8.1990,
+          "lat": 60.5216,
+          "lon": 8.199,
           "alt": 789
         },
         {
@@ -138,7 +138,7 @@
         },
         {
           "name": "Kikuttoppen",
-          "lat": 60.5068, 
+          "lat": 60.5068,
           "lon": 8.2182,
           "alt": 1076
         }
@@ -150,7 +150,7 @@
       "points": [
         {
           "name": "Slaatta",
-          "lat": 60.5373, 
+          "lat": 60.5373,
           "lon": 8.2113,
           "alt": 811
         },
@@ -162,7 +162,7 @@
         },
         {
           "name": "Havsdalshovda",
-          "lat": 60.5552, 
+          "lat": 60.5552,
           "lon": 8.1851,
           "alt": 1178
         }
@@ -174,7 +174,7 @@
       "points": [
         {
           "name": "Duved",
-          "lat": 63.3963, 
+          "lat": 63.3963,
           "lon": 12.9247,
           "alt": 436
         },
@@ -186,7 +186,7 @@
         },
         {
           "name": "Tegefjället",
-          "lat": 63.4120,
+          "lat": 63.412,
           "lon": 12.9462,
           "alt": 910
         }
@@ -198,19 +198,19 @@
       "points": [
         {
           "name": "Tyrvelidhallen",
-          "lat": 59.7805, 
+          "lat": 59.7805,
           "lon": 7.3343,
           "alt": 855
         },
         {
           "name": "Grasdalen",
-          "lat": 59.7847, 
-          "lon": 7.3430,
+          "lat": 59.7847,
+          "lon": 7.343,
           "alt": 958
         },
         {
           "name": "Tvitjønnuten",
-          "lat": 59.7791, 
+          "lat": 59.7791,
           "lon": 7.3615,
           "alt": 1216
         }

@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import './Chip.css';
-import expandMore from '../../assets/chip/expandMore.svg';
-import expandLess from '../../assets/chip/expandLess.svg';
+import { useState } from "react";
+import "./Chip.css";
+import expandMore from "../../assets/chip/expandMore.svg";
+import expandLess from "../../assets/chip/expandLess.svg";
 
 interface MenuItem {
   label: string;
@@ -27,7 +27,7 @@ function MenuChip({ label, selected, menuItems }: MenuChipProps): JSX.Element {
   };
 
   const handleKeyPress = (event: React.KeyboardEvent, onClick: () => void) => {
-    if (event.key === 'Enter') {
+    if (event.key === "Enter") {
       handleMenuItemClick(onClick);
     }
   };
@@ -35,23 +35,30 @@ function MenuChip({ label, selected, menuItems }: MenuChipProps): JSX.Element {
   return (
     <div className="chip-container">
       <button
-        className={`chip ${selected ? 'selected' : ''}`}
+        className={`chip ${selected ? "selected" : ""}`}
         onClick={handleMenuChipClick}
         tabIndex={0}
         aria-label={label}
-        type='button'
+        type="button"
       >
-        <span className="chip-label">{label === 'lexicographic' ? 'A - Z' : 'Z - A'}</span>
-        <img src={isMenuOpen ? expandLess : expandMore} alt="Toggle menu" className="chipIcon" />
+        <span className="chip-label">
+          {label === "lexicographic" ? "A - Z" : "Z - A"}
+        </span>
+        <img
+          src={isMenuOpen ? expandLess : expandMore}
+          alt="Toggle menu"
+          className="chipIcon"
+        />
       </button>
       {isMenuOpen && menuItems && (
         <ul className="menu-items">
           {menuItems.map((menuItem) => (
-            <button className='buttonListItem'
+            <button
+              className="buttonListItem"
               key={menuItem.label}
-              type='button'
+              type="button"
               onClick={() => handleMenuItemClick(menuItem.onClick)}
-              onKeyDown = {(event) => handleKeyPress(event, menuItem.onClick)}
+              onKeyDown={(event) => handleKeyPress(event, menuItem.onClick)}
               tabIndex={0}
             >
               {menuItem.label}
@@ -61,6 +68,6 @@ function MenuChip({ label, selected, menuItems }: MenuChipProps): JSX.Element {
       )}
     </div>
   );
-};
+}
 
 export default MenuChip;

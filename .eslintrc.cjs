@@ -16,4 +16,3 @@ module.exports = {
     "react/require-default-props": "off",
   },
 };
-
