@@ -31,7 +31,7 @@ Peak Conditions skal gi brukere en bedre måte sjekke været hos skisteder. Når
 
 Vi har antatt at man kan presentere ett og ett kort i en grid (en form for liste) der scorlling er muligheten til å bla seg frem eller tilbake. Man hopper til en spesifikk ressurs ved å trykke på kortet.
 
-Siden har også sortering og filtrering. Det er mulig å sortere skistedene alfabetisk. Det er mulig å filtere bort skisteder som ikke er favoritter. Favoritter huskes hvis du lukker igjen nettleseren din og åpner den igjen. Hvis du refresher siden vil den huske om du filtrerer alfabetisk eller reversert alfabetisk.
+Siden har også sortering og filtrering. Det er mulig å sortere skistedene alfabetisk. Det er mulig å filtere bort skisteder som ikke er favoritter. Skisteder som er lagret som favoritter huskes hvis du lukker igjen nettleseren din og åpner den igjen. Hvis du refresher siden vil den huske om du filtrerer alfabetisk eller reversert alfabetisk og om du har valgt å bare vise favoritter.
 
 Man kan trykke på stjernen i et destinasjonskort for å legge den til som favoritt. Dette valget huskes hvis du starer nettleseren på nytt.
 
@@ -43,7 +43,7 @@ Appen vil aldri sende flere requests til meteorologisk institutts API enn nødve
 
 ## Hva som er testet
 
-Ettersom dekningsgrad ikke var fokuset for P1, har vi bare testet en komponent. DestinationCardComponent har to normale komponent tester, og en snapshot test. Dataen er mocket slik at ingen API kall blir gjort. For å kjøre testene kjør 'npm test'.
+Det er komponent tester for NavBar, DestinationCard og NewForecastList. Dekningsgraden på komponentene er høy, og API kall blir avbrutt av Mock Service Worker. NavBar og NewForecastList har i tillegg en snapshot test. For å kjøre testene pass på at du har kjørt npm install. Deretter kjører du npm run test.
 
 ## Endringer fra første til andre vurdering
 

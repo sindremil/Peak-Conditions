@@ -6,7 +6,8 @@
   font-size: 1.5rem;
 }
 
-tbody tr, thead tr {
+tbody tr,
+thead tr {
   border-bottom: 1px solid white;
 }
 
@@ -46,4 +47,3 @@ td {
     height: 2rem;
   }
 }
-
