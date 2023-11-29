@@ -62,10 +62,10 @@ Det er komponent tester for NavBar, DestinationCard og NewForecastList. Deknings
 - La til favicon
 - La til page title som er dynamisk
 - Endret navbar til å være position fixed fra position absolute
-- Endret på filstrukturen til prosjektets sånn at filer som hører sammen er gruppert
+- Endret på filstrukturen til prosjektet sånn at filer som hører sammen er gruppert
 - Endret på ESLint config til airbnb, airbnb typescript og prettier (altså config som fjerner formattering fra ESLint)
 - Endret på Filter componeneten sånn at den tar mindre plass og er enklere å bruke på telefon
-- Fjerner knapp for detaljer fra DestinationCard som gjør at hele kortet kan trykkes på
+- Fjernet knapp for detaljer fra DestinationCard som gjør at hele kortet kan trykkes på
 - Flyttet bilder av skisteder og værikoner fra assets mappen til public mappen sånn at de kan hentes inn dynamisk
 - La til custom hooks for å simplifisere logikk i komponenter
 - La til knapp for å navigere tilbake til LandingPage fra en DestinationPage
